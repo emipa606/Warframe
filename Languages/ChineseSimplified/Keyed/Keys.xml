@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  
+  <CanNotDropGearMsg>你无法脱下战争框架的装备!</CanNotDropGearMsg>
+  <CanBeCarryMsg>你无法抱起战争框架!</CanBeCarryMsg>
+  <OnlyControlCell>只有在控制仓才能操控战争框架!</OnlyControlCell>
+  <CannotWFenter>你无法让一个战争框架进入控制仓</CannotWFenter>
+  <PawnWithOutWFTrait>{0}尚未掌握虚空力量!</PawnWithOutWFTrait>
+  
+  <WFCantJumpToThere>目标位置无法跳跃!</WFCantJumpToThere>
+  <WFJumpRockRoof>你或者目标位置被岩石屋顶阻隔!</WFJumpRockRoof>
+  <BeBlockedByBuilding>被建筑阻挡!</BeBlockedByBuilding>
+  
+  <CraftWarframe>制造战争框架</CraftWarframe>
+  <WarframeStartCraft>开始制造</WarframeStartCraft>
+  <openWFCWindow>打开建造窗口</openWFCWindow>
+  <WFCraftingTicks>剩余时间</WFCraftingTicks>
+  <WFCrafting>正在制造</WFCrafting>
+  <WFCAllPartDone>所有部件准备就绪!</WFCAllPartDone>
+  <PleaseInputWFPart>请放入 {0}</PleaseInputWFPart>
+  <NeedMoreOrokinFuel>需要更多 {0}</NeedMoreOrokinFuel>
+  
+  <EnterControlCell>进入控制仓</EnterControlCell>
+  <ControlCellChooseWarframe>选择战争框架</ControlCellChooseWarframe>
+  <ControlCellChooseWarframeDesc>选择一个战争框架来控制</ControlCellChooseWarframeDesc>
+  <RemoveChooseWFLabel>移除控制</RemoveChooseWFLabel>
+  <RemoveChooseWFDesc>不再控制对象</RemoveChooseWFDesc>
+  <CellControlWF>控制的战甲</CellControlWF>
+
+</LanguageData>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+
+  <Warframe_ControlCell.label>战争框架控制仓</Warframe_ControlCell.label>
+  <Warframe_ControlCell.description>殖民者可以通过它控制战争框架.</Warframe_ControlCell.description>
+  <Warframe_ControlCell_Blueprint.label>战争框架控制仓(蓝图)</Warframe_ControlCell_Blueprint.label>
+  <Warframe_ControlCell_Frame.label>战争框架控制仓(建造中)</Warframe_ControlCell_Frame.label>
+  <Warframe_ControlCell_Frame.description>殖民者可以通过它控制战争框架.</Warframe_ControlCell_Frame.description>
+  
+  <Warframe_Crafter.label>战争框架铸造机</Warframe_Crafter.label>
+  <Warframe_Crafter.description>你可以通过它制造战争框架.</Warframe_Crafter.description>
+  <Warframe_Crafter_Blueprint.label>战争框架铸造机(蓝图)</Warframe_Crafter_Blueprint.label>
+  <Warframe_Crafter_Frame.label>战争框架铸造机(建造中)</Warframe_Crafter_Frame.label>
+  <Warframe_Crafter_Frame.description>你可以通过它制造战争框架.</Warframe_Crafter_Frame.description>
+  
+  <Warframe_Heal.label>战争框架修理点</Warframe_Heal.label>
+  <Warframe_Heal.description>它会修理站在它上面的战争框架.</Warframe_Heal.description>
+  <Warframe_Heal_Blueprint.label>战争框架修理点(蓝图)</Warframe_Heal_Blueprint.label>
+  <Warframe_Heal_Frame.label>战争框架修理点(建造中)</Warframe_Heal_Frame.label>
+  <Warframe_Heal_Frame.description>它会修理站在它上面的战争框架.</Warframe_Heal_Frame.description>
+
+</LanguageData>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Warframe.label>战争框架</Warframe.label>
+  <Warframe.description>战争框架被分成一系列不同类型，每一种战甲都蕴含着其伟大的勇士精神.</Warframe.description>
+  <Warframe.tools.0.label>左拳</Warframe.tools.0.label>
+  <Warframe.tools.1.label>右拳</Warframe.tools.1.label>
+  <Warframe.tools.2.label>头</Warframe.tools.2.label>
+  <Warframe_Leather.label>皮</Warframe_Leather.label>
+  <Warframe_Leather.description>皮</Warframe_Leather.description>
+  <Warframe_Leather.stuffProps.stuffAdjective>皮</Warframe_Leather.stuffProps.stuffAdjective>
+  <Warframe_Meat.label>肉</Warframe_Meat.label>
+  <Warframe_Meat.description>肉</Warframe_Meat.description>
+  <Warframe_Corpse.label>战争框架尸体</Warframe_Corpse.label>
+  <Warframe_Corpse.description>战争框架尸体</Warframe_Corpse.description>
+
+
+</LanguageData>

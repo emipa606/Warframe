@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <VoidSon.text>Place of Void</VoidSon.text>
+  <VoidSonWOBJText>Now you have a chance to gain the trait "Son of Void".This chance will expire after {0} days.</VoidSonWOBJText>
+  <LetterLabelVoidSon_Success>Son of Void - Success</LetterLabelVoidSon_Success>
+  <LetterLabelVoidSon_Fail>Son of Void - Fail</LetterLabelVoidSon_Fail>
+  <LetterVoidSon_Success>{0} now has the trait : Son of Void</LetterVoidSon_Success>
+  <LetterVoidSon_Fail>You fail,you get nothing.</LetterVoidSon_Fail>
+  <VisitVoidSon>Visit Void Place</VisitVoidSon>
+</LanguageData>

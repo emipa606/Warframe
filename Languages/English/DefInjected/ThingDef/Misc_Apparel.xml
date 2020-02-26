@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <WF_Excalibur_Belt.label>Warframe Belt</WF_Excalibur_Belt.label>
+  <WF_Excalibur_Belt.description>Excalibur Belt.</WF_Excalibur_Belt.description>
+
+  <WF_Excalibur_Armor.label>Warframe Armor</WF_Excalibur_Armor.label>
+  <WF_Excalibur_Armor.description>Excalibur Armor.</WF_Excalibur_Armor.description>
+
+  <WF_Excalibur_Head.label>Warframe Head</WF_Excalibur_Head.label>
+  <WF_Excalibur_Head.description>Excalibur Head.</WF_Excalibur_Head.description>
+  
+
+  <WF_Mag_Belt.label>Warframe Belt</WF_Mag_Belt.label>
+  <WF_Mag_Belt.description>Mag Belt.</WF_Mag_Belt.description>
+
+  <WF_Mag_Armor.label>Warframe Armor</WF_Mag_Armor.label>
+  <WF_Mag_Armor.description>Mag Armor.</WF_Mag_Armor.description>
+
+  <WF_Mag_Head.label>Warframe Head</WF_Mag_Head.label>
+  <WF_Mag_Head.description>Mag Head.</WF_Mag_Head.description>
+  
+
+  <WF_Volt_Belt.label>Warframe Belt</WF_Volt_Belt.label>
+  <WF_Volt_Belt.description>Volt Belt.</WF_Volt_Belt.description>
+
+  <WF_Volt_Armor.label>Warframe Armor</WF_Volt_Armor.label>
+  <WF_Volt_Armor.description>Volt Armor.</WF_Volt_Armor.description>
+
+  <WF_Volt_Head.label>Warframe Head</WF_Volt_Head.label>
+  <WF_Volt_Head.description>Volt Head.</WF_Volt_Head.description>
+</LanguageData>

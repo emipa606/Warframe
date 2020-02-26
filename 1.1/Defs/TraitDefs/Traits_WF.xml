@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>Warframe_Trait</defName>
+    <commonality>0.15</commonality>
+    <degreeDatas>
+      <li>
+        <label>Son of The Void</label>
+        <description>[PAWN_nameDef] has the ability to control Warframe.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+ 
+
+</Defs>

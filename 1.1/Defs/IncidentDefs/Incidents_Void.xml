@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+   <IncidentDef>
+		<defName>Quest_VoidSon</defName>
+		<label>Place of Void</label>
+		<category>GiveQuest</category>
+		<targetTags>
+		  <li>World</li>
+		</targetTags>
+		<workerClass>Warframe.IncidentWorker_VoidSon</workerClass>
+		<letterLabel>Place of Void</letterLabel>
+		<letterText>Now you have a chance to gain the trait "Son of Void". This chance will expire after {0} days.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<baseChance>3</baseChance>
+		<minRefireDays>12</minRefireDays>
+	</IncidentDef>
+  
+  <WorldObjectDef>
+    <defName>VoidSon</defName>
+    <label>place of void</label>
+    <description>A site designated for son of void.</description>
+    <worldObjectClass>Warframe.WorldObject_VoidSon</worldObjectClass>
+    <texture>WOBJ/VoidPlace</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>WOBJ/VoidPlace</expandingIconTexture>
+    <expandingIconPriority>70</expandingIconPriority>
+    <comps>
+      <li Class="WorldObjectCompProperties_Timeout" />
+    </comps>
+  </WorldObjectDef>
+  
+
+</Defs>

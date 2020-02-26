@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WarframeJumpGizmo.name>战甲飞跃</WarframeJumpGizmo.name>
+  <WarframeJumpGizmo.desc>跳跃到一个指定位置.</WarframeJumpGizmo.desc>
+
+
+  <ExcaliburSkill1.name>突刺</ExcaliburSkill1.name>
+  <ExcaliburSkill1.desc>Excalibur向前冲刺，并斩伤所有碰到的敌人。</ExcaliburSkill1.desc>
+  
+  <ExcaliburSkill2.name>致盲</ExcaliburSkill2.name>
+  <ExcaliburSkill2.desc>释放一阵明亮的闪光，数秒内使小范围敌人失明。</ExcaliburSkill2.desc>
+  
+  <ExcaliburSkill3.name>标枪</ExcaliburSkill3.name>
+  <ExcaliburSkill3.desc>朝敌人发射标枪，把敌人钉在墙上并造成大量伤害。</ExcaliburSkill3.desc>
+  
+  <ExcaliburSkill4.name>显赫刀剑</ExcaliburSkill4.name>
+  <ExcaliburSkill4.desc>召唤一把充斥着纯洁光亮和无限力量的剑。</ExcaliburSkill4.desc>
+  
+  
+  <MagSkill1.name>牵引</MagSkill1.name>
+  <MagSkill1.desc>应用磁力拉扯敌人，将他们拉近近战范围内，并且击倒。</MagSkill1.desc>
+  
+  <MagSkill2.name>磁吸力场</MagSkill2.name>
+  <MagSkill2.desc>在目标周围创建一个磁化力场，随时间诱捕邻近的敌人并造成伤害。其力量会影响护盾极化所创造出的子弹与碎片，以增加更多的伤害。</MagSkill2.desc>
+  
+  <MagSkill3.name>护盾极化</MagSkill3.name>
+  <MagSkill3.desc>发出一个能量脉冲来耗损敌人的护盾和装甲，产生对磁吸力场起作用的致命碎片。恢复触碰脉冲的友军护盾。</MagSkill3.desc>
+  
+  <MagSkill4.name>粉碎</MagSkill4.name>
+  <MagSkill4.desc>磁化附近的敌军的骨头，导致他们自我崩坏。</MagSkill4.desc>
+  
+  
+  <VoltSkill1.name>电击</VoltSkill1.name>
+  <VoltSkill1.desc>发射一枚电击弹丸。对目标以及目标周围敌人造成眩晕和伤害。</VoltSkill1.desc>
+  
+  <VoltSkill2.name>加速</VoltSkill2.name>
+  <VoltSkill2.desc>获得一段时间的移动速度增幅，并设置一具加速线圈以提供盟友使用的相同能力</VoltSkill2.desc>
+  
+  <VoltSkill3.name>电磁屏障</VoltSkill3.name>
+  <VoltSkill3.desc>Volt展开一道能量屏障，在任何情况皆能提供掩护。</VoltSkill3.desc>
+  
+  <VoltSkill4.name>电能释放</VoltSkill4.name>
+  <VoltSkill4.desc>用伤害性的电能释放麻痹附近的敌人,也会电击靠近的敌人.</VoltSkill4.desc>
+</LanguageData>

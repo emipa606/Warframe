@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  
+  <CanNotDropGearMsg>You can not drop Warframe Gear!</CanNotDropGearMsg>
+  <CanBeCarryMsg>You can not Carry Warframe!</CanBeCarryMsg>
+  <OnlyControlCell>Only Control Cell can draft Warframe!</OnlyControlCell>
+  <CannotWFenter>You can not let a warframe enter the control cell!</CannotWFenter>
+  <PawnWithOutWFTrait>{0} has not yet mastered the power of the void!</PawnWithOutWFTrait>
+  
+  <WFCantJumpToThere>Can not jump to target location!</WFCantJumpToThere>
+  <WFJumpRockRoof>Your/target location has Rock Roof!</WFJumpRockRoof>
+  <BeBlockedByBuilding>Blocked by buildings!</BeBlockedByBuilding>
+  
+  <CraftWarframe>Craft Warframe</CraftWarframe>
+  <WarframeStartCraft>Start!</WarframeStartCraft>
+  <openWFCWindow>open Craft Window</openWFCWindow>
+  <WFCraftingTicks>Time left</WFCraftingTicks>
+  <WFCrafting>Now Crafting</WFCrafting>
+  <WFCAllPartDone>All Parts Ready!</WFCAllPartDone>
+  <PleaseInputWFPart>Please Input {0}</PleaseInputWFPart>
+  <NeedMoreOrokinFuel>Need More {0}</NeedMoreOrokinFuel>
+  
+  <EnterControlCell>Enter Control Cell</EnterControlCell>
+  <ControlCellChooseWarframe>Select a warframe</ControlCellChooseWarframe>
+  <ControlCellChooseWarframeDesc>Select a warframe to control</ControlCellChooseWarframeDesc>
+  <RemoveChooseWFLabel>Remove Control</RemoveChooseWFLabel>
+  <RemoveChooseWFDesc>Remove the control</RemoveChooseWFDesc>
+  <CellControlWF>Controled Warframe</CellControlWF>
+  
+
+</LanguageData>

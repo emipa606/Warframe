@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <WF_Excalibur_Belt.label>Excalibur 腰带</WF_Excalibur_Belt.label>
+  <WF_Excalibur_Belt.description>Excalibur 腰带.</WF_Excalibur_Belt.description>
+
+  <WF_Excalibur_Armor.label>Excalibur 装甲</WF_Excalibur_Armor.label>
+  <WF_Excalibur_Armor.description>Excalibur 装甲.</WF_Excalibur_Armor.description>
+
+  <WF_Excalibur_Head.label>Excalibur 头部</WF_Excalibur_Head.label>
+  <WF_Excalibur_Head.description>Excalibur 头部.</WF_Excalibur_Head.description>
+  
+  <WF_Mag_Belt.label>Mag 腰带</WF_Mag_Belt.label>
+  <WF_Mag_Belt.description>Mag 腰带.</WF_Mag_Belt.description>
+
+  <WF_Mag_Armor.label>Mag 装甲</WF_Mag_Armor.label>
+  <WF_Mag_Armor.description>Mag 装甲.</WF_Mag_Armor.description>
+
+  <WF_Mag_Head.label>Mag 头部</WF_Mag_Head.label>
+  <WF_Mag_Head.description>Mag 头部.</WF_Mag_Head.description>
+  
+  <WF_Volt_Belt.label>Volt 腰带</WF_Volt_Belt.label>
+  <WF_Volt_Belt.description>Volt 腰带.</WF_Volt_Belt.description>
+
+  <WF_Volt_Armor.label>Volt 装甲</WF_Volt_Armor.label>
+  <WF_Volt_Armor.description>Volt 装甲.</WF_Volt_Armor.description>
+
+  <WF_Volt_Head.label>Volt 头部</WF_Volt_Head.label>
+  <WF_Volt_Head.description>Volt 头部.</WF_Volt_Head.description>
+</LanguageData>

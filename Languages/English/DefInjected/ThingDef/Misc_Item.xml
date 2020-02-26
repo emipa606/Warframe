@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+
+  <WFItem_OrokinCell.label>Orokin Cell</WFItem_OrokinCell.label>
+  <WFItem_OrokinCell.description>Ancient energy packets handed down in the age of Orokin.</WFItem_OrokinCell.description>
+  
+  <Warframe_Item.label>Warframe Item</Warframe_Item.label>
+  <Warframe_Item.description>Open it then you will get a Warframe.</Warframe_Item.description>
+  
+  <WFPart_Excalibur_Head.label>Excalibur neuroptics part</WFPart_Excalibur_Head.label>
+  <WFPart_Excalibur_Head.description>Excalibur neuroptics part.</WFPart_Excalibur_Head.description>
+
+  <WFPart_Excalibur_Body.label>Excalibur chassis part</WFPart_Excalibur_Body.label>
+  <WFPart_Excalibur_Body.description>Excalibur chassis part.</WFPart_Excalibur_Body.description>
+  
+  <WFPart_Excalibur_Inside.label>Excalibur system part</WFPart_Excalibur_Inside.label>
+  <WFPart_Excalibur_Inside.description>Excalibur system part.</WFPart_Excalibur_Inside.description>
+  
+  
+  
+  <WFPart_Mag_Head.label>Mag neuroptics part</WFPart_Mag_Head.label>
+  <WFPart_Mag_Head.description>Mag neuroptics part.</WFPart_Mag_Head.description>
+
+  <WFPart_Mag_Body.label>Mag chassis part</WFPart_Mag_Body.label>
+  <WFPart_Mag_Body.description>Mag chassis part.</WFPart_Mag_Body.description>
+  
+  <WFPart_Mag_Inside.label>Mag system part</WFPart_Mag_Inside.label>
+  <WFPart_Mag_Inside.description>Mag system part.</WFPart_Mag_Inside.description>
+  
+  
+  <WFPart_Volt_Head.label>Volt neuroptics part</WFPart_Volt_Head.label>
+  <WFPart_Volt_Head.description>Volt neuroptics part.</WFPart_Volt_Head.description>
+
+  <WFPart_Volt_Body.label>Volt chassis part</WFPart_Volt_Body.label>
+  <WFPart_Volt_Body.description>Volt chassis part.</WFPart_Volt_Body.description>
+  
+  <WFPart_Volt_Inside.label>Volt system part</WFPart_Volt_Inside.label>
+  <WFPart_Volt_Inside.description>Volt system part.</WFPart_Volt_Inside.description>
+
+</LanguageData>
