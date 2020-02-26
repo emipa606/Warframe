@@ -10,36 +10,36 @@ Add warframe into rimworld
 
 New Race:
 
-Warframe:Master of Sword and Gun.
+* Warframe:Master of Sword and Gun.
 
-Excalibur
+* Excalibur
 
-Mag
+* Mag
 
-Volt
+* Volt
 
 (Other warframe will soon be coming)
 
 New Scenario
 
-Tenno Story:Start with warframe tech and one warframe
+* Tenno Story:Start with warframe tech and one warframe
 
 New Building:
 
-Warframe Crafter
+* Warframe Crafter
 
-Warframe Control Cell
+* Warframe Control Cell
 
-Warframe Repairer
+* Warframe Repairer
 
 New recipe
 
-Warframe Part : make in the Fabrication Bench
+* Warframe Part : make in the Fabrication Bench
 
 New Trait:
 
-Son of Void:useless now
+* Son of Void:useless now
 
 New Item:
 
-Orokin Cell:Some Exotic Trader will sell it.
+* Orokin Cell:Some Exotic Trader will sell it.
