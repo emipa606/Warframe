@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+	 <xpath>*/TraderKindDef[defName = "Caravan_Outlander_Exotic"]/stockGenerators</xpath>
+	 <value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WFItem_OrokinCell</thingDef>
+				<countRange>
+					<min>0</min>
+					<max>2</max>
+				</countRange>
+			</li>
+	 </value>
+	</Operation>
+
+</Patch>
