@@ -4,7 +4,9 @@ Continuation of AKreedz mod, updated for RimWorld 1.1
 
 https://steamcommunity.com/sharedfiles/filedetails/?id=1521727860
 
-Add warframe into rimworld(Ver 0.1)
+--- Original Description ---
+
+Add warframe into rimworld
 
 New Race:
 Warframe:Master of Sword and Gun.
