@@ -7,7 +7,7 @@
     <pathCost>10</pathCost>
     <useHitPoints>false</useHitPoints>
     <techLevel>Ultra</techLevel>
-	<menuHidden>true</menuHidden>
+    <menuHidden>true</menuHidden>
     <graphicData>
       <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
     </graphicData>
@@ -28,14 +28,9 @@
     <tradeability>None</tradeability>
     <destroyOnDrop>true</destroyOnDrop>
     <smeltable>false</smeltable>
-    <generateCommonality>0</generateCommonality>	
+    <generateCommonality>0</generateCommonality>
   </ThingDef>
-  
-
-  
-  
-<!-- Excalibur-->
-  
+  <!-- Excalibur-->
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Excalibur_Belt</defName>
     <label>Excalibur Belt</label>
@@ -55,13 +50,13 @@
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
-	<comps>
-	  <li Class="Warframe.CompProperties_HPSP">
+    <comps>
+      <li Class="Warframe.CompProperties_HPSP">
         <compClass>Warframe.CompHPSP</compClass>
         <HP>100</HP>
-		<SP>100</SP>
-	  </li>
-	</comps>
+        <SP>100</SP>
+      </li>
+    </comps>
     <apparel>
       <careIfWornByCorpse>false</careIfWornByCorpse>
       <bodyPartGroups>
@@ -75,7 +70,6 @@
       </tags>
     </apparel>
   </ThingDef>
-  
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Excalibur_Armor</defName>
     <label>Excalibur Armor</label>
@@ -90,15 +84,15 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tickerType>Normal</tickerType>
-	<comps>
-	  <li Class="Warframe.CompProperties_WarframeSkill">
+    <comps>
+      <li Class="Warframe.CompProperties_WarframeSkill">
         <compClass>Warframe.CompWarframeSkill</compClass>
         <mana1>25</mana1>
-		<mana2>50</mana2>
-		<mana3>75</mana3>
-		<mana4>25</mana4>
-	  </li>
-	</comps>
+        <mana2>50</mana2>
+        <mana3>75</mana3>
+        <mana4>25</mana4>
+      </li>
+    </comps>
     <statBases>
       <Mass>8</Mass>
       <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
@@ -132,7 +126,6 @@
       </tags>
     </apparel>
   </ThingDef>
-
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Excalibur_Head</defName>
     <label>Excalibur Head</label>
@@ -176,9 +169,7 @@
       <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
     </apparel>
   </ThingDef>
-  
-<!-- Mag-->
-  
+  <!-- Mag-->
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Mag_Belt</defName>
     <label>Mag Belt</label>
@@ -198,13 +189,13 @@
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
-	<comps>
-	  <li Class="Warframe.CompProperties_HPSP">
+    <comps>
+      <li Class="Warframe.CompProperties_HPSP">
         <compClass>Warframe.CompHPSP</compClass>
         <HP>75</HP>
-		<SP>125</SP>
-	  </li>
-	</comps>
+        <SP>125</SP>
+      </li>
+    </comps>
     <apparel>
       <careIfWornByCorpse>false</careIfWornByCorpse>
       <bodyPartGroups>
@@ -218,7 +209,6 @@
       </tags>
     </apparel>
   </ThingDef>
-  
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Mag_Armor</defName>
     <label>Mag Armor</label>
@@ -233,15 +223,15 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tickerType>Normal</tickerType>
-	<comps>
-	  <li Class="Warframe.CompProperties_WarframeSkill">
+    <comps>
+      <li Class="Warframe.CompProperties_WarframeSkill">
         <compClass>Warframe.CompWarframeSkill</compClass>
         <mana1>25</mana1>
-		<mana2>50</mana2>
-		<mana3>75</mana3>
-		<mana4>100</mana4>
-	  </li>
-	</comps>
+        <mana2>50</mana2>
+        <mana3>75</mana3>
+        <mana4>100</mana4>
+      </li>
+    </comps>
     <statBases>
       <Mass>8</Mass>
       <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
@@ -275,7 +265,6 @@
       </tags>
     </apparel>
   </ThingDef>
-
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Mag_Head</defName>
     <label>Mag Head</label>
@@ -319,9 +308,7 @@
       <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
     </apparel>
   </ThingDef>
-
-<!-- Volt-->
-  
+  <!-- Volt-->
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Volt_Belt</defName>
     <label>Volt Belt</label>
@@ -341,13 +328,13 @@
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
-	<comps>
-	  <li Class="Warframe.CompProperties_HPSP">
+    <comps>
+      <li Class="Warframe.CompProperties_HPSP">
         <compClass>Warframe.CompHPSP</compClass>
         <HP>100</HP>
-		<SP>100</SP>
-	  </li>
-	</comps>
+        <SP>100</SP>
+      </li>
+    </comps>
     <apparel>
       <careIfWornByCorpse>false</careIfWornByCorpse>
       <bodyPartGroups>
@@ -361,7 +348,6 @@
       </tags>
     </apparel>
   </ThingDef>
-  
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Volt_Armor</defName>
     <label>Volt Armor</label>
@@ -376,15 +362,15 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tickerType>Normal</tickerType>
-	<comps>
-	  <li Class="Warframe.CompProperties_WarframeSkill">
+    <comps>
+      <li Class="Warframe.CompProperties_WarframeSkill">
         <compClass>Warframe.CompWarframeSkill</compClass>
         <mana1>25</mana1>
-		<mana2>25</mana2>
-		<mana3>50</mana3>
-		<mana4>100</mana4>
-	  </li>
-	</comps>
+        <mana2>25</mana2>
+        <mana3>50</mana3>
+        <mana4>100</mana4>
+      </li>
+    </comps>
     <statBases>
       <Mass>8</Mass>
       <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
@@ -418,7 +404,6 @@
       </tags>
     </apparel>
   </ThingDef>
-
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Volt_Head</defName>
     <label>Volt Head</label>
@@ -462,7 +447,4 @@
       <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
     </apparel>
   </ThingDef>
- 
-  
-  
-  </Defs>
+</Defs>

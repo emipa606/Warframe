@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- <DamageDef Name="MagBase" Abstract="True">
+		<harmsHealth>true</harmsHealth>
+		<makesBlood>false</makesBlood>
+	</DamageDef>
+
+
+
+	<DamageDef ParentName="MagBase">
+		<defName>Mag</defName>
+		<label>Magnetic damage</label>
+		<externalViolenceForMechanoids>true</externalViolenceForMechanoids>
+		<deathMessage>{0} died of magnetic.</deathMessage>
+		<impactSoundType>Electric</impactSoundType>
+		<defaultDamage>50</defaultDamage>
+		<explosionSnowMeltAmount>0</explosionSnowMeltAmount>
+		<explosionCellMote>Mote_BlastEMP</explosionCellMote>
+		<explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+		<explosionInteriorMote>Mote_ElectricalSpark</explosionInteriorMote>
+		<soundExplosion>Explosion_EMP</soundExplosion>
+		<combatLogRules>Damage_EMP</combatLogRules>
+	</DamageDef> -->
+
+  <Mag.label>Magnetic damage</Mag.label>
+  <Mag.deathMessage>{0} died of magnetic.</Mag.deathMessage>
+
+
+</LanguageData>

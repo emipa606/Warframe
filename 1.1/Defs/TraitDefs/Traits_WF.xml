@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <TraitDef>
     <defName>Warframe_Trait</defName>
     <commonality>0.15</commonality>
@@ -11,7 +10,4 @@
       </li>
     </degreeDatas>
   </TraitDef>
-
- 
-
 </Defs>

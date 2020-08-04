@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <HediffDef>
     <defName>WFGod</defName>
@@ -8,5 +8,4 @@
     <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
     <initialSeverity>0.001</initialSeverity>
   </HediffDef>
-  
 </Defs>

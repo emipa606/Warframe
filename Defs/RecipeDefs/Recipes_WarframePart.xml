@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RecipeDef Name="WarframeBodyPartRecipeBase" Abstract="True">
     <description>Make a warframe bodypart.</description>
@@ -8,18 +8,16 @@
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>3000</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-		<skillRequirements>
-			<Crafting>8</Crafting>
-		</skillRequirements>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
     <workSkill>Crafting</workSkill>
     <researchPrerequisite>WarframeCrafter</researchPrerequisite>
   </RecipeDef>
-
   <!--Excalibur-->
   <RecipeDef ParentName="WarframeBodyPartRecipeBase">
     <defName>Make_Excalibur_Head</defName>
     <label>make excalibur head</label>
-
     <ingredients>
       <li>
         <filter>
@@ -146,7 +144,6 @@
       <WFPart_Excalibur_Inside>1</WFPart_Excalibur_Inside>
     </products>
   </RecipeDef>
-  
   <!--Mag-->
   <RecipeDef ParentName="WarframeBodyPartRecipeBase">
     <defName>Make_Mag_Head</defName>
@@ -407,5 +404,4 @@
       <WFPart_Volt_Inside>1</WFPart_Volt_Inside>
     </products>
   </RecipeDef>
-
 </Defs>

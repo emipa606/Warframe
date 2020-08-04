@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <WFItem_OrokinCell.label>Orokin Cell</WFItem_OrokinCell.label>
+  <WFItem_OrokinCell.description>Ancient energy packets handed down in the age of Orokin.</WFItem_OrokinCell.description>
+
+  <Warframe_Item.label>Warframe Item</Warframe_Item.label>
+  <Warframe_Item.description>Open it then you will get a Warframe.</Warframe_Item.description>
+  <Warframe_Item.comps.0.useLabel>Open</Warframe_Item.comps.0.useLabel>
+
+
+</LanguageData>

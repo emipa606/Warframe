@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <HediffDef>
     <defName>VoltSpeedUp</defName>
@@ -20,13 +20,12 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-			<postFactor>2</postFactor>
+            <postFactor>2</postFactor>
           </li>
         </capMods>
       </li>
     </stages>
   </HediffDef>
-  
   <HediffDef>
     <defName>Volt4Skill</defName>
     <label>shock by volt</label>
@@ -47,11 +46,10 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-			<postFactor>0.9</postFactor>
+            <postFactor>0.9</postFactor>
           </li>
         </capMods>
       </li>
     </stages>
   </HediffDef>
-
 </Defs>

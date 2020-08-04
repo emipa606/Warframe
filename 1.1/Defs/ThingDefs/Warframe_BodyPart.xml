@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef Name="WFBodypartBase" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
@@ -13,10 +13,10 @@
       <Beauty>-4</Beauty>
       <Mass>0.6</Mass>
       <Flammability>0</Flammability>
-	  <DeteriorationRate>0</DeteriorationRate>
+      <DeteriorationRate>0</DeteriorationRate>
     </statBases>
     <comps>
-      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Forbiddable" />
     </comps>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -29,25 +29,21 @@
     </thingCategories>
     <intricate>true</intricate>
   </ThingDef>
-
-
-
-
-<!-- Excalibur -->
-<ThingDef ParentName="WFBodypartBase">
+  <!-- Excalibur -->
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Head</defName>
     <label>Excalibur neuroptics part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	  <drawSize>(0.8,0.8)</drawSize>
+      <drawSize>(0.8,0.8)</drawSize>
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Body</defName>
     <label>Excalibur chassis part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -57,9 +53,9 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Inside</defName>
     <label>Excalibur system part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -69,24 +65,23 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-
-<!-- Mag -->
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <!-- Mag -->
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Head</defName>
     <label>Mag neuroptics part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	  <drawSize>(0.8,0.8)</drawSize>
+      <drawSize>(0.8,0.8)</drawSize>
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Body</defName>
     <label>Mag chassis part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -96,9 +91,9 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Inside</defName>
     <label>Mag system part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -108,24 +103,23 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-
-<!-- Volt -->
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <!-- Volt -->
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Head</defName>
     <label>Volt neuroptics part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	  <drawSize>(0.8,0.8)</drawSize>
+      <drawSize>(0.8,0.8)</drawSize>
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Body</defName>
     <label>Volt chassis part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -135,9 +129,9 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-<ThingDef ParentName="WFBodypartBase">
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Inside</defName>
     <label>Volt system part</label>
     <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
@@ -147,7 +141,6 @@
     </graphicData>
     <statBases>
       <MarketValue>32</MarketValue>
-	</statBases>
-</ThingDef>
-
+    </statBases>
+  </ThingDef>
 </Defs>

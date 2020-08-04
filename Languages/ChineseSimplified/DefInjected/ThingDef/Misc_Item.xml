@@ -2,37 +2,24 @@
 <LanguageData>
   <WFItem_OrokinCell.label>Orokin电池</WFItem_OrokinCell.label>
   <WFItem_OrokinCell.description>Orokin时代流传下来的远古能量包.</WFItem_OrokinCell.description>
-  
   <Warframe_Item.label>战争框架物品</Warframe_Item.label>
   <Warframe_Item.description>打开它 你会获得一个战争框架.</Warframe_Item.description>
-  
   <WFPart_Excalibur_Head.label>Excalibur 头部神经元组件</WFPart_Excalibur_Head.label>
   <WFPart_Excalibur_Head.description>Excalibur 头部神经元组件.</WFPart_Excalibur_Head.description>
-
   <WFPart_Excalibur_Body.label>Excalibur 机体组件</WFPart_Excalibur_Body.label>
   <WFPart_Excalibur_Body.description>Excalibur 机体组件.</WFPart_Excalibur_Body.description>
-  
   <WFPart_Excalibur_Inside.label>Excalibur 系统组件</WFPart_Excalibur_Inside.label>
   <WFPart_Excalibur_Inside.description>Excalibur 系统组件.</WFPart_Excalibur_Inside.description>
-  
-  
-  
   <WFPart_Mag_Head.label>Mag 头部神经元组件</WFPart_Mag_Head.label>
   <WFPart_Mag_Head.description>Mag 头部神经元组件.</WFPart_Mag_Head.description>
-
   <WFPart_Mag_Body.label>Mag 机体组件</WFPart_Mag_Body.label>
   <WFPart_Mag_Body.description>Mag 机体组件.</WFPart_Mag_Body.description>
-  
   <WFPart_Mag_Inside.label>Mag 系统组件</WFPart_Mag_Inside.label>
   <WFPart_Mag_Inside.description>Mag 系统组件.</WFPart_Mag_Inside.description>
-  
-  
   <WFPart_Volt_Head.label>Volt 头部神经元组件</WFPart_Volt_Head.label>
   <WFPart_Volt_Head.description>Volt 头部神经元组件.</WFPart_Volt_Head.description>
-
   <WFPart_Volt_Body.label>Volt 机体组件</WFPart_Volt_Body.label>
   <WFPart_Volt_Body.description>Volt 机体组件.</WFPart_Volt_Body.description>
-  
   <WFPart_Volt_Inside.label>Volt 系统组件</WFPart_Volt_Inside.label>
   <WFPart_Volt_Inside.description>Volt 系统组件.</WFPart_Volt_Inside.description>
 </LanguageData>

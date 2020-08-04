@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <VoidSon.text>虚空之地</VoidSon.text>
-
   <VoidSonWOBJText>你现在拥有一个获得"虚空之子"特性的机会.这个机会将在 {0} 天后消失.</VoidSonWOBJText>
   <LetterLabelVoidSon_Success>虚空之子 - 成功</LetterLabelVoidSon_Success>
   <LetterLabelVoidSon_Fail>虚空之子 - 失败</LetterLabelVoidSon_Fail>

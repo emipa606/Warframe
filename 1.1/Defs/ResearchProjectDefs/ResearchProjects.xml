@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <ResearchProjectDef>
     <tab>Warframe</tab>
     <defName>WarframeCrafter</defName>
@@ -15,10 +14,9 @@
     <researchViewY>1</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
-	  <li>MultiAnalyzer</li>
+      <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
   </ResearchProjectDef>
-  
   <ResearchProjectDef>
     <tab>Warframe</tab>
     <defName>WarframeCell</defName>
@@ -33,10 +31,9 @@
     <researchViewY>2</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
-	  <li>MultiAnalyzer</li>
+      <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
   </ResearchProjectDef>
-  
   <ResearchProjectDef>
     <tab>Warframe</tab>
     <defName>WarframeHeal</defName>
@@ -51,8 +48,7 @@
     <researchViewY>3</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
-	  <li>MultiAnalyzer</li>
+      <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
   </ResearchProjectDef>
-
 </Defs>

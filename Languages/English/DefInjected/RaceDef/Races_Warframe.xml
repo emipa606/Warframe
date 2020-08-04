@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Warframe.label>Warframe</Warframe.label>
-  <Warframe.description>Warframes are divided into a collection of diverse models, each of which personifies a great warrior spirit.</Warframe.description>
-  <Warframe.tools.0.label>left fist</Warframe.tools.0.label>
-  <Warframe.tools.1.label>right fist</Warframe.tools.1.label>
-  <Warframe.tools.2.label>head</Warframe.tools.2.label>
-  <Warframe_Leather.label>leather</Warframe_Leather.label>
-  <Warframe_Leather.description>leather</Warframe_Leather.description>
-  <Warframe_Leather.stuffProps.stuffAdjective>leather</Warframe_Leather.stuffProps.stuffAdjective>
-  <Warframe_Meat.label>meat</Warframe_Meat.label>
-  <Warframe_Meat.description>meat</Warframe_Meat.description>
-  <Warframe_Corpse.label>Warframe corpse</Warframe_Corpse.label>
-  <Warframe_Corpse.description>Warframe corpse</Warframe_Corpse.description>
-
+  <!--<Warframe.label>Warframe</Warframe.label>-->
+  <!--<Warframe.description>Warframes are divided into a collection of diverse models, each of which personifies a great warrior spirit.</Warframe.description>-->
+  <!--<Warframe.tools.0.label>left fist</Warframe.tools.0.label>-->
+  <!--<Warframe.tools.1.label>right fist</Warframe.tools.1.label>-->
+  <!--<Warframe.tools.2.label>head</Warframe.tools.2.label>-->
+  <!--<Warframe_Leather.label>leather</Warframe_Leather.label>-->
+  <!--<Warframe_Leather.description>leather</Warframe_Leather.description>-->
+  <!--<Warframe_Leather.stuffProps.stuffAdjective>leather</Warframe_Leather.stuffProps.stuffAdjective>-->
+  <!--<Warframe_Meat.label>meat</Warframe_Meat.label>-->
+  <!--<Warframe_Meat.description>meat</Warframe_Meat.description>-->
+  <!--<Warframe_Corpse.label>Warframe corpse</Warframe_Corpse.label>-->
+  <!--<Warframe_Corpse.description>Warframe corpse</Warframe_Corpse.description>-->
 
 </LanguageData>

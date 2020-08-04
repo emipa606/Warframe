@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <wf_Warframe_Body.label>warframe body</wf_Warframe_Body.label>
+  <wf_Warframe_Body.corePart.parts.4.parts.0.parts.1.customLabel>left eye</wf_Warframe_Body.corePart.parts.4.parts.0.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.4.parts.0.parts.2.customLabel>right eye</wf_Warframe_Body.corePart.parts.4.parts.0.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.customLabel>left shoulder</wf_Warframe_Body.corePart.parts.5.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.0.customLabel>left clavicle</wf_Warframe_Body.corePart.parts.5.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.customLabel>left arm</wf_Warframe_Body.corePart.parts.5.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.0.customLabel>left humerus</wf_Warframe_Body.corePart.parts.5.parts.1.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.1.customLabel>left radius</wf_Warframe_Body.corePart.parts.5.parts.1.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.customLabel>left hand</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.0.customLabel>left pinky</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.1.customLabel>left ring finger</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.2.customLabel>left middle finger</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.3.customLabel>left index finger</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.3.customLabel>
+  <wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.4.customLabel>left thumb</wf_Warframe_Body.corePart.parts.5.parts.1.parts.2.parts.4.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.customLabel>right shoulder</wf_Warframe_Body.corePart.parts.6.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.0.customLabel>right clavicle</wf_Warframe_Body.corePart.parts.6.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.customLabel>right arm</wf_Warframe_Body.corePart.parts.6.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.0.customLabel>right humerus</wf_Warframe_Body.corePart.parts.6.parts.1.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.1.customLabel>right radius</wf_Warframe_Body.corePart.parts.6.parts.1.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.customLabel>right hand</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.0.customLabel>right pinky</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.1.customLabel>right ring finger</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.2.customLabel>right middle finger</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.3.customLabel>right index finger</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.3.customLabel>
+  <wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.4.customLabel>right thumb</wf_Warframe_Body.corePart.parts.6.parts.1.parts.2.parts.4.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.customLabel>left leg</wf_Warframe_Body.corePart.parts.8.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.0.customLabel>left femur</wf_Warframe_Body.corePart.parts.8.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.1.customLabel>left tibia</wf_Warframe_Body.corePart.parts.8.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.customLabel>left foot</wf_Warframe_Body.corePart.parts.8.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.parts.0.customLabel>left little toe</wf_Warframe_Body.corePart.parts.8.parts.2.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.parts.1.customLabel>left fourth toe</wf_Warframe_Body.corePart.parts.8.parts.2.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.parts.2.customLabel>left middle toe</wf_Warframe_Body.corePart.parts.8.parts.2.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.parts.3.customLabel>left second toe</wf_Warframe_Body.corePart.parts.8.parts.2.parts.3.customLabel>
+  <wf_Warframe_Body.corePart.parts.8.parts.2.parts.4.customLabel>left big toe</wf_Warframe_Body.corePart.parts.8.parts.2.parts.4.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.customLabel>right leg</wf_Warframe_Body.corePart.parts.9.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.0.customLabel>right femur</wf_Warframe_Body.corePart.parts.9.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.1.customLabel>right tibia</wf_Warframe_Body.corePart.parts.9.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.customLabel>right foot</wf_Warframe_Body.corePart.parts.9.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.parts.0.customLabel>right little toe</wf_Warframe_Body.corePart.parts.9.parts.2.parts.0.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.parts.1.customLabel>right fourth toe</wf_Warframe_Body.corePart.parts.9.parts.2.parts.1.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.parts.2.customLabel>right middle toe</wf_Warframe_Body.corePart.parts.9.parts.2.parts.2.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.parts.3.customLabel>right second toe</wf_Warframe_Body.corePart.parts.9.parts.2.parts.3.customLabel>
+  <wf_Warframe_Body.corePart.parts.9.parts.2.parts.4.customLabel>right big toe</wf_Warframe_Body.corePart.parts.9.parts.2.parts.4.customLabel>
+
+
+</LanguageData>

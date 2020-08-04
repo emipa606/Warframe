@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <JobDef>
     <defName>EnterControlCell</defName>
     <driverClass>Warframe.JobDriver_EnterControlCell</driverClass>
@@ -8,26 +7,16 @@
     <taleOnCompletion>EnteredCryptosleep</taleOnCompletion>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-  
-	<JobDef>
-		<defName>JobFillWFC</defName>
-		<driverClass>Warframe.JobDriver_FillWarframeCrafter</driverClass>
-		<reportString>hauling TargetA.</reportString>
-	</JobDef>
-	
-	
-	
-	
-	
-	
-	
-	
   <JobDef>
-	<defName>WFWait</defName>
-	<driverClass>JobDriver_Wait</driverClass>
-	<reportString>standing.</reportString>
+    <defName>JobFillWFC</defName>
+    <driverClass>Warframe.JobDriver_FillWarframeCrafter</driverClass>
+    <reportString>hauling TargetA.</reportString>
+  </JobDef>
+  <JobDef>
+    <defName>WFWait</defName>
+    <driverClass>JobDriver_Wait</driverClass>
+    <reportString>standing.</reportString>
     <isIdle>false</isIdle>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-  
 </Defs>

@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-
-	<Operation Class="PatchOperationAdd">
-	 <xpath>*/ThingDef[defName = "FabricationBench"]/recipes</xpath>
-	 <value>
-        <li>Make_Excalibur_Head</li>
-		<li>Make_Excalibur_Body</li>
-		<li>Make_Excalibur_Inside</li>
-        <li>Make_Mag_Head</li>
-		<li>Make_Mag_Body</li>
-		<li>Make_Mag_Inside</li>
-        <li>Make_Volt_Head</li>
-		<li>Make_Volt_Body</li>
-		<li>Make_Volt_Inside</li>
-	 </value>
-	</Operation>
-
+  <Operation Class="PatchOperationAdd">
+    <xpath>*/ThingDef[defName = "FabricationBench"]/recipes</xpath>
+    <value>
+      <li>Make_Excalibur_Head</li>
+      <li>Make_Excalibur_Body</li>
+      <li>Make_Excalibur_Inside</li>
+      <li>Make_Mag_Head</li>
+      <li>Make_Mag_Body</li>
+      <li>Make_Mag_Inside</li>
+      <li>Make_Volt_Head</li>
+      <li>Make_Volt_Body</li>
+      <li>Make_Volt_Inside</li>
+    </value>
+  </Operation>
 </Patch>

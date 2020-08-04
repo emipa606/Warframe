@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <ThingDef ParentName="BaseBullet">
     <defName>Bullet_ExcaliburBlade</defName>
     <label>Blade</label>
@@ -13,7 +12,7 @@
       <damageDef>Cut</damageDef>
       <damageAmountBase>45</damageAmountBase>
       <speed>70</speed>
-	  <explosionRadius>25</explosionRadius>
+      <explosionRadius>25</explosionRadius>
     </projectile>
     <comps>
       <li Class="CompProperties_Glower">
@@ -22,7 +21,6 @@
       </li>
     </comps>
   </ThingDef>
-
   <ThingDef ParentName="BaseHumanGun">
     <defName>Excalibur_SkillBlade</defName>
     <label>excalibur blade</label>

@@ -1,13 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef ParentName="BuildingBase">
     <defName>Warframe_Crafter</defName>
     <label>Warframe Crafter</label>
-	<thingClass>Warframe.Building_WarframeCrafter</thingClass>
+    <thingClass>Warframe.Building_WarframeCrafter</thingClass>
     <description>Refines biological matter like wood or plant matter into chemfuel.</description>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
-    <researchPrerequisites><li>WarframeCrafter</li></researchPrerequisites>
+    <researchPrerequisites>
+      <li>WarframeCrafter</li>
+    </researchPrerequisites>
     <pathCost>70</pathCost>
     <tickerType>Normal</tickerType>
     <statBases>
@@ -27,7 +29,7 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>170</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Refuelable">
         <fuelCapacity>20</fuelCapacity>
         <fuelLabel>OrokinCell</fuelLabel>
@@ -43,9 +45,9 @@
         <autoRefuelPercent>100</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
-		<drawFuelGaugeInMap>false</drawFuelGaugeInMap>
+        <drawFuelGaugeInMap>false</drawFuelGaugeInMap>
       </li>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <castEdgeShadows>false</castEdgeShadows>
     <staticSunShadowHeight>0</staticSunShadowHeight>
@@ -69,13 +71,7 @@
     <designationCategory>Production</designationCategory>
     <surfaceType>Item</surfaceType>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-
   </ThingDef>
-  
-  
-  
-  
-
   <ThingDef ParentName="BuildingBase">
     <defName>Warframe_ControlCell</defName>
     <label>control cell</label>
@@ -89,7 +85,9 @@
         <volume>(0.83, 0.3, 1.7)</volume>
       </shadowData>
     </graphicData>
-    <researchPrerequisites><li>WarframeCell</li></researchPrerequisites>
+    <researchPrerequisites>
+      <li>WarframeCell</li>
+    </researchPrerequisites>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>70</pathCost>
@@ -107,10 +105,10 @@
     <hasInteractionCell>true</hasInteractionCell>
     <interactionCellOffset>(1,0,0)</interactionCellOffset>
     <defaultPlacingRot>South</defaultPlacingRot>
-		<building>
-			<ai_chillDestination>false</ai_chillDestination>
-			<isPlayerEjectable>true</isPlayerEjectable>
-		</building>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isPlayerEjectable>true</isPlayerEjectable>
+    </building>
     <costList>
       <Steel>180</Steel>
       <Uranium>5</Uranium>
@@ -126,15 +124,15 @@
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </ThingDef>
-  
-  
- <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase">
     <defName>Warframe_Heal</defName>
     <label>warframe heal</label>
     <description>Very slowly equalizes moisture in nearby terrain, converting marshes or shallow water into dry ground, and soft sand into normal sand. Does not affect deep water.</description>
     <thingClass>Warframe.Building_WarframeHeal</thingClass>
-    <researchPrerequisites><li>WarframeHeal</li></researchPrerequisites>
-	<graphicData>
+    <researchPrerequisites>
+      <li>WarframeHeal</li>
+    </researchPrerequisites>
+    <graphicData>
       <texPath>Things/Building/Misc/MoisturePump</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shadowData>
@@ -160,9 +158,9 @@
       <Beauty>-8</Beauty>
     </statBases>
     <fillPercent>0.15</fillPercent>
-		<building>
-			<ai_chillDestination>false</ai_chillDestination>
-		</building>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
     <costList>
       <Steel>75</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
@@ -173,6 +171,4 @@
     <rotatable>false</rotatable>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
   </ThingDef>
-  
-
 </Defs>

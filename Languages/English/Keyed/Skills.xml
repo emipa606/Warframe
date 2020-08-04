@@ -2,43 +2,29 @@
 <LanguageData>
   <WarframeJumpGizmo.name>Warframe Jump</WarframeJumpGizmo.name>
   <WarframeJumpGizmo.desc>Jump to a location.</WarframeJumpGizmo.desc>
-
-
   <ExcaliburSkill1.name>Slash Dash</ExcaliburSkill1.name>
   <ExcaliburSkill1.desc>Dash between enemies while slashing with the Exalted Blade.</ExcaliburSkill1.desc>
-  
   <ExcaliburSkill2.name>Radial Blind</ExcaliburSkill2.name>
   <ExcaliburSkill2.desc>Emits a bright flash of light, blinding all enemies in a small radius for several seconds.</ExcaliburSkill2.desc>
-  
   <ExcaliburSkill3.name>Radial Javelin</ExcaliburSkill3.name>
   <ExcaliburSkill3.desc>Launches javelins towards enemies, dealing high damage and impaling them to walls.</ExcaliburSkill3.desc>
-  
   <ExcaliburSkill4.name>Exalted Blade</ExcaliburSkill4.name>
   <ExcaliburSkill4.desc>Summon a sword of pure light and immense power.</ExcaliburSkill4.desc>
-  
-
   <MagSkill1.name>Pull</MagSkill1.name>
   <MagSkill1.desc>Magnetic force pulls enemies toward you, stunning them and bringing them into melee range.</MagSkill1.desc>
-  
   <MagSkill2.name>Magnetize</MagSkill2.name>
   <MagSkill2.desc>Creates a magnetic field around a target, ensnaring nearby enemies and dealing damage over time. The field reacts to bullets and shards created from Polarize to increase the damage.</MagSkill2.desc>
-  
   <MagSkill3.name>Polarize</MagSkill3.name>
   <MagSkill3.desc>Emit an energy pulse that depletes enemy shields and armor, creating shards which become deadly when mixed with Magnetize. Shields of allies touched by the pulse are restored.</MagSkill3.desc>
-  
   <MagSkill4.name>Crush</MagSkill4.name>
   <MagSkill4.desc>Magnetizes the bones of nearby enemies, causing them to collapse upon themselves.</MagSkill4.desc>
-
-  
   <VoltSkill1.name>Shock</VoltSkill1.name>
   <VoltSkill1.desc>Launches a shocking projectile. It stuns and deals high damage to a single target and chains damage to nearby enemies.</VoltSkill1.desc>
-  
   <VoltSkill2.name>Speed</VoltSkill2.name>
   <VoltSkill2.desc>Gain a brief boost of movement speed which affects all allies in range.</VoltSkill2.desc>
-  
   <VoltSkill3.name>Electric Shield</VoltSkill3.name>
   <VoltSkill3.desc>Volt deploys an obstacle of energy, providing cover in any situation.</VoltSkill3.desc>
-  
   <VoltSkill4.name>Discharge</VoltSkill4.name>
   <VoltSkill4.desc>Paralyze nearby hostiles with a damaging electric charge, this also shocks approaching enemies.</VoltSkill4.desc>
+
 </LanguageData>

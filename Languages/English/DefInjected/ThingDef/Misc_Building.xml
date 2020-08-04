@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <!--<Warframe_ControlCell.label>warframe control cell</Warframe_ControlCell.label>-->
+  <!--<Warframe_ControlCell.description>A control cell for pawn to control warframe.</Warframe_ControlCell.description>-->
+  <!--<Warframe_ControlCell_Blueprint.label>warframe control cell(Blueprint)</Warframe_ControlCell_Blueprint.label>-->
+  <!--<Warframe_ControlCell_Frame.label>warframe control cell(Building)</Warframe_ControlCell_Frame.label>-->
+  <!--<Warframe_ControlCell_Frame.description>A control cell for pawn to control warframe.</Warframe_ControlCell_Frame.description>-->
+  <!--<Warframe_Crafter.label>warframe crafter</Warframe_Crafter.label>-->
+  <!--<Warframe_Crafter.description>A crafter for you to craft Warframe.</Warframe_Crafter.description>-->
+  <!--<Warframe_Crafter_Blueprint.label>warframe crafter(Blueprint)</Warframe_Crafter_Blueprint.label>-->
+  <!--<Warframe_Crafter_Frame.label>warframe crafter(Building)</Warframe_Crafter_Frame.label>-->
+  <!--<Warframe_Crafter_Frame.description>A crafter for you to craft Warframe.</Warframe_Crafter_Frame.description>-->
+  <!--<Warframe_Heal.label>warframe repairer</Warframe_Heal.label>-->
+  <!--<Warframe_Heal.description>It will repair the warframe above it.</Warframe_Heal.description>-->
+  <!--<Warframe_Heal_Blueprint.label>warframe repairer(Blueprint)</Warframe_Heal_Blueprint.label>-->
+  <!--<Warframe_Heal_Frame.label>warframe repairer(Building)</Warframe_Heal_Frame.label>-->
+  <!--<Warframe_Heal_Frame.description>It will repair the warframe above it.</Warframe_Heal_Frame.description>-->
 
-
-  <Warframe_ControlCell.label>warframe control cell</Warframe_ControlCell.label>
-  <Warframe_ControlCell.description>A control cell for pawn to control warframe.</Warframe_ControlCell.description>
-  <Warframe_ControlCell_Blueprint.label>warframe control cell(Blueprint)</Warframe_ControlCell_Blueprint.label>
-  <Warframe_ControlCell_Frame.label>warframe control cell(Building)</Warframe_ControlCell_Frame.label>
-  <Warframe_ControlCell_Frame.description>A control cell for pawn to control warframe.</Warframe_ControlCell_Frame.description>
-  
-  <Warframe_Crafter.label>warframe crafter</Warframe_Crafter.label>
-  <Warframe_Crafter.description>A crafter for you to craft Warframe.</Warframe_Crafter.description>
-  <Warframe_Crafter_Blueprint.label>warframe crafter(Blueprint)</Warframe_Crafter_Blueprint.label>
-  <Warframe_Crafter_Frame.label>warframe crafter(Building)</Warframe_Crafter_Frame.label>
-  <Warframe_Crafter_Frame.description>A crafter for you to craft Warframe.</Warframe_Crafter_Frame.description>
-
-  <Warframe_Heal.label>warframe repairer</Warframe_Heal.label>
-  <Warframe_Heal.description>It will repair the warframe above it.</Warframe_Heal.description>
-  <Warframe_Heal_Blueprint.label>warframe repairer(Blueprint)</Warframe_Heal_Blueprint.label>
-  <Warframe_Heal_Frame.label>warframe repairer(Building)</Warframe_Heal_Frame.label>
-  <Warframe_Heal_Frame.description>It will repair the warframe above it.</Warframe_Heal_Frame.description>
 </LanguageData>

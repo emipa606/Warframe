@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <ThingDef ParentName="ResourceBase">
     <defName>WFItem_OrokinCell</defName>
     <label>orokin cell</label>
@@ -15,7 +14,7 @@
     <statBases>
       <MarketValue>4000</MarketValue>
       <Mass>1.14514</Mass>
-	  <SellPriceFactor>0.1</SellPriceFactor>
+      <SellPriceFactor>0.1</SellPriceFactor>
     </statBases>
     <thingCategories>
       <li>Items</li>
@@ -27,10 +26,7 @@
       <li>RewardSpecial</li>
     </thingSetMakerTags>
   </ThingDef>
-  
-  
-
- <ThingDef ParentName="ResourceBase">
+  <ThingDef ParentName="ResourceBase">
     <defName>Warframe_Item</defName>
     <label>Warframe Item</label>
     <description>It contains A Warframe.</description>
@@ -46,8 +42,8 @@
       <MaxHitPoints>70</MaxHitPoints>
       <Mass>0.6</Mass>
       <Flammability>1.0</Flammability>
-			<DeteriorationRate>2.0</DeteriorationRate>
-		</statBases>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
     <intricate>true</intricate>
     <thingCategories>
       <li>ResourcesRaw</li>
@@ -65,9 +61,4 @@
       </li>
     </comps>
   </ThingDef>
-
-  
-  
-
-  
 </Defs>
