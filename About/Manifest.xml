@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>Warframe</identifier>
-  <version>1.0.5.0</version>
-  <dependencies>
-    <li>HugsLib</li>
-    <li>HumanoidAlienRaces2.0</li>
-  </dependencies>
+  <version>1.0.6.0</version>
+  <dependencies />
   <incompatibleWith />
   <loadBefore />
-  <loadAfter>
-    <li>HugsLib</li>
-    <li>HumanoidAlienRaces2.0</li>
-  </loadAfter>
+  <loadAfter />
   <manifestUri>https://raw.githubusercontent.com/emipa606/Warframe/master/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/emipa606/Warframe/releases</downloadUri>
 </Manifest>
