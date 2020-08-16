@@ -18,10 +18,10 @@ namespace Warframe.Skills.Mags
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.self,"self",false);
-            Scribe_Values.Look<int>(ref this.range,"range",0,false);
-            Scribe_Values.Look<int>(ref this.ticks, "ticks", 0, false);
-            Scribe_Values.Look<float>(ref this.damage, "damage", 0, false);
+            Scribe_References.Look<Pawn>(ref self,"self",false);
+            Scribe_Values.Look<int>(ref range,"range",0,false);
+            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
+            Scribe_Values.Look<float>(ref damage, "damage", 0, false);
           //  Scribe_Collections.Look<Pawn>(ref this.affected,"affected",LookMode.Reference, new object[0]);
 
 
@@ -33,14 +33,14 @@ namespace Warframe.Skills.Mags
         public override void Tick()
         {
             base.Tick();
-            if (ticks > 180) this.Destroy();
-            if (!this.Spawned) return;
+            if (ticks > 180) Destroy();
+            if (!Spawned) return;
 
-            this.ticks++;
+            ticks++;
 
-            if (this.ticks == 1 || this.ticks==60)
+            if (ticks == 1 || ticks==60)
             {
-                foreach (IntVec3 iv in WarframeStaticMethods.getCellsAround(self.Position, self.Map, range))
+                foreach (IntVec3 iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, range))
                 {
                     foreach (Thing t in self.Map.thingGrid.ThingsAt(iv))
                     {
@@ -56,7 +56,7 @@ namespace Warframe.Skills.Mags
                                     mote.rotationRate = 1.2f;
                                     GenSpawn.Spawn(mote, t.Position + new IntVec3(0, 1, 0), self.Map, WipeMode.Vanish);
                                 }
-                                WarframeStaticMethods.showDamageAmount(t, (damage*0.3f).ToString("f0"));
+                                WarframeStaticMethods.ShowDamageAmount(t, (damage*0.3f).ToString("f0"));
                                 
                                 DamageInfo dinfo = new DamageInfo(DamageDefOf.Crush, (damage * 0.3f), 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null);
                                 IEnumerable<BodyPartRecord> bprs= (t as Pawn).health.hediffSet.GetNotMissingParts();
@@ -88,9 +88,9 @@ namespace Warframe.Skills.Mags
                         }
                     }
                 }
-            }else if (this.ticks == 110)//last attack
+            }else if (ticks == 110)//last attack
             {
-                foreach (IntVec3 iv in WarframeStaticMethods.getCellsAround(self.Position, self.Map, range))
+                foreach (IntVec3 iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, range))
                 {
                     foreach (Thing t in self.Map.thingGrid.ThingsAt(iv))
                     {
@@ -106,7 +106,7 @@ namespace Warframe.Skills.Mags
                                     mote.rotationRate = 1.2f;
                                     GenSpawn.Spawn(mote, t.Position + new IntVec3(0, 1, 0), self.Map, WipeMode.Vanish);
                                 }
-                                WarframeStaticMethods.showDamageAmount(t, (damage).ToString("f0"));
+                                WarframeStaticMethods.ShowDamageAmount(t, (damage).ToString("f0"));
 
                                 DamageInfo dinfo = new DamageInfo(DamageDefOf.Crush, (damage), 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null);
                                 IEnumerable<BodyPartRecord> bprs = (t as Pawn).health.hediffSet.GetNotMissingParts();

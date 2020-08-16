@@ -13,7 +13,7 @@ namespace Warframe
         {
             get
             {
-                return (CompProperties_WarframeSkill)this.props;
+                return (CompProperties_WarframeSkill)props;
             }
         }
 
@@ -21,7 +21,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.mana1 * (1- WarframeStaticMethods.getWFLevel((this.parent as WarframeArmor).Wearer)/60f);
+                return Props.mana1 * (1- WarframeStaticMethods.GetWFLevel((parent as WarframeArmor).Wearer)/60f);
             }
         }
 
@@ -29,7 +29,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.mana2 * (1 - WarframeStaticMethods.getWFLevel((this.parent as WarframeArmor).Wearer) / 60f);
+                return Props.mana2 * (1 - WarframeStaticMethods.GetWFLevel((parent as WarframeArmor).Wearer) / 60f);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.mana3 * (1 - WarframeStaticMethods.getWFLevel((this.parent as WarframeArmor).Wearer) / 60f);
+                return Props.mana3 * (1 - WarframeStaticMethods.GetWFLevel((parent as WarframeArmor).Wearer) / 60f);
             }
         }
 
@@ -45,7 +45,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.mana4 * (1 - WarframeStaticMethods.getWFLevel((this.parent as WarframeArmor).Wearer) / 60f);
+                return Props.mana4 * (1 - WarframeStaticMethods.GetWFLevel((parent as WarframeArmor).Wearer) / 60f);
             }
         }
     }

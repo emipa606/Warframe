@@ -32,12 +32,11 @@ namespace Warframe
     // Token: 0x06000123 RID: 291 RVA: 0x00008560 File Offset: 0x00006760
     public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
-        Building_WarframeCrafter bwc = t as Building_WarframeCrafter;
-        if (bwc == null)
-        {
-            return false;
-        }
-        if (t.IsForbidden(pawn) || !pawn.CanReserveAndReach(t, PathEndMode.Touch, pawn.NormalMaxDanger(), 1, -1, null, false))
+            if (!(t is Building_WarframeCrafter bwc))
+            {
+                return false;
+            }
+            if (t.IsForbidden(pawn) || !pawn.CanReserveAndReach(t, PathEndMode.Touch, pawn.NormalMaxDanger(), 1, -1, null, false))
         {
             JobFailReason.Is("Forbidden".Translate(), null);
             return false;
@@ -61,7 +60,7 @@ namespace Warframe
             JobFailReason.Is("WFCFillError".Translate(), null);
             return false;
         }
-        if (this.FindPart(pawn, thingDef) == null)
+        if (FindPart(pawn, thingDef) == null)
         {
             JobFailReason.Is("critNoSabotRounds".Translate(), null);
             return false;
@@ -72,13 +71,12 @@ namespace Warframe
     // Token: 0x06000124 RID: 292 RVA: 0x0000862C File Offset: 0x0000682C
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
-            Building_WarframeCrafter bwc = t as Building_WarframeCrafter;
-            if (bwc == null)
-        {
-            return null;
-        }
-      
-        Thing thing = this.FindPart(pawn, bwc.findNextPart());
+            if (!(t is Building_WarframeCrafter bwc))
+            {
+                return null;
+            }
+
+            Thing thing = FindPart(pawn, bwc.findNextPart());
         if (thing == null)
         {
             return null;

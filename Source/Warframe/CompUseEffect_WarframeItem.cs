@@ -14,14 +14,14 @@ namespace Warframe
         {
             base.DoEffect(usedBy);
 
-           PawnKindDef pk = WarframeStaticMethods.getAllWarframeKind().RandomElement();
+           PawnKindDef pk = WarframeStaticMethods.GetAllWarframeKind().RandomElement();
             if (pk != null)
             {
-                Pawn wf = WarframeStaticMethods.getWarframePawn(pk);
+                Pawn wf = WarframeStaticMethods.GetWarframePawn(pk);
                 GenSpawn.Spawn(wf,usedBy.Position,usedBy.Map);
             }
             usedBy.story.traits.GainTrait(new Trait(TraitDef.Named("Warframe_Trait")));
-                this.FinishInstantly();
+                FinishInstantly();
               
             
 

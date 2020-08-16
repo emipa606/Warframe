@@ -12,7 +12,7 @@ namespace Warframe
         public CompProperties_HPSP()
         {
 
-            base.compClass = typeof(CompHPSP);
+            compClass = typeof(CompHPSP);
         }
     }
 }

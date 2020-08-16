@@ -21,8 +21,8 @@ namespace Warframe
             sb.Append(base.GetInspectString());
             sb.Append("\n");
             sb.Append("CellControlWF".Translate() + ":");
-            if(this.becontroler!=null)
-             sb.Append(this.becontroler.kindDef.label);
+            if(becontroler!=null)
+             sb.Append(becontroler.kindDef.label);
             else
              sb.Append("NothingLower".Translate());
 
@@ -31,7 +31,7 @@ namespace Warframe
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.becontroler,"becontroler",false);
+            Scribe_References.Look<Pawn>(ref becontroler,"becontroler",false);
         }
         // Token: 0x060024DC RID: 9436 RVA: 0x00114DDF File Offset: 0x001131DF
         public override bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
@@ -40,7 +40,7 @@ namespace Warframe
             {
                 if (allowSpecialEffects)
                 {
-                    SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+                    SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(Position, Map, false));
                 }
                 return true;
             }
@@ -50,7 +50,7 @@ namespace Warframe
         public override void Tick()
         {
             base.Tick();
-            if(this.becontroler!=null)
+            if(becontroler!=null)
              WFModBase.Instance._WFcontrolstorage.checkControlerExist(this);
         }
 
@@ -61,13 +61,13 @@ namespace Warframe
             {
                 yield return o;
             }
-            if (this.innerContainer.Count == 0)
+            if (innerContainer.Count == 0)
             {
                 if (!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly, false, TraverseMode.ByPawn))
                 {
                     FloatMenuOption failer = new FloatMenuOption("CannotUseNoPath".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
                     yield return failer;
-                } else if (myPawn.isWarframe()) {
+                } else if (myPawn.IsWarframe()) {
                     FloatMenuOption failer = new FloatMenuOption("CannotWFenter".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
                     yield return failer;
                 }
@@ -114,13 +114,15 @@ namespace Warframe
             }
 
 
-            if (base.Faction == Faction.OfPlayer && this.innerContainer.Count > 0 && this.def.building.isPlayerEjectable)
+            if (Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
             {
-                Command_Action eject = new Command_Action();
-                eject.action = new Action(this.EjectContents);
-                eject.defaultLabel = "CommandPodEject".Translate();
-                eject.defaultDesc = "CommandPodEjectDesc".Translate();
-                if (this.innerContainer.Count == 0)
+                Command_Action eject = new Command_Action
+                {
+                    action = new Action(EjectContents),
+                    defaultLabel = "CommandPodEject".Translate(),
+                    defaultDesc = "CommandPodEjectDesc".Translate()
+                };
+                if (innerContainer.Count == 0)
                 {
                     eject.Disable("CommandPodEjectFailEmpty".Translate());
                 }
@@ -130,39 +132,44 @@ namespace Warframe
             }
 
 
-            TargetingParameters tp = new TargetingParameters();
-            tp.canTargetBuildings = false;
-            tp.canTargetFires = false;
-            tp.canTargetItems = false;
-            tp.canTargetLocations = false;
-            tp.canTargetPawns = true;
-            tp.canTargetSelf = false;
+            TargetingParameters tp = new TargetingParameters
+            {
+                canTargetBuildings = false,
+                canTargetFires = false,
+                canTargetItems = false,
+                canTargetLocations = false,
+                canTargetPawns = true,
+                canTargetSelf = false
+            };
 
-            Command_Target tar = new Command_Target();
-            tar.targetingParams = tp;
-            tar.icon = TexCommand.Attack;
-            tar.action = delegate(Thing target) {
-              if(target is Pawn)
+            Command_Target tar = new Command_Target
+            {
+                targetingParams = tp,
+                icon = TexCommand.Attack,
+                action = delegate (Thing target)
                 {
-                    
-
-
-                    if((target as Pawn).isWarframe())
+                    if (target is Pawn)
                     {
-                        if(this.becontroler != null||WFModBase.Instance._WFcontrolstorage.checkBeControlerExist((target as Pawn)))
+
+
+
+                        if ((target as Pawn).IsWarframe())
                         {
-                            SoundDefOf.ClickReject.PlayOneShotOnCamera();
-                            return;
+                            if (becontroler != null || WFModBase.Instance._WFcontrolstorage.checkBeControlerExist((target as Pawn)))
+                            {
+                                SoundDefOf.ClickReject.PlayOneShotOnCamera();
+                                return;
+                            }
+                            becontroler = target as Pawn;
+                            WFModBase.Instance._WFcontrolstorage.ControlSomeone(this, becontroler);//.add2pawnRelation(this,becontroler);
+
                         }
-                        this.becontroler = target as Pawn;
-                        WFModBase.Instance._WFcontrolstorage.ControlSomeone(this,becontroler);//.add2pawnRelation(this,becontroler);
 
                     }
-
-                }
+                },
+                defaultLabel = "ControlCellChooseWarframe".Translate(),
+                defaultDesc = "ControlCellChooseWarframeDesc".Translate()
             };
-            tar.defaultLabel = "ControlCellChooseWarframe".Translate();
-            tar.defaultDesc = "ControlCellChooseWarframeDesc".Translate();
 
             yield return tar;
             /*
@@ -184,19 +191,21 @@ namespace Warframe
                 yield return ca;
             }
             */
-            Command_Action cancela = new Command_Action();
-            cancela.defaultLabel = "RemoveChooseWFLabel".Translate();
-            cancela.defaultDesc = "RemoveChooseWFDesc".Translate();
-            cancela.icon = TexCommand.RemoveRoutePlannerWaypoint;
-            cancela.hotKey = KeyBindingDefOf.Cancel;
-            cancela.activateSound = SoundDefOf.ClickReject;
-            cancela.action = delegate
+            Command_Action cancela = new Command_Action
             {
-                if (this.becontroler != null)
-                    WFModBase.Instance._WFcontrolstorage.remove2pawnRelation(this,this.becontroler);
+                defaultLabel = "RemoveChooseWFLabel".Translate(),
+                defaultDesc = "RemoveChooseWFDesc".Translate(),
+                icon = TexCommand.RemoveRoutePlannerWaypoint,
+                hotKey = KeyBindingDefOf.Cancel,
+                activateSound = SoundDefOf.ClickReject,
+                action = delegate
+                {
+                    if (becontroler != null)
+                        WFModBase.Instance._WFcontrolstorage.remove2pawnRelation(this, becontroler);
 
-                this.becontroler = null;
+                    becontroler = null;
 
+                }
             };
             yield return cancela;
 
@@ -222,9 +231,9 @@ namespace Warframe
                 }
             }
             */
-            if (!base.Destroyed)
+            if (!Destroyed)
             {
-                SoundDefOf.CryptosleepCasket_Eject.PlayOneShot(SoundInfo.InMap(new TargetInfo(base.Position, base.Map, false), MaintenanceType.None));
+                SoundDefOf.CryptosleepCasket_Eject.PlayOneShot(SoundInfo.InMap(new TargetInfo(Position, Map, false), MaintenanceType.None));
             }
             /*
             try {

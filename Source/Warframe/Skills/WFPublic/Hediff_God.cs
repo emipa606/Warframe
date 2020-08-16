@@ -12,9 +12,9 @@ namespace Warframe.Skills.WFPublic
         public override void Tick()
         {
          
-            if (this.del)
+            if (del)
             {
-                this.TimeOut();
+                TimeOut();
             }
            
 
@@ -23,7 +23,7 @@ namespace Warframe.Skills.WFPublic
         // Token: 0x06004BF8 RID: 19448 RVA: 0x00232324 File Offset: 0x00230724
         private void TimeOut()
         {
-            this.pawn.health.RemoveHediff(this);
+            pawn.health.RemoveHediff(this);
         }
 
 
@@ -32,7 +32,7 @@ namespace Warframe.Skills.WFPublic
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref this.del, "del", false, false);
+            Scribe_Values.Look<bool>(ref del, "del", false, false);
         }
 
 

@@ -16,7 +16,7 @@ namespace Warframe
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<float>(ref this.jumpCD, "jumpCD", 0, false);
+            Scribe_Values.Look<float>(ref jumpCD, "jumpCD", 0, false);
         }
         public override void Tick()
         {
@@ -29,26 +29,28 @@ namespace Warframe
         }
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
-            if (Find.Selector.SingleSelectedThing != base.Wearer)
+            if (Find.Selector.SingleSelectedThing != Wearer)
             {
                 yield break;
             }
-            Pawn pawn = this.Wearer;
-            if (pawn == null || !pawn.isWarframe()) yield break;
+            Pawn pawn = Wearer;
+            if (pawn == null || !pawn.IsWarframe()) yield break;
 
-            Command_CastSkillTargetingFloor ck1 = new Command_CastSkillTargetingFloor();
-            ck1.self = this.Wearer;
-            ck1.targetingParams = WarframeStaticMethods.jumpTP();
-            ck1.defaultLabel = "WarframeJumpGizmo.name".Translate();
-            ck1.defaultDesc = "WarframeJumpGizmo.desc".Translate();
-            ck1.range = 14f;
-            ck1.icon = ContentFinder<Texture2D>.Get("Skills/Jump");
-            ck1.cooldownTime = 60;
-            ck1.hotKey = KeyBindingDefOf.Command_ItemForbid;
-            ck1.disabled = !this.Wearer.Drafted || this.jumpCD > 0 || this.Wearer.stances.stunner.Stunned;
+            Command_CastSkillTargetingFloor ck1 = new Command_CastSkillTargetingFloor
+            {
+                self = Wearer,
+                targetingParams = WarframeStaticMethods.JumpTP(),
+                defaultLabel = "WarframeJumpGizmo.name".Translate(),
+                defaultDesc = "WarframeJumpGizmo.desc".Translate(),
+                range = 14f,
+                icon = ContentFinder<Texture2D>.Get("Skills/Jump"),
+                cooldownTime = 60,
+                hotKey = KeyBindingDefOf.Command_ItemForbid,
+                disabled = !Wearer.Drafted || jumpCD > 0 || Wearer.stances.stunner.Stunned
+            };
             ck1.action = delegate (Pawn self, LocalTargetInfo target)
             {
-                if (WarframeStaticMethods.outRange(ck1.range,self,target.Cell.ToVector3()))
+                if (WarframeStaticMethods.OutRange(ck1.range,self,target.Cell.ToVector3()))
                 {
                     SoundDefOf.ClickReject.PlayOneShotOnCamera();
                     return;
@@ -60,7 +62,7 @@ namespace Warframe
                         return;
                     }
 
-                int jtype = WarframeStaticMethods.getJumpType(self,target.Cell);
+                int jtype = WarframeStaticMethods.GetJumpType(self,target.Cell);
 
 
                 if (jtype == 0)
@@ -116,7 +118,7 @@ namespace Warframe
                     self.jobs.curDriver.Notify_PatherArrived();
                 }
                 SoundDef.Named("Warframe_Jump").PlayOneShot(self);
-                this.jumpCD = ck1.cooldownTime;
+                jumpCD = ck1.cooldownTime;
             };
             ck1.finishAction = delegate {
                 GenDraw.DrawRadiusRing(ck1.self.Position,ck1.range);//DrawFieldEdges(WarframeStaticMethods.getCellsAround(ck1.self.Position, ck1.self.Map, ck1.range));

@@ -12,7 +12,7 @@ namespace Warframe
         // Token: 0x060026F5 RID: 9973 RVA: 0x001283D8 File Offset: 0x001267D8
         public Gizmo_WarframeBeltStatus()
         {
-            this.order = -100f;
+            order = -100f;
         }
 
         // Token: 0x060026F6 RID: 9974 RVA: 0x001283EB File Offset: 0x001267EB
@@ -24,8 +24,8 @@ namespace Warframe
         // Token: 0x060026F7 RID: 9975 RVA: 0x001283F4 File Offset: 0x001267F4
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth)
         {
-            Rect overRect = new Rect(topLeft.x, topLeft.y, this.GetWidth(maxWidth), 75f);
-            Find.WindowStack.ImmediateWindow(984688+this.orderadd, overRect, WindowLayer.GameUI, delegate
+            Rect overRect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+            Find.WindowStack.ImmediateWindow(984688+orderadd, overRect, WindowLayer.GameUI, delegate
             {
                 Rect rect = overRect.AtZero().ContractedBy(6f);
                 Rect rect2 = rect;
@@ -41,20 +41,20 @@ namespace Warframe
                 float fillPercent=-1;
                 Texture2D tex = SolidColorMaterials.NewSolidColorTexture(new Color(0f, 0.43f, 0.78f));
                 String title = "Shield";
-                if (this.btype == "HP")
+                if (btype == "HP")
                 {
-                    fillPercent = this.shield.HP / this.shield.MHP;
+                    fillPercent = shield.HP / shield.MHP;
                     tex = SolidColorMaterials.NewSolidColorTexture(new Color(0.6f, 0.1f, 0.12f));
                     title = "HP";
                 }
-                else if (this.btype == "SP")
+                else if (btype == "SP")
                 {
-                    fillPercent = this.shield.SP / this.shield.MSP;
+                    fillPercent = shield.SP / shield.MSP;
                     tex = SolidColorMaterials.NewSolidColorTexture(new Color(0f, 0.76f, 0.85f));
                     title = "SP";
                 }
                 else
-                    fillPercent = this.shield.Energy / this.shield.EnergyMax;
+                    fillPercent = shield.Energy / shield.EnergyMax;
                 
 
 
@@ -66,16 +66,16 @@ namespace Warframe
 
 
 
-                Widgets.FillableBar(rect3, fillPercent, tex, Gizmo_WarframeBeltStatus.EmptyShieldBarTex, false);
+                Widgets.FillableBar(rect3, fillPercent, tex, EmptyShieldBarTex, false);
                 Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 String wlabel = "Error";
-                if (this.btype == "HP")
-                    wlabel = this.shield.HP.ToString("F0") + " / " + this.shield.MHP.ToString("F0");
-                else if (this.btype == "SP")
-                    wlabel = this.shield.SP.ToString("F0") + " / " + this.shield.MSP.ToString("F0");
+                if (btype == "HP")
+                    wlabel = shield.HP.ToString("F0") + " / " + shield.MHP.ToString("F0");
+                else if (btype == "SP")
+                    wlabel = shield.SP.ToString("F0") + " / " + shield.MSP.ToString("F0");
                 else
-                    wlabel = (this.shield.Energy * 100f).ToString("F0") + " / " + (this.shield.EnergyMax * 100f).ToString("F0");
+                    wlabel = (shield.Energy * 100f).ToString("F0") + " / " + (shield.EnergyMax * 100f).ToString("F0");
 
                     Widgets.Label(rect3, wlabel);
                 Text.Anchor = TextAnchor.UpperLeft;

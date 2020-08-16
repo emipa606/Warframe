@@ -16,26 +16,28 @@ namespace Warframe.Skills
         //咖喱技能1
         public static Command_CastSkillTargeting Skill1()
         {
-            Command_CastSkillTargeting ck = new Command_CastSkillTargeting();
-            ck.defaultLabel = "MagSkill1.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/MagSkill1");
-            ck.targetingParams= WarframeStaticMethods.onlyPawn(); 
-            ck.cooldownTime = 0.2f;
-            ck.range = 20f;
+            Command_CastSkillTargeting ck = new Command_CastSkillTargeting
+            {
+                defaultLabel = "MagSkill1.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/MagSkill1"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 20f
+            };
             ck.finishAction = delegate {
-                GenDraw.DrawFieldEdges(WarframeStaticMethods.getCellsAround(ck.self.Position, ck.self.Map, ck.range));
+                GenDraw.DrawFieldEdges(WarframeStaticMethods.GetCellsAround(ck.self.Position, ck.self.Map, ck.range));
             };
             ck.hotKey = KeyBindingDefOf.Misc5;
             ck.action = delegate (Pawn self, Thing target)
             {
               
                 // GenExplosion.DoExplosion(self.Position, self.Map, 3.5f, DamageDefOf.Bomb, self, -1, -1, null, null, null, null, null, 0, 1, false, null, 0, 1, 0, false);
-                if (!WarframeStaticMethods.getCellsAround(self.Position, self.Map, ck.range).Contains(target.Position))
+                if (!WarframeStaticMethods.GetCellsAround(self.Position, self.Map, ck.range).Contains(target.Position))
                 {
                     SoundDefOf.ClickReject.PlayOneShotOnCamera();
                     return;
                 }
-                List < Pawn > linec= WarframeStaticMethods.getLineCell(self,target);
+                List < Pawn > linec= WarframeStaticMethods.GetLineCell(self,target);
                 if (linec == null)
                 {
                     Messages.Message("BeBlockedByBuilding".Translate(),MessageTypeDefOf.RejectInput,false);
@@ -106,19 +108,19 @@ namespace Warframe.Skills
                 
 
                 SoundDef.Named("Mag_1Skill").PlayOneShot(self);
-                float damage = 30 + (2 * WarframeStaticMethods.getWFLevel(self) / 5);
+                float damage = 30 + (2 * WarframeStaticMethods.GetWFLevel(self) / 5);
                 DamageInfo dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag",true), damage, 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, target);
                 foreach (Pawn p in finalPawn)
                 {
                     if (p.Faction != self.Faction)
                     {
-                        WarframeStaticMethods.showDamageAmount(p, damage.ToString("f0"));
+                        WarframeStaticMethods.ShowDamageAmount(p, damage.ToString("f0"));
                         p.TakeDamage(dinfo);
                     }
                 }
 
                // WarframeStaticMethods.showDamageAmount(self, damage.ToString("f0"));
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 1, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().Props.mana1);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 1, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().Props.mana1);
 
 
             };
@@ -131,28 +133,30 @@ namespace Warframe.Skills
         //咖喱技能2
         public static Command_CastSkill Skill2()
         {
-            Command_CastSkillTargeting ck = new Command_CastSkillTargeting();
-            ck.defaultLabel = "MagSkill2.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/MagSkill2");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 0.2f;
-            ck.range = 18f;
-            ck.hotKey = KeyBindingDefOf.Misc8;
+            Command_CastSkillTargeting ck = new Command_CastSkillTargeting
+            {
+                defaultLabel = "MagSkill2.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/MagSkill2"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 18f,
+                hotKey = KeyBindingDefOf.Misc8
+            };
             ck.finishAction = delegate {
-                GenDraw.DrawFieldEdges(WarframeStaticMethods.getCellsAround(ck.self.Position, ck.self.Map, ck.range));
+                GenDraw.DrawFieldEdges(WarframeStaticMethods.GetCellsAround(ck.self.Position, ck.self.Map, ck.range));
             };
             ck.action = delegate (Pawn self,Thing target)
             {
 
                 
                 
-                if (!WarframeStaticMethods.getCellsAround(self.Position, self.Map, ck.range).Contains(target.Position) || target.Faction==self.Faction)
+                if (!WarframeStaticMethods.GetCellsAround(self.Position, self.Map, ck.range).Contains(target.Position) || target.Faction==self.Faction)
                 {
                     SoundDefOf.ClickReject.PlayOneShotOnCamera();
                     return;
                 }
                 SoundDef.Named("Mag_2Skill").PlayOneShot(self);
-                List<Pawn> linec = WarframeStaticMethods.getLineCell(self, target);
+                List<Pawn> linec = WarframeStaticMethods.GetLineCell(self, target);
                 if (linec == null)
                 {
                     Messages.Message("BeBlockedByBuilding".Translate(), MessageTypeDefOf.RejectInput, false);
@@ -169,7 +173,7 @@ namespace Warframe.Skills
 
 
 
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 2, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().skill2mana);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 2, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().skill2mana);
 
 
             };
@@ -183,23 +187,25 @@ namespace Warframe.Skills
         //咖喱技能3
         public static Command_CastSkill Skill3()
         {
-            Command_CastSkill ck = new Command_CastSkill();
-            ck.defaultLabel = "MagSkill3.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/MagSkill3");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 3f;
-            ck.range = 18f;
-            ck.hotKey = KeyBindingDefOf.Misc4;
+            Command_CastSkill ck = new Command_CastSkill
+            {
+                defaultLabel = "MagSkill3.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/MagSkill3"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 3f,
+                range = 18f,
+                hotKey = KeyBindingDefOf.Misc4
+            };
             ck.action = delegate (Pawn self)
             {
                 Mag3SkillThing mag3s= (Mag3SkillThing)ThingMaker.MakeThing(ThingDef.Named("MagSkill3Item"));
                 mag3s.self = self;
                 mag3s.range = (int)ck.range;
-                mag3s.damage = 20 * (1 + self.getLevel()/60f);
+                mag3s.damage = 20 * (1 + self.GetLevel()/60f);
                 GenSpawn.Spawn(mag3s,self.Position,self.Map);
                 SoundDef.Named("Mag_3Skill").PlayOneShot(self);
                 
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 3, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().skill3mana);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 3, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().skill3mana);
 
 
             };
@@ -212,15 +218,17 @@ namespace Warframe.Skills
         //咖喱技能4
         public static Command_CastSkill Skill4()
         {
-            Command_CastSkill ck = new Command_CastSkill();
-            ck.defaultLabel = "MagSkill4.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/MagSkill4");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 4f;
-            ck.range = 12f;
-            ck.hotKey = KeyBindingDefOf.Misc7;
-           // WarframeArmor sa = WarframeStaticMethods.getArmor(ck.self);
-           
+            Command_CastSkill ck = new Command_CastSkill
+            {
+                defaultLabel = "MagSkill4.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/MagSkill4"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 4f,
+                range = 12f,
+                hotKey = KeyBindingDefOf.Misc7
+            };
+            // WarframeArmor sa = WarframeStaticMethods.getArmor(ck.self);
+
             ck.action = delegate (Pawn self)
             {
 
@@ -238,11 +246,11 @@ namespace Warframe.Skills
                 Mag4SkillThing thing = (Mag4SkillThing)ThingMaker.MakeThing(ThingDef.Named("MagSkill4Item"));
                 thing.self = self;
                 thing.range = (int)ck.range;
-                thing.damage= 60 * (1 + self.getLevel() / 60f);
+                thing.damage= 60 * (1 + self.GetLevel() / 60f);
                 GenSpawn.Spawn(thing, self.Position, self.Map);
                 self.stances.stunner.StunFor(180,self);
 
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 4, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().skill4mana);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 4, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().skill4mana);
 
 
             };

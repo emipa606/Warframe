@@ -21,43 +21,43 @@ namespace Warframe.Skills.Volts
         {
             get
             {
-                return this.ticks >= 40;
+                return ticks >= 40;
             }
         }
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.self,"self",false);
-            Scribe_Values.Look<int>(ref this.ticks, "ticks", 0, false);
-            Scribe_Values.Look<float>(ref this.rotat, "rotat", 0, false);
+            Scribe_References.Look<Pawn>(ref self,"self",false);
+            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
+            Scribe_Values.Look<float>(ref rotat, "rotat", 0, false);
           //  Scribe_Collections.Look<Projectile>(ref this.affected,"affected",LookMode.Reference, new object[0]);
-            Scribe_Collections.Look<IntVec3>(ref this.dire, "dire", LookMode.Undefined, new object[0]);
+            Scribe_Collections.Look<IntVec3>(ref dire, "dire", LookMode.Undefined, new object[0]);
 
         }
         public override void Draw()
         {
             if (!startBomb) { return; }
             //base.Draw();
-            this.Comps_PostDraw();
+            Comps_PostDraw();
             Matrix4x4 matrix4x = default(Matrix4x4);
-            matrix4x.SetTRS(this.DrawPos + Altitudes.AltIncVect,rotat.ToQuat(), new Vector3(1.5f,1,1.5f));
-            Graphics.DrawMesh(MeshPool.plane20, matrix4x, MaterialPool.MatFrom(this.def.graphicData.texPath), 0);
+            matrix4x.SetTRS(DrawPos + Altitudes.AltIncVect,rotat.ToQuat(), new Vector3(1.5f,1,1.5f));
+            Graphics.DrawMesh(MeshPool.plane20, matrix4x, MaterialPool.MatFrom(def.graphicData.texPath), 0);
 
 
         }
         private int maxTick{
             get
             {
-                return (int)(600 * (1 + (self.getLevel() * 1f / 20f)));
+                return (int)(600 * (1 + (self.GetLevel() * 1f / 20f)));
             }
         }
         public override void Tick()
         {
             base.Tick();
-            if (ticks > maxTick) this.Destroy();
-            if (!this.Spawned) return;
+            if (ticks > maxTick) Destroy();
+            if (!Spawned) return;
 
-            this.ticks++;
+            ticks++;
             /*
             if (ticks == 49) {
                
@@ -68,7 +68,7 @@ namespace Warframe.Skills.Volts
 
 
 
-            List<Thing> vlist = this.Map.listerThings.ThingsOfDef(ThingDef.Named("VoltSkill3Item"));
+            List<Thing> vlist = Map.listerThings.ThingsOfDef(ThingDef.Named("VoltSkill3Item"));
             foreach (Volt3SkillThing sh in vlist)
             {
                 if (vlist.Count <= 6) break;
@@ -81,32 +81,31 @@ namespace Warframe.Skills.Volts
 
             if (startBomb)
             {
-                foreach(IntVec3 ic in this.dire)
+                foreach(IntVec3 ic in dire)
                 {
-                    foreach(Thing th in this.Map.thingGrid.ThingsAt(ic))
+                    foreach(Thing th in Map.thingGrid.ThingsAt(ic))
                     {
-                        Projectile pj = th as Projectile;
-                        if (pj != null)
+                        if (th is Projectile pj)
                         {
                             if (pj.def.projectile.flyOverhead) continue;
-                           // if (this.affected.Contains(pj)) continue;
+                            // if (this.affected.Contains(pj)) continue;
                             try
                             {
-                               
+
                                 Type ty = pj.GetType();
                                 FieldInfo pi = ty.GetField("launcher", BindingFlags.NonPublic | BindingFlags.Instance);//GetProperty("launcher",BindingFlags.|BindingFlags.Instance);
                                 Pawn launcher = (Pawn)pi.GetValue(pj);
                                 if (launcher.Faction.HostileTo(self.Faction))
                                 {
-                                    
-                                    MethodInfo mi = ty.GetMethod("Impact",BindingFlags.NonPublic|BindingFlags.Instance);
-                                    if (mi != null)
-                                        mi.Invoke(pj,new object[] { this});
 
-                                    if(pj!=null && !pj.Destroyed)
-                                      pj.Destroy(DestroyMode.Vanish);
+                                    MethodInfo mi = ty.GetMethod("Impact", BindingFlags.NonPublic | BindingFlags.Instance);
+                                    if (mi != null)
+                                        mi.Invoke(pj, new object[] { this });
+
+                                    if (pj != null && !pj.Destroyed)
+                                        pj.Destroy(DestroyMode.Vanish);
                                 }
-                               // this.affected.Add(pj);
+                                // this.affected.Add(pj);
 
 
                             }
@@ -115,7 +114,7 @@ namespace Warframe.Skills.Volts
 
                             }
                         }
-                        
+
                     }
                 }
             }

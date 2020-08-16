@@ -14,7 +14,7 @@ namespace Warframe
     public class WFModBase : ModBase
     {
         
-        private static List<Action> TickActions = new List<Action>();
+        private static readonly List<Action> TickActions = new List<Action>();
 
 
         public static WFModBase Instance { get; private set; }

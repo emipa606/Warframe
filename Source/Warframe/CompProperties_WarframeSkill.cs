@@ -14,7 +14,7 @@ namespace Warframe
         public CompProperties_WarframeSkill()
         {
 
-            base.compClass = typeof(CompWarframeSkill);
+            compClass = typeof(CompWarframeSkill);
         }
     }
 }

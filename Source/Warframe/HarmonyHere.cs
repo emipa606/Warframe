@@ -33,11 +33,11 @@ namespace Warframe
         public static void Postfix(Pawn __instance, ref string __result)
         {
    
-            bool flag = __instance.isWarframe() && !__instance.Dead;
+            bool flag = __instance.IsWarframe() && !__instance.Dead;
             if (flag)
             {
                 
-                __result +="\n"+"Lv."+__instance.getLevel().ToString("f0");
+                __result +="\n"+"Lv."+__instance.GetLevel().ToString("f0");
             }
 
 
@@ -57,7 +57,7 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pp = traverse.Field("pawn").GetValue<Pawn>();
-            bool flag = pp.isWarframe();
+            bool flag = pp.IsWarframe();
             if (flag)
             {
 
@@ -111,12 +111,12 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pp = traverse.Field("pawn").GetValue<Pawn>();
-            bool flag = pp.isWarframe();
+            bool flag = pp.IsWarframe();
             if (flag)//!pp.drafter.Drafted)
             {
                 if (!pp.Spawned) return;
                 
-                if (!WarframeStaticMethods.pawnInControlCell(pp))
+                if (!WarframeStaticMethods.PawnInControlCell(pp))
                 {
                     Job job = new Job(DefDatabase<JobDef>.GetNamed("WFWait", true));
                     pp.jobs.TryTakeOrderedJob(job, JobTag.Misc);
@@ -150,7 +150,7 @@ namespace Warframe
         public static bool Prefix(Pawn pawn, bool __result)
         {
 
-            bool flag = pawn.isWarframe();
+            bool flag = pawn.IsWarframe();
             if (flag)
             {
                 __result = true;
@@ -172,7 +172,7 @@ namespace Warframe
         {
             Traverse tv = Traverse.Create(__instance);
             Pawn pawn = tv.Field("pawn").GetValue<Pawn>();
-            bool flag = pawn.isWarframe();
+            bool flag = pawn.IsWarframe();
             if (flag)
             {
                 // HealthUtility.AdjustSeverity(pawn, hediff, -0.00033333333f);
@@ -194,7 +194,7 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            bool flag = pawn.isWarframe();
+            bool flag = pawn.IsWarframe();
             if (flag)
             {
                 __result = false;
@@ -216,11 +216,11 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            bool flag = pawn.isWarframe();
+            bool flag = pawn.IsWarframe();
             if (flag)
             {
-                float num = WarframeStaticMethods.getHP(pawn);
-                __result = WarframeStaticMethods.shouldDie(num, pawn);
+                float num = WarframeStaticMethods.GetHP(pawn);
+                __result = WarframeStaticMethods.ShouldDie(num, pawn);
             }
         }
     }
@@ -238,7 +238,7 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            return !pawn.isWarframe();
+            return !pawn.IsWarframe();
         }
     }
 
@@ -295,7 +295,7 @@ namespace Warframe
             Pawn pawn = tv.Field("pawn").GetValue<Pawn>();
             if (pawn.kindDef.defName.StartsWith("Warframe_"))
             {
-                bool flag = WarframeStaticMethods.pawnInControlCell(pawn);
+                bool flag = WarframeStaticMethods.PawnInControlCell(pawn);
                 if (!flag)
                 {
                     List<Gizmo> list = __result.ToList();
@@ -316,7 +316,7 @@ namespace Warframe
             Traverse traverse = Traverse.Create(__instance);
             
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            if (pawn.isWarframe())
+            if (pawn.IsWarframe())
             {
                 bool flag = WFModBase.Instance._WFcontrolstorage.checkBeControlerExist(pawn);
                 if (pawn.Drafted) {
@@ -414,7 +414,7 @@ namespace Warframe
         {
             Traverse tv = Traverse.Create(__instance);
            // float num = tv.Field("defaultCooldownTime").GetValue<float>();
-            if (attacker!=null&& attacker.isWarframe())
+            if (attacker!=null&& attacker.IsWarframe())
             {
                 if (equipment != null && !__instance.IsMeleeAttack)
                 __result = 0f;
@@ -436,7 +436,7 @@ namespace Warframe
             Traverse traverse = Traverse.Create(__instance);
 
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            if (pawn.isWarframe())
+            if (pawn.IsWarframe())
             {
                 if(__result<1f)
                   __result = 1f;
@@ -455,7 +455,7 @@ namespace Warframe
            // Traverse traverse = Traverse.Create(__instance);
 
            // Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            if (pawn.isWarframe())
+            if (pawn.IsWarframe())
             {
                 int num;
                 if (c.x == pawn.Position.x || c.z == pawn.Position.z)
@@ -484,7 +484,7 @@ namespace Warframe
             Pawn pawn = traverse.Field("caster").GetValue<Pawn>();
             Action fiaction = traverse.Field("actionWhenFinished").GetValue<Action>();
             if (fiaction == null) return;
-            if (__instance.IsTargeting && pawn!=null &&pawn.isWarframe())
+            if (__instance.IsTargeting && pawn!=null &&pawn.IsWarframe())
             {
                 fiaction();
             }
@@ -504,7 +504,7 @@ namespace Warframe
         {
             Traverse traverse = Traverse.Create(__instance);
             Pawn pawn = traverse.Field("pawn").GetValue<Pawn>();
-            if (pawn != null && pawn.isWarframe())
+            if (pawn != null && pawn.IsWarframe())
             {
                 if (hediff.def.isBad)
                     if (hediff.Part.def.defName != "wf_armor")
@@ -553,7 +553,7 @@ namespace Warframe
         {
             if (ShouldUseSquadTeleGizmo())
             {
-                yield return WarframeStaticMethods.getMulJump(pawn);
+                yield return WarframeStaticMethods.GetMulJump(pawn);
             }
             yield break;
         }
@@ -568,7 +568,7 @@ namespace Warframe
             {
                 if (pawn is Pawn)
                 {
-                    if (!(pawn as Pawn).isWarframe())
+                    if (!(pawn as Pawn).IsWarframe())
                     {
                         return false;
                     }
@@ -604,7 +604,7 @@ namespace Warframe
         {
             Traverse tv = Traverse.Create(__instance);
             Pawn pawn = tv.Field("pawn").GetValue<Pawn>();
-            if (pawn.isWarframe() || recipient.isWarframe())
+            if (pawn.IsWarframe() || recipient.IsWarframe())
             {
 
                 __result = true;
@@ -625,7 +625,7 @@ namespace Warframe
             Traverse tv = Traverse.Create(__instance);
             Pawn pawn = tv.Field("pawn").GetValue<Pawn>();
             List<DirectPawnRelation> directRelations = tv.Field("directRelations").GetValue<List<DirectPawnRelation>>();
-            if (pawn.isWarframe())
+            if (pawn.IsWarframe())
             {
                 directRelations = new List<DirectPawnRelation>();
                 return false;
@@ -643,7 +643,7 @@ namespace Warframe
         {
             Traverse tv = Traverse.Create(__instance);
             Pawn pawn = tv.Field("pawn").GetValue<Pawn>();
-            if (pawn.isWarframe())
+            if (pawn.IsWarframe())
             {
                 
                 return false;
@@ -659,7 +659,7 @@ namespace Warframe
     {
         public static bool Prefix(Pawn pawn, LocalTargetInfo dest,ref bool __result)
         {
-            if (pawn.isWarframe()&&!pawn.Downed)
+            if (pawn.IsWarframe()&&!pawn.Downed)
             {
                 if (dest.Thing is Apparel)
                 {

@@ -14,7 +14,7 @@ namespace Warframe
 {
     public static class WarframeStaticMethods
     {
-        public static bool isWarframe(this Pawn pawn) {
+        public static bool IsWarframe(this Pawn pawn) {
             return pawn.RaceProps.FleshType.defName.EqualsIgnoreCase("warframe");
         }
         /*
@@ -52,7 +52,7 @@ namespace Warframe
         }
         */
         //设置性别
-        public static Gender setGender(String kdef) {
+        public static Gender SetGender(String kdef) {
             String def = kdef.Replace("Warframe_","");
             switch (def)
             {
@@ -64,7 +64,7 @@ namespace Warframe
             return Gender.Female;
         }
         //获取目前受的伤害数值
-        public static float getHP(Pawn pawn) {
+        public static float GetHP(Pawn pawn) {
             float num = 0f;
             Pawn_HealthTracker __instance = pawn.health;
             for (int i = 0; i < __instance.hediffSet.hediffs.Count; i++)
@@ -84,7 +84,7 @@ namespace Warframe
             return num;
         }
         //死亡条件
-        public static bool shouldDie(float num,Pawn pawn) {
+        public static bool ShouldDie(float num,Pawn pawn) {
 
             bool flag1 = pawn.apparel.WornApparel != null && pawn.apparel.WornApparelCount>0;
             if (flag1) {
@@ -106,7 +106,7 @@ namespace Warframe
             return false;
         }
         //获取所有战甲kind
-        public static IEnumerable<PawnKindDef> getAllWarframeKind() {
+        public static IEnumerable<PawnKindDef> GetAllWarframeKind() {
             foreach (PawnKindDef pk in DefDatabase<PawnKindDef>.AllDefs) {
                 if (pk.defName.StartsWith("Warframe_")) {
                     yield return pk;
@@ -115,12 +115,12 @@ namespace Warframe
             yield break;    
         }
         //获取战甲
-        public static Pawn getWarframePawn(PawnKindDef pk) {
+        public static Pawn GetWarframePawn(PawnKindDef pk) {
 
-            PawnGenerationRequest request = new PawnGenerationRequest(pk, Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 0, false, true, true, false, false, false, false, false, 0, null, 1, null, null, null, null, 12, null, null, setGender(pk.defName), null);
+            PawnGenerationRequest request = new PawnGenerationRequest(pk, Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 0, false, true, true, false, false, false, false, false, 0, null, 1, null, null, null, null, 12, null, null, SetGender(pk.defName), null);
             Pawn item = PawnGenerator.GeneratePawn(request);
             item.story.adulthood = null;
-            if(setGender(pk.defName) == Gender.Male)
+            if(SetGender(pk.defName) == Gender.Male)
             {
                 item.story.bodyType = BodyTypeDefOf.Male;
             }else
@@ -173,7 +173,7 @@ namespace Warframe
 
         }
         //获取制作材料
-        public static int getCraftCost(PawnKindDef pk) {
+        public static int GetCraftCost(PawnKindDef pk) {
             string kdef = pk.defName.Replace("Warframe_","");
             switch (kdef) {
                 case "Excalibur":return 1;
@@ -183,19 +183,18 @@ namespace Warframe
             return 1;
         }
         //获取战甲等级
-        public static int getWFLevel(Pawn pawn) {
+        public static int GetWFLevel(Pawn pawn) {
             int level = 1;
-            Pawn_RecordsTracker pr = pawn.records;
-            if (pr != null)
+            if (pawn?.records != null)
             {
-                float killh = pr.GetValue(RecordDefOf.KillsHumanlikes);
-                float killm = pr.GetValue(RecordDefOf.KillsMechanoids);
+                float killh = pawn.records.GetValue(RecordDefOf.KillsHumanlikes);
+                float killm = pawn.records.GetValue(RecordDefOf.KillsMechanoids);
                 level = (int)(1f + (killh*2f+ killm*5f) / 10f);
             }
             return level>30?30:level;
         }
         //获取战甲等级 plus
-        public static float getLevel(this Pawn pawn)
+        public static float GetLevel(this Pawn pawn)
         {
             float level = 1;
             Pawn_RecordsTracker pr = pawn.records;
@@ -208,7 +207,7 @@ namespace Warframe
             return level > 30 ? 30f : level;
         }
         //获取某战甲某技能 反射
-        public static Command_CastSkill getSkillCommand(String def, int slot)
+        public static Command_CastSkill GetSkillCommand(String def, int slot)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             if (def=="Ash"||def=="Mesa"||def== "Valkyr")
@@ -228,7 +227,7 @@ namespace Warframe
 
         }
         //获取某些持续技能结束后的action 反射
-        public static void getSkillEndAction(Pawn self, int slot)
+        public static void GetSkillEndAction(Pawn self, int slot)
         {
             String def = self.kindDef.defName.Replace("Warframe_", "");
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -265,41 +264,47 @@ namespace Warframe
         //选定建筑和小人的targetingP
         public static TargetingParameters BuildingAndPawn()
         {
-            TargetingParameters tp = new TargetingParameters();
-            tp.canTargetBuildings = true;
-            tp.canTargetFires = false;
-            tp.canTargetItems = false;
-            tp.canTargetLocations = true;
-            tp.canTargetPawns = true;
-            tp.canTargetSelf = false;
+            TargetingParameters tp = new TargetingParameters
+            {
+                canTargetBuildings = true,
+                canTargetFires = false,
+                canTargetItems = false,
+                canTargetLocations = true,
+                canTargetPawns = true,
+                canTargetSelf = false
+            };
             return tp;
         }
         //选定小人的targetingP
-        public static TargetingParameters onlyPawn()
+        public static TargetingParameters OnlyPawn()
         {
-            TargetingParameters tp = new TargetingParameters();
-            tp.canTargetBuildings = false;
-            tp.canTargetFires = false;
-            tp.canTargetItems = false;
-            tp.canTargetLocations = false;
-            tp.canTargetPawns = true;
-            tp.canTargetSelf = false;
+            TargetingParameters tp = new TargetingParameters
+            {
+                canTargetBuildings = false,
+                canTargetFires = false,
+                canTargetItems = false,
+                canTargetLocations = false,
+                canTargetPawns = true,
+                canTargetSelf = false
+            };
             return tp;
         }
         //跳跃用Tp
-        public static TargetingParameters jumpTP()
+        public static TargetingParameters JumpTP()
         {
-            TargetingParameters tp = new TargetingParameters();
-            tp.canTargetBuildings = false;
-            tp.canTargetFires = true;
-            tp.canTargetItems = true;
-            tp.canTargetLocations = true;
-            tp.canTargetPawns = true;
-            tp.canTargetSelf = false;
+            TargetingParameters tp = new TargetingParameters
+            {
+                canTargetBuildings = false,
+                canTargetFires = true,
+                canTargetItems = true,
+                canTargetLocations = true,
+                canTargetPawns = true,
+                canTargetSelf = false
+            };
             return tp;
         }
         //获得可见范围坐标列表
-        public static List<IntVec3> getCellsAround(IntVec3 pos, Map map,float range)
+        public static List<IntVec3> GetCellsAround(IntVec3 pos, Map map,float range)
         {
             List<IntVec3> result = new List<IntVec3>();
             if (!pos.InBounds(map))
@@ -325,7 +330,7 @@ namespace Warframe
             return result;
         }
         //探测直线攻击
-        public static List<Pawn> getLineCell(Pawn wf,Thing target) {
+        public static List<Pawn> GetLineCell(Pawn wf,Thing target) {
             bool left = wf.Position.x > target.Position.x;
             bool up = wf.Position.z < target.Position.z;
             int xc = Math.Abs(wf.Position.x - target.Position.x);
@@ -369,7 +374,7 @@ namespace Warframe
 
         }
         //两点距离计算
-        public static bool outRange(float maxrange,Thing ps,Vector3 p2)
+        public static bool OutRange(float maxrange,Thing ps,Vector3 p2)
         {
             float maxRange = maxrange;
 
@@ -381,9 +386,9 @@ namespace Warframe
             return value >= maxRange;
         }
         //持续性消耗SP检测
-        public static bool consumeSP(Pawn pawn, float mul, int slot) {
-            WarframeBelt wb = getBelt(pawn);
-            WarframeArmor wa = getArmor(pawn);
+        public static bool ConsumeSP(Pawn pawn, float mul, int slot) {
+            WarframeBelt wb = GetBelt(pawn);
+            WarframeArmor wa = GetArmor(pawn);
             CompWarframeSkill cp = wa.TryGetComp<CompWarframeSkill>();
 
             switch (slot) {
@@ -409,7 +414,7 @@ namespace Warframe
           
         }
         //伤害显示
-        public static void showDamageAmount(Thing target,string damage) {
+        public static void ShowDamageAmount(Thing target,string damage) {
            // MoteMaker.ThrowText(target.Position.ToVector3(),target.Map,"-"+damage,new Color(1,0.2f,0.2f));
 
             IntVec3 intVec = target.Position;
@@ -432,7 +437,7 @@ namespace Warframe
 
         }
         //丢出彩色字
-        public static void showColorText(Thing target, string text,Color color,GameFont size)
+        public static void ShowColorText(Thing target, string text,Color color,GameFont size)
         {
             // MoteMaker.ThrowText(target.Position.ToVector3(),target.Map,"-"+damage,new Color(1,0.2f,0.2f));
 
@@ -457,7 +462,7 @@ namespace Warframe
         }
 
         //控制仓里面有无人
-        public static bool pawnInControlCell(Pawn wf) {
+        public static bool PawnInControlCell(Pawn wf) {
             if (WFModBase.Instance._WFcontrolstorage.checkBeControlerExist(wf))
             {
                 Building_ControlCell bc = WFModBase.Instance._WFcontrolstorage.BeControlerAndControlCell.TryGetValue(wf);
@@ -470,7 +475,7 @@ namespace Warframe
             return false;
         }
 
-        public static WarframeBelt getBelt(Pawn pawn)
+        public static WarframeBelt GetBelt(Pawn pawn)
         {
             if (pawn.apparel.WornApparelCount < 1) return null;
 
@@ -483,7 +488,7 @@ namespace Warframe
             }
             return null;
         }
-        public static WarframeArmor getArmor(Pawn pawn)
+        public static WarframeArmor GetArmor(Pawn pawn)
         {
             if (pawn.apparel.WornApparelCount < 1) return null;
 
@@ -499,7 +504,7 @@ namespace Warframe
 
 
         //启动冷却
-        public static bool startCooldown(Pawn pawn,float cooldownTime,int slot,float SP) {
+        public static bool StartCooldown(Pawn pawn,float cooldownTime,int slot,float SP) {
             if (pawn.apparel.WornApparelCount > 0)
             {
                 
@@ -516,14 +521,14 @@ namespace Warframe
                             {
                                 case 1:
                                     ap.cooldownTime1 = cooldownTime;
-                                    getBelt(pawn).SP -= SP;
+                                    GetBelt(pawn).SP -= SP;
                                     break;
                                 case 2:
-                                    ap.cooldownTime2 = cooldownTime; getBelt(pawn).SP -= SP; break;
+                                    ap.cooldownTime2 = cooldownTime; GetBelt(pawn).SP -= SP; break;
                                 case 3:
-                                    ap.cooldownTime3 = cooldownTime; getBelt(pawn).SP -= SP; break;
+                                    ap.cooldownTime3 = cooldownTime; GetBelt(pawn).SP -= SP; break;
                                 case 4:
-                                    ap.cooldownTime4 = cooldownTime; getBelt(pawn).SP -= SP; break;
+                                    ap.cooldownTime4 = cooldownTime; GetBelt(pawn).SP -= SP; break;
                             }
                             return true;
                         }
@@ -533,7 +538,7 @@ namespace Warframe
             return false;
         }
         //获取跳跃类型
-        public static int getJumpType(Pawn wf,IntVec3 target) {
+        public static int GetJumpType(Pawn wf,IntVec3 target) {
             Room wfr = wf.Position.GetRoom(wf.Map);
             Room tr = target.GetRoom(wf.Map);
           
@@ -545,28 +550,29 @@ namespace Warframe
             return 0;
         }
         //获取多人起跳
-        public static Gizmo getMulJump(Pawn pawn) {
-            Command_CastSkillTargetingFloor command_Target = new Command_CastSkillTargetingFloor();
-            command_Target.self = pawn;
-            command_Target.targetingParams = WarframeStaticMethods.jumpTP();
-            command_Target.defaultLabel = "WarframeJumpGizmo.name".Translate();
-            command_Target.defaultDesc = "WarframeJumpGizmo.desc".Translate();
-            command_Target.range = 14f;
-            command_Target.icon = ContentFinder<Texture2D>.Get("Skills/Jump");
-            command_Target.cooldownTime = 60;
-            command_Target.hotKey = KeyBindingDefOf.Command_ItemForbid;
-            command_Target.disabled = !pawn.Drafted ||pawn.stances.stunner.Stunned;
+        public static Gizmo GetMulJump(Pawn pawn) {
+            Command_CastSkillTargetingFloor command_Target = new Command_CastSkillTargetingFloor
+            {
+                self = pawn,
+                targetingParams = JumpTP(),
+                defaultLabel = "WarframeJumpGizmo.name".Translate(),
+                defaultDesc = "WarframeJumpGizmo.desc".Translate(),
+                range = 14f,
+                icon = ContentFinder<Texture2D>.Get("Skills/Jump"),
+                cooldownTime = 60,
+                hotKey = KeyBindingDefOf.Command_ItemForbid,
+                disabled = !pawn.Drafted || pawn.stances.stunner.Stunned
+            };
 
             command_Target.action = delegate (Pawn p,LocalTargetInfo poc)
             {
                 IEnumerable<Pawn> enumerable = Find.Selector.SelectedObjects.Where(delegate (object x)
                 {
-                    Pawn pawn3 = x as Pawn;
-                    return pawn3 != null && pawn3.IsColonistPlayerControlled && pawn3.Drafted &&pawn3.isWarframe();
+                    return x is Pawn pawn3 && pawn3.IsColonistPlayerControlled && pawn3.Drafted && pawn3.IsWarframe();
                 }).Cast<Pawn>();
                 foreach (Pawn pawn2 in enumerable)
                 {
-                    if (WarframeStaticMethods.outRange(command_Target.range, pawn2, poc.Cell.ToVector3()))
+                    if (OutRange(command_Target.range, pawn2, poc.Cell.ToVector3()))
                     {
                         SoundDefOf.ClickReject.PlayOneShotOnCamera();
                         return;
@@ -576,7 +582,7 @@ namespace Warframe
                         Messages.Message("WFCantJumpToThere".Translate(), MessageTypeDefOf.RejectInput, false);
                         return;
                     }
-                    int jtype = getJumpType(pawn2,poc.Cell);
+                    int jtype = GetJumpType(pawn2,poc.Cell);
 
 
                     if (jtype == 0)
@@ -652,8 +658,7 @@ namespace Warframe
             command_Target.finishAction = delegate {
                 IEnumerable<Pawn> enumerable = Find.Selector.SelectedObjects.Where(delegate (object x)
                 {
-                    Pawn pawn3 = x as Pawn;
-                    return pawn3 != null && pawn3.IsColonistPlayerControlled && pawn3.Drafted && pawn3.isWarframe();
+                    return x is Pawn pawn3 && pawn3.IsColonistPlayerControlled && pawn3.Drafted && pawn3.IsWarframe();
                 }).Cast<Pawn>();
                 foreach (Pawn pawn2 in enumerable)
                     GenDraw.DrawRadiusRing(pawn2.Position, command_Target.range);//DrawFieldEdges(WarframeStaticMethods.getCellsAround(ck1.self.Position, ck1.self.Map, ck1.range));

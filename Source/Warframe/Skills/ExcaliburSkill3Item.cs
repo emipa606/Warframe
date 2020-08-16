@@ -25,9 +25,9 @@ namespace Warframe.Skills
         {
             base.ExposeData();
 
-            Scribe_Values.Look<int>(ref this.createdTick, "createdTick",0, false);
-            Scribe_Values.Look<float>(ref this.range, "range", 0, false);
-            Scribe_References.Look<Pawn>(ref this.self,"self",false);
+            Scribe_Values.Look<int>(ref createdTick, "createdTick",0, false);
+            Scribe_Values.Look<float>(ref range, "range", 0, false);
+            Scribe_References.Look<Pawn>(ref self,"self",false);
 
         }
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -42,12 +42,12 @@ namespace Warframe.Skills
         public override void Tick()
         {
             base.Tick();
-            if(Find.TickManager.TicksGame -60>= this.createdTick)
+            if(Find.TickManager.TicksGame -60>= createdTick)
             {
-                float damage = 120 + (8 * WarframeStaticMethods.getWFLevel(self) / 5);
+                float damage = 120 + (8 * WarframeStaticMethods.GetWFLevel(self) / 5);
 
 
-                foreach (IntVec3 iv in WarframeStaticMethods.getCellsAround(self.Position, self.Map, range))
+                foreach (IntVec3 iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, range))
                 {
                     foreach (Thing t in self.Map.thingGrid.ThingsAt(iv))
                     {
@@ -55,7 +55,7 @@ namespace Warframe.Skills
                         {
                             if ((t as Pawn) != self && (t as Pawn).Faction != self.Faction)
                             {
-                                WarframeStaticMethods.showDamageAmount(t, damage.ToString("f0"));
+                                WarframeStaticMethods.ShowDamageAmount(t, damage.ToString("f0"));
                                 // float totaldamage = 0;
                                 DamageInfo dinfo = new DamageInfo(DamageDefOf.Cut, damage, 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null);
                                 /*
@@ -84,7 +84,7 @@ namespace Warframe.Skills
                         }
                     }
                 }
-                this.Destroy(DestroyMode.Vanish);
+                Destroy(DestroyMode.Vanish);
 
 
             }

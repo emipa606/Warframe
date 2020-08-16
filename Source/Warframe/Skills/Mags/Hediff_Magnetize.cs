@@ -16,21 +16,21 @@ namespace Warframe.Skills.Mags
       
         public override void Tick()
         {
-            this.ageTicks++;
-            if(this.ageTicks> (600 * (1 + ((WarframeStaticMethods.getWFLevel(self) * 1.0f) / 60f)))   )
+            ageTicks++;
+            if(ageTicks> (600 * (1 + ((WarframeStaticMethods.GetWFLevel(self) * 1.0f) / 60f)))   )
             {
-                this.TimeOut();
+                TimeOut();
             }
 
             DrawHediffExtras();
 
             
             //GenDraw.DrawFieldEdges(this.CellsAdjacent8WayAndInsidePlus(this.pawn).ToList());
-            foreach (IntVec3 ic in this.CellsAdjacent8WayAndInsidePlus(this.pawn))
+            foreach (IntVec3 ic in CellsAdjacent8WayAndInsidePlus(pawn))
             {
-                if (ic == this.pawn.Position) continue;
+                if (ic == pawn.Position) continue;
 
-                foreach(Thing th in this.pawn.Map.thingGrid.ThingsAt(ic))
+                foreach(Thing th in pawn.Map.thingGrid.ThingsAt(ic))
                 {
                     if(th is Projectile )
                     {
@@ -44,12 +44,12 @@ namespace Warframe.Skills.Mags
 
                         th.Destroy();
                         
-                        Projectile projectile2 = (Projectile)GenSpawn.Spawn(bdef, this.pawn.Position, this.pawn.Map, WipeMode.Vanish);
+                        Projectile projectile2 = (Projectile)GenSpawn.Spawn(bdef, pawn.Position, pawn.Map, WipeMode.Vanish);
                         
                         ProjectileHitFlags projectileHitFlags = ProjectileHitFlags.All;
                         Thing gun = null;
                         if (pawn.equipment != null && pawn.equipment.Primary != null) gun = pawn.equipment.Primary;
-                        projectile2.Launch(self, this.pawn.Position.ToVector3(), this.pawn.Position, this.pawn, projectileHitFlags, gun, null);
+                        projectile2.Launch(self, pawn.Position.ToVector3(), pawn.Position, pawn, projectileHitFlags, gun, null);
                         
                     }
                 }
@@ -63,7 +63,7 @@ namespace Warframe.Skills.Mags
         // Token: 0x06004BF8 RID: 19448 RVA: 0x00232324 File Offset: 0x00230724
         private void TimeOut()
         {
-            this.pawn.health.RemoveHediff(this);
+            pawn.health.RemoveHediff(this);
         }
 
         private IEnumerable<IntVec3> CellsAdjacent8WayAndInsidePlus(Thing thing)
@@ -89,14 +89,14 @@ namespace Warframe.Skills.Mags
         {
             get
             {
-                return (600 * (1 + ((WarframeStaticMethods.getWFLevel(self) * 1.0f) / 60f)));
+                return (600 * (1 + ((WarframeStaticMethods.GetWFLevel(self) * 1.0f) / 60f)));
             }
         }
         public void DrawHediffExtras()
         {
 
             float num = 6f;//Mathf.Lerp(1.8f, 1.2f, (this.ageTicks)*1.0f/getMaxTick);
-                Vector3 vector = this.pawn.Drawer.DrawPos;
+                Vector3 vector = pawn.Drawer.DrawPos;
                 vector.y = AltitudeLayer.MoteOverhead.AltitudeFor();
 
                 float angle = (float)Rand.Range(0, 360);
@@ -112,7 +112,7 @@ namespace Warframe.Skills.Mags
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.self, "self", false);
+            Scribe_References.Look<Pawn>(ref self, "self", false);
         }
 
 

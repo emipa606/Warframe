@@ -20,18 +20,18 @@ namespace Warframe.Skills.Mags
         {
             get
             {
-                return this.ticks >= 60;
+                return ticks >= 60;
             }
         }
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.self,"self",false);
-            Scribe_Values.Look<int>(ref this.range,"range",0,false);
-            Scribe_Values.Look<int>(ref this.ticks, "ticks", 0, false);
-            Scribe_Values.Look<float>(ref this.damage, "damage", 0, false);
-            Scribe_Values.Look<IntVec3>(ref this.bombPos, "bombPos", default(IntVec3), false);
-            Scribe_Collections.Look<Pawn>(ref this.affected,"affected",LookMode.Reference, new object[0]);
+            Scribe_References.Look<Pawn>(ref self,"self",false);
+            Scribe_Values.Look<int>(ref range,"range",0,false);
+            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
+            Scribe_Values.Look<float>(ref damage, "damage", 0, false);
+            Scribe_Values.Look<IntVec3>(ref bombPos, "bombPos", default(IntVec3), false);
+            Scribe_Collections.Look<Pawn>(ref affected,"affected",LookMode.Reference, new object[0]);
 
 
         }
@@ -42,12 +42,12 @@ namespace Warframe.Skills.Mags
         public override void Tick()
         {
             base.Tick();
-            if (ticks > 240) this.Destroy();
-            if (!this.Spawned) return;
+            if (ticks > 240) Destroy();
+            if (!Spawned) return;
 
-            this.ticks++;
-            if (ticks == 59) { this.bombPos = this.self.Position;
-                this.affected = new List<Pawn>();
+            ticks++;
+            if (ticks == 59) { bombPos = self.Position;
+                affected = new List<Pawn>();
             }
 
            
@@ -55,16 +55,16 @@ namespace Warframe.Skills.Mags
             
             if (startBomb )
             {
-                GenDraw.DrawFieldEdges(this.MagNowCellsAround(this.bombPos, this.Map, this.range * ((this.ticks - 60) * 1f / 180f)),new Color(0.2f,0.8f,1));
+                GenDraw.DrawFieldEdges(MagNowCellsAround(bombPos, Map, range * ((ticks - 60) * 1f / 180f)),new Color(0.2f,0.8f,1));
 
-                foreach(IntVec3 ic in this.MagNowCellsAround(this.bombPos, this.Map, this.range * ((this.ticks-60) * 1f / 180f)))
+                foreach(IntVec3 ic in MagNowCellsAround(bombPos, Map, range * ((ticks-60) * 1f / 180f)))
                 {
-                    foreach(Thing th in this.Map.thingGrid.ThingsAt(ic))
+                    foreach(Thing th in Map.thingGrid.ThingsAt(ic))
                     {
                         if(th is Pawn)
                         {
                             Pawn pa = th as Pawn;
-                            if (this.affected.Contains(pa)||pa==self) continue;
+                            if (affected.Contains(pa)||pa==self) continue;
 
                             if (pa.Faction != self.Faction)
                             {
@@ -95,29 +95,29 @@ namespace Warframe.Skills.Mags
                                     }
                                     for (int j = 1; j < 9; j++)
                                     {
-                                        Projectile projectile2 = (Projectile)GenSpawn.Spawn(ThingDef.Named("Bullet_MagBullet"), pa.Position, this.Map, WipeMode.Vanish);
+                                        Projectile projectile2 = (Projectile)GenSpawn.Spawn(ThingDef.Named("Bullet_MagBullet"), pa.Position, Map, WipeMode.Vanish);
                                         ProjectileHitFlags projectileHitFlags = ProjectileHitFlags.All;
                                         Thing gun = null;
                                         if (pa.equipment != null && pa.equipment.Primary != null) gun = pa.equipment.Primary;
                                         
-                                        projectile2.Launch(self, pa.Position.ToVector3(), this.Map.cellsInRandomOrder.Get(j), pa, projectileHitFlags, gun, null);
+                                        projectile2.Launch(self, pa.Position.ToVector3(), Map.cellsInRandomOrder.Get(j), pa, projectileHitFlags, gun, null);
                                     }
                                 }
                                 pa.TakeDamage(dinfo);
-                                WarframeStaticMethods.showDamageAmount(pa, damage.ToString("f0"));
+                                WarframeStaticMethods.ShowDamageAmount(pa, damage.ToString("f0"));
                             }
-                            else if(pa.Faction==self.Faction && pa.isWarframe())
+                            else if(pa.Faction==self.Faction && pa.IsWarframe())
                             {
                                 try
                                 {
-                                    WarframeBelt wb = WarframeStaticMethods.getBelt(pa);
+                                    WarframeBelt wb = WarframeStaticMethods.GetBelt(pa);
                                     
-                                    wb.addEnergy(damage*(1 + pa.getLevel()/30f));
-                                    WarframeStaticMethods.showColorText(pa,"Shield+"+(damage * (1 + pa.getLevel() / 30f)).ToString("f0"),new Color(0.2f,0.4f,0.8f),GameFont.Small);
+                                    wb.AddEnergy(damage*(1 + pa.GetLevel()/30f));
+                                    WarframeStaticMethods.ShowColorText(pa,"Shield+"+(damage * (1 + pa.GetLevel() / 30f)).ToString("f0"),new Color(0.2f,0.4f,0.8f),GameFont.Small);
                                 }
                                 catch (Exception) { }
                             }
-                            this.affected.Add(pa);
+                            affected.Add(pa);
 
 
                         }

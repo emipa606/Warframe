@@ -21,17 +21,17 @@ namespace Warframe.Skills.Volts
         {
             get
             {
-                return this.ticks >= 60;
+                return ticks >= 60;
             }
         }
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref this.self,"self",false);
-            Scribe_Values.Look<int>(ref this.range,"range",0,false);
-            Scribe_Values.Look<int>(ref this.ticks, "ticks", 0, false);
-            Scribe_Values.Look<float>(ref this.damage, "damage", 0, false);
-            Scribe_Collections.Look<Pawn>(ref this.affected,"affected",LookMode.Reference, new object[0]);
+            Scribe_References.Look<Pawn>(ref self,"self",false);
+            Scribe_Values.Look<int>(ref range,"range",0,false);
+            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
+            Scribe_Values.Look<float>(ref damage, "damage", 0, false);
+            Scribe_Collections.Look<Pawn>(ref affected,"affected",LookMode.Reference, new object[0]);
 
 
         }
@@ -42,12 +42,12 @@ namespace Warframe.Skills.Volts
         public override void Tick()
         {
             base.Tick();
-            if (ticks > 240) this.Destroy(DestroyMode.Vanish);
-            if (!this.Spawned) return;
+            if (ticks > 240) Destroy(DestroyMode.Vanish);
+            if (!Spawned) return;
 
-            this.ticks++;
+            ticks++;
             if (ticks == 59) { 
-                this.affected = new List<Pawn>();
+                affected = new List<Pawn>();
             }
 
            
@@ -55,30 +55,30 @@ namespace Warframe.Skills.Volts
             
             if (startBomb )
             {
-                GenDraw.DrawFieldEdges(this.MagNowCellsAround(this.self.Position, this.Map, this.range * ((this.ticks - 60) * 1f / 180f)),new Color(0.4f,0.4f,0.8f));
+                GenDraw.DrawFieldEdges(MagNowCellsAround(self.Position, Map, range * ((ticks - 60) * 1f / 180f)),new Color(0.4f,0.4f,0.8f));
 
-                foreach(IntVec3 ic in this.MagNowCellsAround(this.self.Position, this.Map, this.range * ((this.ticks-60) * 1f / 180f)))
+                foreach(IntVec3 ic in MagNowCellsAround(self.Position, Map, range * ((ticks-60) * 1f / 180f)))
                 {
-                    foreach(Thing th in this.Map.thingGrid.ThingsAt(ic))
+                    foreach(Thing th in Map.thingGrid.ThingsAt(ic))
                     {
                         if(th is Pawn)
                         {
                             Pawn pa = th as Pawn;
-                            if (this.affected.Contains(pa)||pa==self) continue;
+                            if (affected.Contains(pa)||pa==self) continue;
 
                             if (pa.Faction.HostileTo(self.Faction))
                             {
                                 DamageInfo dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag",true),damage,0,-1,self,null,null,DamageInfo.SourceCategory.ThingOrUnknown,pa);
                                 pa.TakeDamage(dinfo);
                                 Hediff_Volt4Skill hediff_Magnetize = (Hediff_Volt4Skill)HediffMaker.MakeHediff(HediffDef.Named("Volt4Skill"), self, null);
-                                hediff_Magnetize.level = (int)self.getLevel();
+                                hediff_Magnetize.level = (int)self.GetLevel();
                                 hediff_Magnetize.damage = 3;
                                 (th as Pawn).health.AddHediff(hediff_Magnetize, null, null, null);
-                                WarframeStaticMethods.showDamageAmount(pa, damage.ToString("f0"));
-                                pa.stances.stunner.StunFor((int)(180 * (1+(self.getLevel()*1f/30f))),self);
+                                WarframeStaticMethods.ShowDamageAmount(pa, damage.ToString("f0"));
+                                pa.stances.stunner.StunFor((int)(180 * (1+(self.GetLevel()*1f/30f))),self);
                             }
 
-                            this.affected.Add(pa);
+                            affected.Add(pa);
 
 
                         }

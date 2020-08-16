@@ -15,12 +15,12 @@ namespace Warframe.Skills.Volts
         public float damage;
         public override void Tick()
         {
-            this.ageTicks++;
-            if(this.ageTicks> getMaxTick   )
+            ageTicks++;
+            if(ageTicks> getMaxTick   )
             {
-                this.TimeOut();
+                TimeOut();
             }
-            if(this.ageTicks%30==0)
+            if(ageTicks%30==0)
               DrawHediffExtras();
  
            
@@ -30,7 +30,7 @@ namespace Warframe.Skills.Volts
         // Token: 0x06004BF8 RID: 19448 RVA: 0x00232324 File Offset: 0x00230724
         private void TimeOut()
         {
-            this.pawn.health.RemoveHediff(this);
+            pawn.health.RemoveHediff(this);
         }
 
        
@@ -43,10 +43,10 @@ namespace Warframe.Skills.Volts
         }
         public void DrawHediffExtras()
         {
-            DamageInfo dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag",true),damage,0,-1,this.pawn,null,null,DamageInfo.SourceCategory.ThingOrUnknown,this.pawn);
-            this.pawn.TakeDamage(dinfo);
-            WarframeStaticMethods.showDamageAmount(pawn, damage.ToString("f0"));
-            MoteMaker.ThrowExplosionInteriorMote(new Vector3(this.pawn.TrueCenter().x,0,this.pawn.TrueCenter().z),this.pawn.Map,ThingDefOf.Mote_ShotHit_Spark);
+            DamageInfo dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag",true),damage,0,-1,pawn,null,null,DamageInfo.SourceCategory.ThingOrUnknown,pawn);
+            pawn.TakeDamage(dinfo);
+            WarframeStaticMethods.ShowDamageAmount(pawn, damage.ToString("f0"));
+            MoteMaker.ThrowExplosionInteriorMote(new Vector3(pawn.TrueCenter().x,0,pawn.TrueCenter().z),pawn.Map,ThingDefOf.Mote_ShotHit_Spark);
         }
 
 
@@ -54,8 +54,8 @@ namespace Warframe.Skills.Volts
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref this.level,"level",0,false);
-            Scribe_Values.Look<float>(ref this.damage, "damage", 0, false);
+            Scribe_Values.Look<int>(ref level,"level",0,false);
+            Scribe_Values.Look<float>(ref damage, "damage", 0, false);
         }
 
 

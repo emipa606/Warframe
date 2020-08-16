@@ -18,14 +18,14 @@ namespace Warframe
                 yield return gz;
             }
 
-            if (DebugSettings.godMode && this.curState==CraftState.Crafting)
+            if (DebugSettings.godMode && curState==CraftState.Crafting)
             {
                 yield return new Command_Action
                 {
                     defaultLabel = "Debug:Finish",
                     action = delegate
                     {
-                        this.curState = CraftState.Done;
+                        curState = CraftState.Done;
                     }
                 };
             }
@@ -44,33 +44,33 @@ namespace Warframe
         public override void Tick()
         {
             base.Tick();
-            if (this.curState==CraftState.Crafting && this.TryGetComp<CompPowerTrader>().PowerOn) {
-                if (this.TryGetComp<CompRefuelable>().Fuel >= this.fuelCost)
+            if (curState==CraftState.Crafting && this.TryGetComp<CompPowerTrader>().PowerOn) {
+                if (this.TryGetComp<CompRefuelable>().Fuel >= fuelCost)
                 {
-                    this.ticks++;
-                    if (this.ticks % 120 == 0)
+                    ticks++;
+                    if (ticks % 120 == 0)
                     {
-                        MoteMaker.ThrowMicroSparks(this.Position.ToVector3(),this.Map);
+                        MoteMaker.ThrowMicroSparks(Position.ToVector3(),Map);
                         //SoundDefOf.FloatMenu_Open.PlayOneShot(this);
                     }
-                    if (this.ticks >= this.oneDayTicks)
+                    if (ticks >= oneDayTicks)
                     {
-                        this.curState = CraftState.Done;
+                        curState = CraftState.Done;
                     }
                 }
             }
-            if (this.curState==CraftState.Done) {
-                this.ticks = 0;
-                Pawn pawn = WarframeStaticMethods.getWarframePawn(nowCraftKind);
-                IntVec3 loc = CellFinder.RandomClosewalkCellNear(this.Position, this.Map, 2, null);
-                Pawn pp = (Pawn)(GenSpawn.Spawn(pawn, loc, this.Map, WipeMode.Vanish));
+            if (curState==CraftState.Done) {
+                ticks = 0;
+                Pawn pawn = WarframeStaticMethods.GetWarframePawn(nowCraftKind);
+                IntVec3 loc = CellFinder.RandomClosewalkCellNear(Position, Map, 2, null);
+                Pawn pp = (Pawn)(GenSpawn.Spawn(pawn, loc, Map, WipeMode.Vanish));
                 SoundDefOf.TinyBell.PlayOneShotOnCamera();
-                this.TryGetComp<CompRefuelable>().ConsumeFuel(this.fuelCost);
-                this.nowCraftKind = null;
-                this.curState = CraftState.Stop;
-                this.Head = null;
-                this.Body = null;
-                this.Inside = null;
+                this.TryGetComp<CompRefuelable>().ConsumeFuel(fuelCost);
+                nowCraftKind = null;
+                curState = CraftState.Stop;
+                Head = null;
+                Body = null;
+                Inside = null;
             }
 
 
@@ -78,13 +78,13 @@ namespace Warframe
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<PawnKindDef>(ref this.nowCraftKind, "nowCraftKind");
-            Scribe_Values.Look<int>(ref this.ticks, "ticks", 0, false);
-            Scribe_Values.Look<Building_WarframeCrafter.CraftState>(ref this.curState,"curState",default(CraftState),false);
-            Scribe_Defs.Look<ThingDef>(ref this.Head,"Head");
-            Scribe_Defs.Look<ThingDef>(ref this.Body, "Body");
-            Scribe_Defs.Look<ThingDef>(ref this.Inside, "Inside");
-            Scribe_Values.Look<int>(ref this.fuelCost,"fuelCost",0,false);
+            Scribe_Defs.Look<PawnKindDef>(ref nowCraftKind, "nowCraftKind");
+            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
+            Scribe_Values.Look<Building_WarframeCrafter.CraftState>(ref curState,"curState",default(CraftState),false);
+            Scribe_Defs.Look<ThingDef>(ref Head,"Head");
+            Scribe_Defs.Look<ThingDef>(ref Body, "Body");
+            Scribe_Defs.Look<ThingDef>(ref Inside, "Inside");
+            Scribe_Values.Look<int>(ref fuelCost,"fuelCost",0,false);
 
         }
 
@@ -93,32 +93,32 @@ namespace Warframe
             String text = base.GetInspectString();
             StringBuilder sb = new StringBuilder();
             sb.Append(text);
-            if (this.nowCraftKind != null)
+            if (nowCraftKind != null)
             {
-                sb.Append("\n"+"WFCrafting".Translate()+":"+this.nowCraftKind.label);
+                sb.Append("\n"+"WFCrafting".Translate()+":"+nowCraftKind.label);
                 string part = "WFCAllPartDone".Translate();
-                if (this.Inside == null)
+                if (Inside == null)
                 {
-                    part= "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_"+this.nowCraftKind.defName.Replace("Warframe_","")+"_Inside").label});
-                    if (this.Body == null)
+                    part= "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_"+nowCraftKind.defName.Replace("Warframe_","")+"_Inside").label});
+                    if (Body == null)
                     {
-                        part = "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_" + this.nowCraftKind.defName.Replace("Warframe_", "") + "_Body").label });
-                        if (this.Head == null)
+                        part = "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_" + nowCraftKind.defName.Replace("Warframe_", "") + "_Body").label });
+                        if (Head == null)
                         {
-                            part = "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_" + this.nowCraftKind.defName.Replace("Warframe_", "") + "_Head").label });
+                            part = "PleaseInputWFPart".Translate(new object[] { ThingDef.Named("WFPart_" + nowCraftKind.defName.Replace("Warframe_", "") + "_Head").label });
                         }
                     }
                 }
                 sb.Append("\n"+part);
 
-                if (this.fuelCost > this.TryGetComp<CompRefuelable>().Fuel)
+                if (fuelCost > this.TryGetComp<CompRefuelable>().Fuel)
                 {
-                    sb.Append("\n"+"NeedMoreOrokinFuel".Translate(new object[] { this.TryGetComp<CompRefuelable>().Props.fuelFilter.AllowedThingDefs.ToList()[0].label})+":"+(this.fuelCost-this.TryGetComp<CompRefuelable>().Fuel));
+                    sb.Append("\n"+"NeedMoreOrokinFuel".Translate(new object[] { this.TryGetComp<CompRefuelable>().Props.fuelFilter.AllowedThingDefs.ToList()[0].label})+":"+(fuelCost-this.TryGetComp<CompRefuelable>().Fuel));
                 }
             }
-            if (this.curState == CraftState.Crafting)
+            if (curState == CraftState.Crafting)
             {
-                sb.Append("\n"+"WFCraftingTicks".Translate()+":"+(1.0f - (this.ticks*1.0f/this.oneDayTicks*1.0f)).ToString("f1")+ "DaysLower".Translate());
+                sb.Append("\n"+"WFCraftingTicks".Translate()+":"+(1.0f - (ticks*1.0f/oneDayTicks*1.0f)).ToString("f1")+ "DaysLower".Translate());
             }else
             {
                 if (DebugSettings.godMode)
@@ -157,14 +157,14 @@ namespace Warframe
             return Head != null && Body != null && Inside != null;
         }
         public ThingDef findNextPart() {
-            if (this.curState != CraftState.Filling) return null;
+            if (curState != CraftState.Filling) return null;
 
-            if (this.Head == null)
-                return ThingDef.Named("WFPart_" + this.nowCraftKind.defName.Replace("Warframe_", "") + "_Head");
-            if (this.Body == null)
-                return ThingDef.Named("WFPart_" + this.nowCraftKind.defName.Replace("Warframe_", "") + "_Body");
-            if (this.Inside == null)
-                return ThingDef.Named("WFPart_" + this.nowCraftKind.defName.Replace("Warframe_", "") + "_Inside");
+            if (Head == null)
+                return ThingDef.Named("WFPart_" + nowCraftKind.defName.Replace("Warframe_", "") + "_Head");
+            if (Body == null)
+                return ThingDef.Named("WFPart_" + nowCraftKind.defName.Replace("Warframe_", "") + "_Body");
+            if (Inside == null)
+                return ThingDef.Named("WFPart_" + nowCraftKind.defName.Replace("Warframe_", "") + "_Inside");
 
             return null;
         }
@@ -172,31 +172,31 @@ namespace Warframe
         {
             if (thing.def.defName.EndsWith("_Head"))
             {
-                this.Head = thing.def;
+                Head = thing.def;
             }
             if (thing.def.defName.EndsWith("_Body"))
             {
-                this.Body = thing.def;
+                Body = thing.def;
             }
             if (thing.def.defName.EndsWith("_Inside"))
             {
-                this.Inside = thing.def;
+                Inside = thing.def;
             }
         }
         public void tryDropAllParts() {
-            if (this.Head != null)
-             GenPlace.TryPlaceThing(ThingMaker.MakeThing(this.Head), this.Position,this.Map,ThingPlaceMode.Near);
-            if (this.Body != null)
-                GenPlace.TryPlaceThing(ThingMaker.MakeThing(this.Body), this.Position, this.Map, ThingPlaceMode.Near);
-            if (this.Inside != null)
-                GenPlace.TryPlaceThing(ThingMaker.MakeThing(this.Inside), this.Position, this.Map, ThingPlaceMode.Near);
+            if (Head != null)
+             GenPlace.TryPlaceThing(ThingMaker.MakeThing(Head), Position,Map,ThingPlaceMode.Near);
+            if (Body != null)
+                GenPlace.TryPlaceThing(ThingMaker.MakeThing(Body), Position, Map, ThingPlaceMode.Near);
+            if (Inside != null)
+                GenPlace.TryPlaceThing(ThingMaker.MakeThing(Inside), Position, Map, ThingPlaceMode.Near);
         }
         public PawnKindDef nowCraftKind = null;
 
         public CraftState curState = CraftState.Stop;
         public int ticks=0;
         public int fuelCost = 0;
-        private int oneDayTicks = 60000;
+        private readonly int oneDayTicks = 60000;
         public ThingDef Head;
         public ThingDef Body;
         public ThingDef Inside;

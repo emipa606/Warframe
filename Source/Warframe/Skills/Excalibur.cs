@@ -14,26 +14,28 @@ namespace Warframe.Skills
         //咖喱技能1
         public static Command_CastSkillTargeting Skill1()
         {
-            Command_CastSkillTargeting ck = new Command_CastSkillTargeting();
-            ck.defaultLabel = "ExcaliburSkill1.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill1");
-            ck.targetingParams= WarframeStaticMethods.onlyPawn(); 
-            ck.cooldownTime = 0.2f;
-            ck.range = 10f;
+            Command_CastSkillTargeting ck = new Command_CastSkillTargeting
+            {
+                defaultLabel = "ExcaliburSkill1.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill1"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 10f
+            };
             ck.finishAction = delegate {
-                GenDraw.DrawFieldEdges(WarframeStaticMethods.getCellsAround(ck.self.Position, ck.self.Map, ck.range));
+                GenDraw.DrawFieldEdges(WarframeStaticMethods.GetCellsAround(ck.self.Position, ck.self.Map, ck.range));
             };
             ck.hotKey = KeyBindingDefOf.Misc5;
             ck.action = delegate (Pawn self, Thing target)
             {
               
                 // GenExplosion.DoExplosion(self.Position, self.Map, 3.5f, DamageDefOf.Bomb, self, -1, -1, null, null, null, null, null, 0, 1, false, null, 0, 1, 0, false);
-                if (!WarframeStaticMethods.getCellsAround(self.Position, self.Map, ck.range).Contains(target.Position))
+                if (!WarframeStaticMethods.GetCellsAround(self.Position, self.Map, ck.range).Contains(target.Position))
                 {
                     SoundDefOf.ClickReject.PlayOneShotOnCamera();
                     return;
                 }
-                List < Pawn > linec= WarframeStaticMethods.getLineCell(self,target);
+                List < Pawn > linec= WarframeStaticMethods.GetLineCell(self,target);
                 if (linec == null)
                 {
                     Messages.Message("BeBlockedByBuilding".Translate(),MessageTypeDefOf.RejectInput,false);
@@ -49,19 +51,19 @@ namespace Warframe.Skills
                     self.jobs.curDriver.Notify_PatherArrived();
                 }
                 SoundDef.Named("Excalibur_SlashDash").PlayOneShot(self);
-                float damage = 30 + (2 * WarframeStaticMethods.getWFLevel(self) / 5);
+                float damage = 30 + (2 * WarframeStaticMethods.GetWFLevel(self) / 5);
                 DamageInfo dinfo = new DamageInfo(DamageDefOf.Cut, damage, 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, target);
                 foreach (Pawn p in linec)
                 {
                     if (p.Faction != self.Faction)
                     {
-                        WarframeStaticMethods.showDamageAmount(p, damage.ToString("f0"));
+                        WarframeStaticMethods.ShowDamageAmount(p, damage.ToString("f0"));
                         p.TakeDamage(dinfo);
                     }
                 }
 
                // WarframeStaticMethods.showDamageAmount(self, damage.ToString("f0"));
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 1, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().Props.mana1);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 1, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().Props.mana1);
 
 
             };
@@ -74,19 +76,21 @@ namespace Warframe.Skills
         //咖喱技能2
         public static Command_CastSkill Skill2()
         {
-            Command_CastSkill ck = new Command_CastSkill();
-            ck.defaultLabel = "ExcaliburSkill2.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill2");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 0.2f;
-            ck.range = 18f;
-            ck.hotKey = KeyBindingDefOf.Misc8;
+            Command_CastSkill ck = new Command_CastSkill
+            {
+                defaultLabel = "ExcaliburSkill2.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill2"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 18f,
+                hotKey = KeyBindingDefOf.Misc8
+            };
             ck.action = delegate (Pawn self)
             {
 
                 
                 SoundDef.Named("Excalibur_RadialBlind").PlayOneShot(self);
-                foreach(IntVec3 iv in WarframeStaticMethods.getCellsAround(self.Position, self.Map, ck.range))
+                foreach(IntVec3 iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, ck.range))
                 {
                    foreach(Thing t in self.Map.thingGrid.ThingsAt(iv))
                     {
@@ -95,7 +99,7 @@ namespace Warframe.Skills
                             if ((t as Pawn) != self)
                             {
                                 if ((t as Pawn).Faction != self.Faction)
-                                    (t as Pawn).stances.stunner.StunFor((int)(7f * 60f * (1f + WarframeStaticMethods.getWFLevel(self) / 30f)), self);
+                                    (t as Pawn).stances.stunner.StunFor((int)(7f * 60f * (1f + WarframeStaticMethods.GetWFLevel(self) / 30f)), self);
                             }
                             else
                                 self.stances.stunner.StunFor(60, self);
@@ -112,7 +116,7 @@ namespace Warframe.Skills
                     GenSpawn.Spawn(mote, self.Position+new IntVec3(0,1,0), self.Map, WipeMode.Vanish);
                 }
 
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 2, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().Props.mana2);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 2, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().Props.mana2);
 
 
             };
@@ -126,13 +130,15 @@ namespace Warframe.Skills
         //咖喱技能3
         public static Command_CastSkill Skill3()
         {
-            Command_CastSkill ck = new Command_CastSkill();
-            ck.defaultLabel = "ExcaliburSkill3.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill3");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 0.2f;
-            ck.range = 18f;
-            ck.hotKey = KeyBindingDefOf.Misc4;
+            Command_CastSkill ck = new Command_CastSkill
+            {
+                defaultLabel = "ExcaliburSkill3.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill3"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 18f,
+                hotKey = KeyBindingDefOf.Misc4
+            };
             ck.action = delegate (Pawn self)
             {
                 /*
@@ -203,7 +209,7 @@ namespace Warframe.Skills
                 
                 thing.createdTick = Find.TickManager.TicksGame;
                 GenSpawn.Spawn(thing,self.Position,self.Map);
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 3, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().Props.mana3);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 3, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().Props.mana3);
 
 
             };
@@ -216,18 +222,20 @@ namespace Warframe.Skills
         //咖喱技能4
         public static Command_CastSkill Skill4()
         {
-            Command_CastSkill ck = new Command_CastSkill();
-            ck.defaultLabel = "ExcaliburSkill4.name".Translate();
-            ck.icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill4");
-            ck.targetingParams = WarframeStaticMethods.onlyPawn();
-            ck.cooldownTime = 0.2f;
-            ck.range = 1f;
-            ck.hotKey = KeyBindingDefOf.Misc7;
-           // WarframeArmor sa = WarframeStaticMethods.getArmor(ck.self);
-           
+            Command_CastSkill ck = new Command_CastSkill
+            {
+                defaultLabel = "ExcaliburSkill4.name".Translate(),
+                icon = ContentFinder<Texture2D>.Get("Skills/ExcaliburSkill4"),
+                targetingParams = WarframeStaticMethods.OnlyPawn(),
+                cooldownTime = 0.2f,
+                range = 1f,
+                hotKey = KeyBindingDefOf.Misc7
+            };
+            // WarframeArmor sa = WarframeStaticMethods.getArmor(ck.self);
+
             ck.action = delegate (Pawn self)
             {
-                WarframeArmor wa = WarframeStaticMethods.getArmor(self);
+                WarframeArmor wa = WarframeStaticMethods.GetArmor(self);
                 if (wa.tillSkillOpen > 0)
                 {
                     EndSkill4(self);
@@ -256,7 +264,7 @@ namespace Warframe.Skills
                 self.equipment.AddEquipment((ThingWithComps)ThingMaker.MakeThing(ThingDef.Named("Excalibur_SkillBlade")));
                 self.stances.stunner.StunFor(60,self);
 
-                WarframeStaticMethods.startCooldown(self, ck.cooldownTime, 4, WarframeStaticMethods.getArmor(self).TryGetComp<CompWarframeSkill>().Props.mana4);
+                WarframeStaticMethods.StartCooldown(self, ck.cooldownTime, 4, WarframeStaticMethods.GetArmor(self).TryGetComp<CompWarframeSkill>().Props.mana4);
 
 
             };
@@ -268,7 +276,7 @@ namespace Warframe.Skills
         //咖喱4结束action
         public static void EndSkill4(Pawn self) {
             SoundDef.Named("Excalibur_ExaltedBladeOff").PlayOneShot(self);
-            WarframeArmor wa = WarframeStaticMethods.getArmor(self);
+            WarframeArmor wa = WarframeStaticMethods.GetArmor(self);
             self.equipment.Remove(self.equipment.Primary);//.Primary.Destroy(DestroyMode.Vanish);
             ThingWithComps gun = null;
             try

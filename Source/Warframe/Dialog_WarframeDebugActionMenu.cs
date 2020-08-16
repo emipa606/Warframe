@@ -8,14 +8,14 @@ namespace Warframe
 {
     public class Dialog_WarframeDebugActionMenu : Dialog_DebugActionsMenu
     {
-        private void giveLevel()
+        private void GiveLevel()
         {
             Map map = Find.CurrentMap;
             foreach(Thing th in map.thingGrid.ThingsAt(UI.MouseCell()))
             {
                 if(th is Pawn)
                 {
-                    if((th as Pawn).isWarframe())
+                    if((th as Pawn).IsWarframe())
                     {
                         (th as Pawn).records.AddTo(RecordDefOf.KillsHumanlikes,150);
                     }
@@ -37,20 +37,19 @@ namespace Warframe
             {
                 return;
             }
-            base.DoGap();
-            base.DoLabel("Tools - Warframe");
-            base.DebugToolMap("Apply: Warframe 30Level", delegate
+            DoGap();
+            DoLabel("Tools - Warframe");
+            DebugToolMap("Apply: Warframe 30Level", delegate
             {
-                this.giveLevel();
+                GiveLevel();
             });
-            base.DebugToolMap("Apply: Max Sp", delegate
+            DebugToolMap("Apply: Max Sp", delegate
             {
                 foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
                 {
-                    Pawn pawn = thing as Pawn;
-                    if (pawn != null && (pawn.isWarframe()))
+                    if (thing is Pawn pawn && (pawn.IsWarframe()))
                     {
-                        WarframeBelt wb =  WarframeStaticMethods.getBelt(pawn);
+                        WarframeBelt wb = WarframeStaticMethods.GetBelt(pawn);
                         wb.SP += 9999;
                     }
                 }

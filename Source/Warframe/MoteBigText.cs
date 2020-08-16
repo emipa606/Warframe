@@ -10,10 +10,10 @@ namespace Warframe
     {
         public override void DrawGUIOverlay()
         {
-            float a = 1f - (base.AgeSecs - this.TimeBeforeStartFadeout) / this.def.mote.fadeOutTime;
-            Color color = new Color(this.textColor.r, this.textColor.g, this.textColor.b, a);
+            float a = 1f - (AgeSecs - TimeBeforeStartFadeout) / def.mote.fadeOutTime;
+            Color color = new Color(textColor.r, textColor.g, textColor.b, a);
            // GenMapUI.DrawText(new Vector2(this.exactPosition.x, this.exactPosition.z), this.text, color);
-            Vector2 worldPos = new Vector2(this.exactPosition.x, this.exactPosition.z);
+            Vector2 worldPos = new Vector2(exactPosition.x, exactPosition.z);
 
             Vector3 position = new Vector3(worldPos.x, 0f, worldPos.y);
             Vector2 vector = Find.Camera.WorldToScreenPoint(position) / Prefs.UIScale;

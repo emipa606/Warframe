@@ -18,8 +18,8 @@ namespace Warframe
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look(ref this.ControlCellAndBeControler, "ControlCellAndBeControler", LookMode.Reference, LookMode.Reference);
-            Scribe_Collections.Look(ref this.BeControlerAndControlCell, "BeControlerAndControlCell", LookMode.Reference, LookMode.Reference);
+            Scribe_Collections.Look(ref ControlCellAndBeControler, "ControlCellAndBeControler", LookMode.Reference, LookMode.Reference);
+            Scribe_Collections.Look(ref BeControlerAndControlCell, "BeControlerAndControlCell", LookMode.Reference, LookMode.Reference);
            // Scribe_Collections.Look(ref this.WarframeAndOldgun, "WarframeAndOldgun", LookMode.Reference, LookMode.Reference);
         }
         /*

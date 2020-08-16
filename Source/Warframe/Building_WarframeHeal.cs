@@ -15,36 +15,36 @@ namespace Warframe
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.ticks = 0;
+            ticks = 0;
 
         }
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref this.ticks,"ticks",0,false);
+            Scribe_Values.Look<int>(ref ticks,"ticks",0,false);
         }
         public override void Tick()
         {
             base.Tick();
             if (!this.TryGetComp<CompPowerTrader>().PowerOn) return;
 
-            if (this.ticks < 600)
+            if (ticks < 600)
             {
 
-                this.ticks++;
+                ticks++;
             }else
             {
                 healWarframe();
-                this.ticks = 0;
+                ticks = 0;
 
             }
         }
         private void healWarframe() {
-           foreach(Thing thing in this.Map.thingGrid.ThingsAt(this.Position))
+           foreach(Thing thing in Map.thingGrid.ThingsAt(Position))
             {
                 if(thing is Pawn)
                 {
-                    if((thing as Pawn).isWarframe())
+                    if((thing as Pawn).IsWarframe())
                     {
                         
                             Pawn p = thing as Pawn;
@@ -55,7 +55,7 @@ namespace Warframe
                                  select x).TryRandomElement(out hediff_Injury))
                             {
                                 hediff_Injury.Heal(10f);
-                                WarframeStaticMethods.showColorText(p, "HP+10", new Color(0.2f, 1, 0.1f), GameFont.Medium);
+                                WarframeStaticMethods.ShowColorText(p, "HP+10", new Color(0.2f, 1, 0.1f), GameFont.Medium);
                             }
                             
                             break;

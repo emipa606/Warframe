@@ -13,12 +13,12 @@ namespace Warframe
         public Window_CraftWarframe(Building_WarframeCrafter WFCraft)
         {
             this.WFCraft = WFCraft;
-			this.nowWarframeKind = PawnKindDef.Named("Warframe_Excalibur");
-            this.newWF = this.getNewWF();
-            this.RefreshCosts();
+			nowWarframeKind = PawnKindDef.Named("Warframe_Excalibur");
+            newWF = getNewWF();
+            RefreshCosts();
         }
 
-        private Building_WarframeCrafter WFCraft;
+        private readonly Building_WarframeCrafter WFCraft;
         private PawnKindDef nowWarframeKind;
         public bool refreshWarframePortrait = false;
         private Pawn newWF;
@@ -28,29 +28,31 @@ namespace Warframe
         public override void DoWindowContents(Rect inRect)
         {
            
-            bool flag = this.refreshWarframePortrait;
+            bool flag = refreshWarframePortrait;
             if (flag)
             {
                // this.newWF.Drawer.renderer.graphics.ResolveAllGraphics();
                // PortraitsCache.SetDirty(this.newWF);
               //  PortraitsCache.PortraitsCacheUpdate();
-                this.refreshWarframePortrait = false;
+                refreshWarframePortrait = false;
             }
-            
-           Rect rect27 = new Rect(inRect);
-           rect27.width = 240f + 16f;
-           rect27.height = 200f + 16f;
-           rect27 = rect27.CenteredOnXIn(inRect);
+
+            Rect rect27 = new Rect(inRect)
+            {
+                width = 240f + 16f,
+                height = 200f + 16f
+            };
+            rect27 = rect27.CenteredOnXIn(inRect);
            rect27 = rect27.CenteredOnYIn(inRect);
            rect27.x -= 88f;
            rect27.y -= 32f;
-           bool flag1 = this.newWF != null;
+           bool flag1 = newWF != null;
            if (flag1)
            {
 
                 //picture
                 Rect position = rect27;//new Rect(rect27.xMin + (rect27.width - 200) / 2f - 10f, rect27.yMin + 20f, 200, 200);
-                GUI.DrawTexture(position, ContentFinder<Texture2D>.Get("WFPicture/"+this.nowWarframeKind.defName.Replace("Warframe_","")),ScaleMode.ScaleToFit);
+                GUI.DrawTexture(position, ContentFinder<Texture2D>.Get("WFPicture/"+nowWarframeKind.defName.Replace("Warframe_","")),ScaleMode.ScaleToFit);
                 //  Widgets.InfoCardButton(position.xMax - 16f, position.y, this.newWF);
 
                 Rect rectsk = new Rect(rect27.x+rect27.width+16,rect27.y,50,50);
@@ -58,12 +60,12 @@ namespace Warframe
                 for (int i = 0; i < 4; i++)
                 {
                     Rect arect = new Rect(rectsk.x,rectsk.y+(i*54f),50,50);
-                    Widgets.ButtonImage(arect, ContentFinder<Texture2D>.Get("Skills/" + this.nowWarframeKind.defName.Replace("Warframe_", "") + "Skill"+(i+1)));
+                    Widgets.ButtonImage(arect, ContentFinder<Texture2D>.Get("Skills/" + nowWarframeKind.defName.Replace("Warframe_", "") + "Skill"+(i+1)));
                     Rect trect = new Rect(recttx.x, recttx.y + (i * 54f), 160, 50);
                     Text.Font=GameFont.Medium;
-                    Widgets.Label(trect,(this.nowWarframeKind.defName.Replace("Warframe_", "")+"Skill"+(i+1)+".name").Translate());
+                    Widgets.Label(trect,(nowWarframeKind.defName.Replace("Warframe_", "")+"Skill"+(i+1)+".name").Translate());
                     Text.Font = GameFont.Small;
-                    TooltipHandler.TipRegion(arect, (this.nowWarframeKind.defName.Replace("Warframe_", "") + "Skill" + (i + 1) + ".desc").Translate());
+                    TooltipHandler.TipRegion(arect, (nowWarframeKind.defName.Replace("Warframe_", "") + "Skill" + (i + 1) + ".desc").Translate());
 
                 }
                 //title
@@ -78,14 +80,14 @@ namespace Warframe
                 Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 Rect rect10 = new Rect(0 + 120, inRect.height * 0.75f, 240f, 24f);
-                bool flag16 = Widgets.ButtonText(rect10, this.nowWarframeKind.label, true, false, true);
+                bool flag16 = Widgets.ButtonText(rect10, nowWarframeKind.label, true, false, true);
                 if (flag16)
                 {
-                    FloatMenuUtility.MakeMenu<PawnKindDef>(WarframeStaticMethods.getAllWarframeKind(), (PawnKindDef Kind) => Kind.label, (PawnKindDef Kind) => delegate
+                    FloatMenuUtility.MakeMenu<PawnKindDef>(WarframeStaticMethods.GetAllWarframeKind(), (PawnKindDef Kind) => Kind.label, (PawnKindDef Kind) => delegate
                     {
-                        this.nowWarframeKind = Kind;
-                        this.newWF = this.getNewWF();
-                        this.RefreshCosts();
+                        nowWarframeKind = Kind;
+                        newWF = getNewWF();
+                        RefreshCosts();
                     });
 
                 }
@@ -102,19 +104,19 @@ namespace Warframe
                 bool flag14 = Widgets.ButtonText(rect9, "WarframeStartCraft".Translate(), true, false, true);
                if (flag14)
                {
-                    this.WFCraft.nowCraftKind = this.nowWarframeKind;
+                    WFCraft.nowCraftKind = nowWarframeKind;
 
-                    this.WFCraft.tryDropAllParts();
-                    this.WFCraft.fuelCost = this.fuelCost;
-                    this.WFCraft.curState = Building_WarframeCrafter.CraftState.Filling;
-                    this.Close(true);
+                    WFCraft.tryDropAllParts();
+                    WFCraft.fuelCost = fuelCost;
+                    WFCraft.curState = Building_WarframeCrafter.CraftState.Filling;
+                    Close(true);
                }
 
                 Rect recttime = new Rect(rect9.x,rect9.y-60,30,30);
                 Widgets.ButtonImage(recttime, ContentFinder<Texture2D>.Get("UI/Icons/ColonistBar/Idle", true));
                 Rect recttimec = new Rect(recttime.x+30,recttime.y,30,30);
                 Text.Font = GameFont.Small;
-                Widgets.Label(recttimec,this.timeCost+ "DaysLower".Translate());
+                Widgets.Label(recttimec,timeCost+ "DaysLower".Translate());
                 TooltipHandler.TipRegion(recttime, "Time Cost");
 
 
@@ -130,7 +132,7 @@ namespace Warframe
                         case 2: nowpart = "_Inside"; break;
 
                     }
-                    ThingDef apartDef = ThingDef.Named("WFPart_" + this.nowWarframeKind.defName.Replace("Warframe_", "") + nowpart);
+                    ThingDef apartDef = ThingDef.Named("WFPart_" + nowWarframeKind.defName.Replace("Warframe_", "") + nowpart);
                     Widgets.ButtonImage(rrrect, apartDef.uiIcon);
                     TooltipHandler.TipRegion(rrrect, apartDef.label+"\n"+apartDef.description);
                 }
@@ -143,14 +145,14 @@ namespace Warframe
 
                 Text.Font = GameFont.Small;
                 Rect costRect = new Rect(fuelRect.x + 30, fuelRect.y, 30, 30);
-                Widgets.Label(costRect, this.fuelCost + "");
+                Widgets.Label(costRect, fuelCost + "");
                 TooltipHandler.TipRegion(costRect,ocpartDef.label+"\n"+ocpartDef.description);
 
                 bool flag4 = Widgets.CloseButtonFor(new Rect(inRect.width-30,0,30,30));
                 if (flag4)
                 {
                    
-                    this.Close(true);
+                    Close(true);
                 }
 
                  
@@ -163,12 +165,12 @@ namespace Warframe
 
         public void RefreshCosts()
         {
-            this.timeCost = 1;
-            this.fuelCost = WarframeStaticMethods.getCraftCost(this.nowWarframeKind);
+            timeCost = 1;
+            fuelCost = WarframeStaticMethods.GetCraftCost(nowWarframeKind);
         }
 
         private Pawn getNewWF() {
-            return WarframeStaticMethods.getWarframePawn(this.nowWarframeKind);
+            return WarframeStaticMethods.GetWarframePawn(nowWarframeKind);
         }
 
     }

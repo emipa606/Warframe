@@ -15,14 +15,14 @@ namespace Warframe
         {
             get
             {
-                if (this.cachedMat == null)
+                if (cachedMat == null)
                 {
 
                     Color color = Color.magenta;
                     
-                    this.cachedMat = MaterialPool.MatFrom(this.def.texture, ShaderDatabase.WorldOverlayTransparentLit, color, WorldMaterials.WorldObjectRenderQueue);
+                    cachedMat = MaterialPool.MatFrom(def.texture, ShaderDatabase.WorldOverlayTransparentLit, color, WorldMaterials.WorldObjectRenderQueue);
                 }
-                return this.cachedMat;
+                return cachedMat;
             }
         }
 
@@ -41,10 +41,10 @@ namespace Warframe
             float num = chance*1f/100f;
             if (num <= BaseWeight_Success)
             {
-                this.Outcome_Success(caravan);
+                Outcome_Success(caravan);
             }else
             {
-                this.Outcome_Fail(caravan);
+                Outcome_Fail(caravan);
             }
        
 
@@ -73,8 +73,8 @@ namespace Warframe
         {
             return CaravanArrivalActionUtility.GetFloatMenuOptions<CaravanArrivalAction_VoidSon>(() => CaravanArrivalAction_VoidSon.CanVisit(caravan, this), () => new CaravanArrivalAction_VoidSon(this), "VisitVoidSon".Translate(new object[]
             {
-                this.Label
-            }), caravan, this.Tile, this);
+                Label
+            }), caravan, Tile, this);
         }
 
 
@@ -82,10 +82,10 @@ namespace Warframe
 
         private void Outcome_Fail(Caravan caravan)
         {
-            Find.LetterStack.ReceiveLetter("LetterLabelVoidSon_Fail".Translate(), this.GetLetterText("LetterVoidSon_Fail".Translate(new object[]
+            Find.LetterStack.ReceiveLetter("LetterLabelVoidSon_Fail".Translate(), GetLetterText("LetterVoidSon_Fail".Translate(new object[]
             {
                 caravan.pawns[0].LabelCap
-            }), caravan), LetterDefOf.NeutralEvent, caravan, base.Faction, null);
+            }), caravan), LetterDefOf.NeutralEvent, caravan, Faction, null);
         }
 
         // Token: 0x06001F46 RID: 8006 RVA: 0x000F2028 File Offset: 0x000F0428
@@ -94,10 +94,10 @@ namespace Warframe
             caravan.pawns[0].story.traits.GainTrait(new Trait(TraitDef.Named("Warframe_Trait")));
 
             
-            Find.LetterStack.ReceiveLetter("LetterLabelVoidSon_Success".Translate(), this.GetLetterText("LetterVoidSon_Success".Translate(new object[]
+            Find.LetterStack.ReceiveLetter("LetterLabelVoidSon_Success".Translate(), GetLetterText("LetterVoidSon_Success".Translate(new object[]
             {
                  caravan.pawns[0].LabelCap
-            }), caravan), LetterDefOf.PositiveEvent, caravan, base.Faction, null);
+            }), caravan), LetterDefOf.PositiveEvent, caravan, Faction, null);
         }
 
 

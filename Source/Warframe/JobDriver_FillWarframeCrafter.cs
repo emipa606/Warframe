@@ -11,7 +11,7 @@ namespace Warframe
         // Token: 0x060000F3 RID: 243 RVA: 0x00003C68 File Offset: 0x00001E68
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, true);
+            return pawn.Reserve(job.targetA, job, 1, -1, null, true);
         }
 
         // Token: 0x1700001B RID: 27
@@ -20,7 +20,7 @@ namespace Warframe
         {
             get
             {
-                return (Building_WarframeCrafter)this.job.GetTarget(TargetIndex.A).Thing;
+                return (Building_WarframeCrafter)job.GetTarget(TargetIndex.A).Thing;
             }
         }
 
@@ -30,7 +30,7 @@ namespace Warframe
         {
             get
             {
-                return this.job.GetTarget(TargetIndex.B).Thing;
+                return job.GetTarget(TargetIndex.B).Thing;
             }
         }
 
@@ -51,9 +51,9 @@ namespace Warframe
             {
                 initAction = delegate
                 {
-                    this.bwc.AddPart(this.part);
-                    if (this.bwc.allPartAlready()) this.bwc.curState = Building_WarframeCrafter.CraftState.Crafting;
-                    this.pawn.carryTracker.innerContainer.Remove(this.part);
+                    bwc.AddPart(part);
+                    if (bwc.allPartAlready()) bwc.curState = Building_WarframeCrafter.CraftState.Crafting;
+                    pawn.carryTracker.innerContainer.Remove(part);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

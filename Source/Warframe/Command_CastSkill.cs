@@ -16,7 +16,7 @@ namespace Warframe
         base.ProcessInput(ev);
         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
           
-                this.action(self);
+                action(self);
         
      }
 

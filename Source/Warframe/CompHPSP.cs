@@ -12,7 +12,7 @@ namespace Warframe
         {
             get
             {
-                return (CompProperties_HPSP)base.props;
+                return (CompProperties_HPSP)props;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.HP;
+                return Props.HP;
             }
 
         }
@@ -31,7 +31,7 @@ namespace Warframe
         {
             get
             {
-                return this.Props.SP;
+                return Props.SP;
             }
 
         }

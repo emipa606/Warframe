@@ -28,7 +28,7 @@ namespace Warframe
             {
                 return "VisitVoidSon".Translate(new object[]
                 {
-                    this.peaceTalks.Label
+                    peaceTalks.Label
                 });
             }
         }
@@ -41,7 +41,7 @@ namespace Warframe
             {
                 return "CaravanVisiting".Translate(new object[]
                 {
-                    this.peaceTalks.Label
+                    peaceTalks.Label
                 });
             }
         }
@@ -54,24 +54,24 @@ namespace Warframe
             {
                 return floatMenuAcceptanceReport;
             }
-            if (this.peaceTalks != null && this.peaceTalks.Tile != destinationTile)
+            if (peaceTalks != null && peaceTalks.Tile != destinationTile)
             {
                 return false;
             }
-            return CanVisit(caravan, this.peaceTalks);
+            return CanVisit(caravan, peaceTalks);
         }
 
         // Token: 0x06001D52 RID: 7506 RVA: 0x000DF422 File Offset: 0x000DD822
         public override void Arrived(Caravan caravan)
         {
-            this.peaceTalks.Notify_CaravanArrived(caravan);
+            peaceTalks.Notify_CaravanArrived(caravan);
         }
 
         // Token: 0x06001D53 RID: 7507 RVA: 0x000DF430 File Offset: 0x000DD830
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<WorldObject_VoidSon>(ref this.peaceTalks, "peaceTalks", false);
+            Scribe_References.Look<WorldObject_VoidSon>(ref peaceTalks, "peaceTalks", false);
         }
 
         // Token: 0x06001D54 RID: 7508 RVA: 0x000DF449 File Offset: 0x000DD849

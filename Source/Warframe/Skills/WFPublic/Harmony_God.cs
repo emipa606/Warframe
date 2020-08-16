@@ -20,14 +20,13 @@ namespace Warframe.Skills.WFPublic
 
             if(__instance is Pawn)
             {
-                Pawn wf = __instance as Pawn;
-                if(wf!=null&& wf.isWarframe())
+                if (__instance is Pawn wf && wf.IsWarframe())
                 {
                     foreach (Hediff hed in wf.health.hediffSet.hediffs)
                     {
                         if (hed.def.defName == "WFGod")
                         {
-                            __result=new DamageWorker.DamageResult();
+                            __result = new DamageWorker.DamageResult();
                             return false;
                         }
                     }

@@ -13,7 +13,7 @@ namespace Warframe
         protected override bool CanFireNowSub(IncidentParms parms)
         {
             int num;
-            return base.CanFireNowSub(parms)  && this.TryFindTile(out num);
+            return base.CanFireNowSub(parms)  && TryFindTile(out num);
         }
 
         // Token: 0x06000F09 RID: 3849 RVA: 0x0006F2D0 File Offset: 0x0006D6D0
@@ -21,7 +21,7 @@ namespace Warframe
         {
 
             int tile;
-            if (!this.TryFindTile(out tile))
+            if (!TryFindTile(out tile))
             {
                 return false;
             }
@@ -31,7 +31,7 @@ namespace Warframe
             voidSon.GetComponent<TimeoutComp>().StartTimeout(randomInRange * 60000);
             Find.WorldObjects.Add(voidSon);
             string text = "VoidSonWOBJText".Translate(new object[]{ randomInRange});//string.Format(randomInRange).CapitalizeFirst();
-            Find.LetterStack.ReceiveLetter("VoidSon.text".Translate(), text, this.def.letterDef, voidSon, null, null);
+            Find.LetterStack.ReceiveLetter("VoidSon.text".Translate(), text, def.letterDef, voidSon, null, null);
             return true;
         }
 
