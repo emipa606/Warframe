@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <EnterControlCell.reportString>Enter Control Cell</EnterControlCell.reportString>
-  <JobFillWFC.reportString>hauling TargetA.</JobFillWFC.reportString>
-  <WFWait.reportString>standing.</WFWait.reportString>
-
+  <!--<EnterControlCell.reportString>Enter Control Cell</EnterControlCell.reportString>-->
+  <!--<JobFillWFC.reportString>hauling TargetA.</JobFillWFC.reportString>-->
+  <!--<WFWait.reportString>standing.</WFWait.reportString>-->
 
 </LanguageData>

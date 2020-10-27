@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Magnetize.label>magnetize</Magnetize.label>
-
-  <Mag.label>mag</Mag.label>
-  <Mag.comps.0.labelTendedWell>bandaged</Mag.comps.0.labelTendedWell>
-  <Mag.comps.0.labelTendedWellInner>sutured</Mag.comps.0.labelTendedWellInner>
-  <Mag.comps.0.labelSolidTendedWell>set</Mag.comps.0.labelSolidTendedWell>
-  <Mag.injuryProps.destroyedLabel>Mag off</Mag.injuryProps.destroyedLabel>
-  <Mag.injuryProps.destroyedOutLabel>Mag out</Mag.injuryProps.destroyedOutLabel>
-  <Mag.labelNoun>a mag</Mag.labelNoun>
-
+  <!--<Magnetize.label>magnetize</Magnetize.label>-->
+  <!--<Mag.label>mag</Mag.label>-->
+  <!--<Mag.comps.0.labelTendedWell>bandaged</Mag.comps.0.labelTendedWell>-->
+  <!--<Mag.comps.0.labelTendedWellInner>sutured</Mag.comps.0.labelTendedWellInner>-->
+  <!--<Mag.comps.0.labelSolidTendedWell>set</Mag.comps.0.labelSolidTendedWell>-->
+  <!--<Mag.injuryProps.destroyedLabel>Mag off</Mag.injuryProps.destroyedLabel>-->
+  <!--<Mag.injuryProps.destroyedOutLabel>Mag out</Mag.injuryProps.destroyedOutLabel>-->
+  <!--<Mag.labelNoun>a mag</Mag.labelNoun>-->
 
 </LanguageData>

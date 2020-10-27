@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Warframe_Crafter.label>warframe crafter</Warframe_Crafter.label>
-  <Warframe_Crafter.description>A crafter for you to craft Warframe.</Warframe_Crafter.description>
-
-  <Warframe_ControlCell.label>warframe control cell</Warframe_ControlCell.label>
-  <Warframe_ControlCell.description>A control cell for pawn to control warframe.</Warframe_ControlCell.description>
-
-  <Warframe_Heal.label>warframe repairer</Warframe_Heal.label>
-  <Warframe_Heal.description>It will repair the warframe above it.</Warframe_Heal.description>
-
+  <!--<Warframe_Crafter.label>warframe crafter</Warframe_Crafter.label>-->
+  <!--<Warframe_Crafter.description>A crafter for you to craft Warframe.</Warframe_Crafter.description>-->
+  <!--<Warframe_ControlCell.label>warframe control cell</Warframe_ControlCell.label>-->
+  <!--<Warframe_ControlCell.description>A control cell for pawn to control warframe.</Warframe_ControlCell.description>-->
+  <!--<Warframe_Heal.label>warframe repairer</Warframe_Heal.label>-->
+  <!--<Warframe_Heal.description>It will repair the warframe above it.</Warframe_Heal.description>-->
 
 </LanguageData>

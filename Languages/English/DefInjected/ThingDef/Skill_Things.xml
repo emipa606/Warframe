@@ -1,20 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <ExcaliburSkill3Item.label>eeeeeemmmmmm</ExcaliburSkill3Item.label>
-
-
+  <!--<ExcaliburSkill3Item.label>eeeeeemmmmmm</ExcaliburSkill3Item.label>-->
   <!-- MAG -->
-
-  <MagSkill3Item.label>eeeeeemmsmmmm</MagSkill3Item.label>
-  <MagSkill4Item.label>eeeeee4mmsmmmm</MagSkill4Item.label>
-  <Bullet_MagBullet.label>Mag Shard</Bullet_MagBullet.label>
-
-
+  <!--<MagSkill3Item.label>eeeeeemmsmmmm</MagSkill3Item.label>-->
+  <!--<MagSkill4Item.label>eeeeee4mmsmmmm</MagSkill4Item.label>-->
+  <!--<Bullet_MagBullet.label>Mag Shard</Bullet_MagBullet.label>-->
   <!-- Volt -->
-
-  <VoltSkill3Item.label>eefeeeemmmmmm</VoltSkill3Item.label>
-  <VoltSkill4Item.label>eeeeeesmmmmmm</VoltSkill4Item.label>
-
+  <!--<VoltSkill3Item.label>eefeeeemmmmmm</VoltSkill3Item.label>-->
+  <!--<VoltSkill4Item.label>eeeeeesmmmmmm</VoltSkill4Item.label>-->
 
 </LanguageData>

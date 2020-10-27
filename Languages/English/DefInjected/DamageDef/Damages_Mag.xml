@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <!-- <DamageDef Name="MagBase" Abstract="True">
 		<harmsHealth>true</harmsHealth>
 		<makesBlood>false</makesBlood>
@@ -22,9 +21,7 @@
 		<soundExplosion>Explosion_EMP</soundExplosion>
 		<combatLogRules>Damage_EMP</combatLogRules>
 	</DamageDef> -->
-
-  <Mag.label>Magnetic damage</Mag.label>
-  <Mag.deathMessage>{0} died of magnetic.</Mag.deathMessage>
-
+  <!--<Mag.label>Magnetic damage</Mag.label>-->
+  <!--<Mag.deathMessage>{0} died of magnetic.</Mag.deathMessage>-->
 
 </LanguageData>

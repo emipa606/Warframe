@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <JobFillWFC.label>fill warframe crafter</JobFillWFC.label>
-  <JobFillWFC.verb>load</JobFillWFC.verb>
-  <JobFillWFC.gerund>loading</JobFillWFC.gerund>
-
+  <!--<JobFillWFC.label>fill warframe crafter</JobFillWFC.label>-->
+  <!--<JobFillWFC.verb>load</JobFillWFC.verb>-->
+  <!--<JobFillWFC.gerund>loading</JobFillWFC.gerund>-->
 
 </LanguageData>

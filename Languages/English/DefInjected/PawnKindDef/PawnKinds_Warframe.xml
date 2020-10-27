@@ -1,26 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Warframe_Excalibur.label>Excalibur</Warframe_Excalibur.label>
-  <Warframe_Excalibur.labelPlural>Excalibur</Warframe_Excalibur.labelPlural>
-  <Warframe_Excalibur.labelMale>male Excalibur</Warframe_Excalibur.labelMale>
-  <Warframe_Excalibur.labelMalePlural>male Excaliburs</Warframe_Excalibur.labelMalePlural>
-  <Warframe_Excalibur.labelFemale>female Excalibur</Warframe_Excalibur.labelFemale>
-  <Warframe_Excalibur.labelFemalePlural>female Excaliburs</Warframe_Excalibur.labelFemalePlural>
-
-  <Warframe_Mag.label>Mag</Warframe_Mag.label>
-  <Warframe_Mag.labelPlural>Mags</Warframe_Mag.labelPlural>
-  <Warframe_Mag.labelMale>male Mag</Warframe_Mag.labelMale>
-  <Warframe_Mag.labelMalePlural>male Mags</Warframe_Mag.labelMalePlural>
-  <Warframe_Mag.labelFemale>female Mag</Warframe_Mag.labelFemale>
-  <Warframe_Mag.labelFemalePlural>female Mags</Warframe_Mag.labelFemalePlural>
-
-  <Warframe_Volt.label>Volt</Warframe_Volt.label>
-  <Warframe_Volt.labelPlural>Volts</Warframe_Volt.labelPlural>
-  <Warframe_Volt.labelMale>male Volt</Warframe_Volt.labelMale>
-  <Warframe_Volt.labelMalePlural>male Volts</Warframe_Volt.labelMalePlural>
-  <Warframe_Volt.labelFemale>female Volt</Warframe_Volt.labelFemale>
-  <Warframe_Volt.labelFemalePlural>female Volts</Warframe_Volt.labelFemalePlural>
-
+  <!--<Warframe_Excalibur.label>Excalibur</Warframe_Excalibur.label>-->
+  <!--<Warframe_Excalibur.labelPlural>Excalibur</Warframe_Excalibur.labelPlural>-->
+  <!--<Warframe_Excalibur.labelMale>male Excalibur</Warframe_Excalibur.labelMale>-->
+  <!--<Warframe_Excalibur.labelMalePlural>male Excaliburs</Warframe_Excalibur.labelMalePlural>-->
+  <!--<Warframe_Excalibur.labelFemale>female Excalibur</Warframe_Excalibur.labelFemale>-->
+  <!--<Warframe_Excalibur.labelFemalePlural>female Excaliburs</Warframe_Excalibur.labelFemalePlural>-->
+  <!--<Warframe_Mag.label>Mag</Warframe_Mag.label>-->
+  <!--<Warframe_Mag.labelPlural>Mags</Warframe_Mag.labelPlural>-->
+  <!--<Warframe_Mag.labelMale>male Mag</Warframe_Mag.labelMale>-->
+  <!--<Warframe_Mag.labelMalePlural>male Mags</Warframe_Mag.labelMalePlural>-->
+  <!--<Warframe_Mag.labelFemale>female Mag</Warframe_Mag.labelFemale>-->
+  <!--<Warframe_Mag.labelFemalePlural>female Mags</Warframe_Mag.labelFemalePlural>-->
+  <!--<Warframe_Volt.label>Volt</Warframe_Volt.label>-->
+  <!--<Warframe_Volt.labelPlural>Volts</Warframe_Volt.labelPlural>-->
+  <!--<Warframe_Volt.labelMale>male Volt</Warframe_Volt.labelMale>-->
+  <!--<Warframe_Volt.labelMalePlural>male Volts</Warframe_Volt.labelMalePlural>-->
+  <!--<Warframe_Volt.labelFemale>female Volt</Warframe_Volt.labelFemale>-->
+  <!--<Warframe_Volt.labelFemalePlural>female Volts</Warframe_Volt.labelFemalePlural>-->
 
 </LanguageData>

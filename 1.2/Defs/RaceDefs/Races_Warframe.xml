@@ -59,7 +59,7 @@
             <defName>TooSmart</defName>
           </li>
           <li>
-            <defName>Prosthophobe</defName>
+            <defName>BodyPurist</defName>
           </li>
           <li>
             <defName>Greedy</defName>
@@ -162,9 +162,9 @@
           <li>InsultedMood</li>
           <li>KindWordsMood</li>
           <li>ArtifactMoodBoost</li>
-          <li>LowExpectations</li>
+          <li>Ascetic</li>
           <li>EnvironmentDark</li>
-          <li>CabinFever</li>
+          <li>NeedOutdoors</li>
           <li>ApparelDamaged</li>
           <li>DeadMansApparel</li>
           <li>HumanLeatherApparelSad</li>

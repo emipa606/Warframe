@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Warframe.title>Warframe</Warframe.title>
-  <Warframe.titleShort>Warframe</Warframe.titleShort>
-  <Warframe.baseDescription>[PAWN_nameDef] is a Warframe</Warframe.baseDescription>
-
-  <WarframeA.title>Warframe</WarframeA.title>
-  <WarframeA.titleShort>Warframe</WarframeA.titleShort>
-  <WarframeA.baseDescription>[PAWN_nameDef] is a Warframe</WarframeA.baseDescription>
-
+  <!--<Warframe.title>Warframe</Warframe.title>-->
+  <!--<Warframe.titleShort>Warframe</Warframe.titleShort>-->
+  <!--<Warframe.baseDescription>[PAWN_nameDef] is a Warframe</Warframe.baseDescription>-->
+  <!--<WarframeA.title>Warframe</WarframeA.title>-->
+  <!--<WarframeA.titleShort>Warframe</WarframeA.titleShort>-->
+  <!--<WarframeA.baseDescription>[PAWN_nameDef] is a Warframe</WarframeA.baseDescription>-->
 
 </LanguageData>

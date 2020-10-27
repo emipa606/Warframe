@@ -1,49 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <!-- Excalibur -->
-
-  <Make_Excalibur_Head.label>make excalibur head</Make_Excalibur_Head.label>
-  <Make_Excalibur_Head.description>Make a warframe bodypart.</Make_Excalibur_Head.description>
-  <Make_Excalibur_Head.jobString>Making warframe bodypart.</Make_Excalibur_Head.jobString>
-
-  <Make_Excalibur_Body.label>make excalibur body</Make_Excalibur_Body.label>
-  <Make_Excalibur_Body.description>Make a warframe bodypart.</Make_Excalibur_Body.description>
-  <Make_Excalibur_Body.jobString>Making warframe bodypart.</Make_Excalibur_Body.jobString>
-
-  <Make_Excalibur_Inside.label>make excalibur inside</Make_Excalibur_Inside.label>
-  <Make_Excalibur_Inside.description>Make a warframe bodypart.</Make_Excalibur_Inside.description>
-  <Make_Excalibur_Inside.jobString>Making warframe bodypart.</Make_Excalibur_Inside.jobString>
-
-
+  <!--<Make_Excalibur_Head.label>make excalibur head</Make_Excalibur_Head.label>-->
+  <!--<Make_Excalibur_Head.description>Make a warframe bodypart.</Make_Excalibur_Head.description>-->
+  <!--<Make_Excalibur_Head.jobString>Making warframe bodypart.</Make_Excalibur_Head.jobString>-->
+  <!--<Make_Excalibur_Body.label>make excalibur body</Make_Excalibur_Body.label>-->
+  <!--<Make_Excalibur_Body.description>Make a warframe bodypart.</Make_Excalibur_Body.description>-->
+  <!--<Make_Excalibur_Body.jobString>Making warframe bodypart.</Make_Excalibur_Body.jobString>-->
+  <!--<Make_Excalibur_Inside.label>make excalibur inside</Make_Excalibur_Inside.label>-->
+  <!--<Make_Excalibur_Inside.description>Make a warframe bodypart.</Make_Excalibur_Inside.description>-->
+  <!--<Make_Excalibur_Inside.jobString>Making warframe bodypart.</Make_Excalibur_Inside.jobString>-->
   <!-- Mag -->
-
-  <Make_Mag_Head.label>make Mag head</Make_Mag_Head.label>
-  <Make_Mag_Head.description>Make a warframe bodypart.</Make_Mag_Head.description>
-  <Make_Mag_Head.jobString>Making warframe bodypart.</Make_Mag_Head.jobString>
-
-  <Make_Mag_Body.label>make Mag body</Make_Mag_Body.label>
-  <Make_Mag_Body.description>Make a warframe bodypart.</Make_Mag_Body.description>
-  <Make_Mag_Body.jobString>Making warframe bodypart.</Make_Mag_Body.jobString>
-
-  <Make_Mag_Inside.label>make Mag inside</Make_Mag_Inside.label>
-  <Make_Mag_Inside.description>Make a warframe bodypart.</Make_Mag_Inside.description>
-  <Make_Mag_Inside.jobString>Making warframe bodypart.</Make_Mag_Inside.jobString>
-
-
+  <!--<Make_Mag_Head.label>make Mag head</Make_Mag_Head.label>-->
+  <!--<Make_Mag_Head.description>Make a warframe bodypart.</Make_Mag_Head.description>-->
+  <!--<Make_Mag_Head.jobString>Making warframe bodypart.</Make_Mag_Head.jobString>-->
+  <!--<Make_Mag_Body.label>make Mag body</Make_Mag_Body.label>-->
+  <!--<Make_Mag_Body.description>Make a warframe bodypart.</Make_Mag_Body.description>-->
+  <!--<Make_Mag_Body.jobString>Making warframe bodypart.</Make_Mag_Body.jobString>-->
+  <!--<Make_Mag_Inside.label>make Mag inside</Make_Mag_Inside.label>-->
+  <!--<Make_Mag_Inside.description>Make a warframe bodypart.</Make_Mag_Inside.description>-->
+  <!--<Make_Mag_Inside.jobString>Making warframe bodypart.</Make_Mag_Inside.jobString>-->
   <!-- Volt -->
-
-  <Make_Volt_Head.label>make Volt head</Make_Volt_Head.label>
-  <Make_Volt_Head.description>Make a warframe bodypart.</Make_Volt_Head.description>
-  <Make_Volt_Head.jobString>Making warframe bodypart.</Make_Volt_Head.jobString>
-
-  <Make_Volt_Body.label>make Volt body</Make_Volt_Body.label>
-  <Make_Volt_Body.description>Make a warframe bodypart.</Make_Volt_Body.description>
-  <Make_Volt_Body.jobString>Making warframe bodypart.</Make_Volt_Body.jobString>
-
-  <Make_Volt_Inside.label>make Volt inside</Make_Volt_Inside.label>
-  <Make_Volt_Inside.description>Make a warframe bodypart.</Make_Volt_Inside.description>
-  <Make_Volt_Inside.jobString>Making warframe bodypart.</Make_Volt_Inside.jobString>
-
+  <!--<Make_Volt_Head.label>make Volt head</Make_Volt_Head.label>-->
+  <!--<Make_Volt_Head.description>Make a warframe bodypart.</Make_Volt_Head.description>-->
+  <!--<Make_Volt_Head.jobString>Making warframe bodypart.</Make_Volt_Head.jobString>-->
+  <!--<Make_Volt_Body.label>make Volt body</Make_Volt_Body.label>-->
+  <!--<Make_Volt_Body.description>Make a warframe bodypart.</Make_Volt_Body.description>-->
+  <!--<Make_Volt_Body.jobString>Making warframe bodypart.</Make_Volt_Body.jobString>-->
+  <!--<Make_Volt_Inside.label>make Volt inside</Make_Volt_Inside.label>-->
+  <!--<Make_Volt_Inside.description>Make a warframe bodypart.</Make_Volt_Inside.description>-->
+  <!--<Make_Volt_Inside.jobString>Making warframe bodypart.</Make_Volt_Inside.jobString>-->
 
 </LanguageData>

@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <TennoStory.label>Tenno Story</TennoStory.label>
-  <TennoStory.description>You have come to the Rimworld, and you have a warframe.</TennoStory.description>
-  <TennoStory.scenario.name>Tenno Story</TennoStory.scenario.name>
-  <TennoStory.scenario.summary>Start with the warframe tech.</TennoStory.scenario.summary>
-  <TennoStory.scenario.description>You have come to the Rimworld, and you have a warframe.</TennoStory.scenario.description>
-  <TennoStory.scenario.parts.17.text>
-  </TennoStory.scenario.parts.17.text>
-
+  <!--<TennoStory.label>Tenno Story</TennoStory.label>-->
+  <!--<TennoStory.description>You have come to the Rimworld, and you have a warframe.</TennoStory.description>-->
+  <!--<TennoStory.scenario.name>Tenno Story</TennoStory.scenario.name>-->
+  <!--<TennoStory.scenario.summary>Start with the warframe tech.</TennoStory.scenario.summary>-->
+  <!--<TennoStory.scenario.description>You have come to the Rimworld, and you have a warframe.</TennoStory.scenario.description>-->
+  <!--<TennoStory.scenario.parts.17.text>
+  </TennoStory.scenario.parts.17.text>-->
 
 </LanguageData>

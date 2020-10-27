@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <WarframeCrafter.label>Warframe Crafter</WarframeCrafter.label>
-  <WarframeCrafter.description>Learn to build Warframe Crafter.</WarframeCrafter.description>
-
-  <WarframeCell.label>Warframe Control Cell</WarframeCell.label>
-  <WarframeCell.description>Learn to build Warframe Control Cell.</WarframeCell.description>
-
-  <WarframeHeal.label>Warframe Heal</WarframeHeal.label>
-  <WarframeHeal.description>Learn to build Warframe Heal.</WarframeHeal.description>
-
+  <!--<WarframeCrafter.label>Warframe Crafter</WarframeCrafter.label>-->
+  <!--<WarframeCrafter.description>Learn to build Warframe Crafter.</WarframeCrafter.description>-->
+  <!--<WarframeCell.label>Warframe Control Cell</WarframeCell.label>-->
+  <!--<WarframeCell.description>Learn to build Warframe Control Cell.</WarframeCell.description>-->
+  <!--<WarframeHeal.label>Warframe Heal</WarframeHeal.label>-->
+  <!--<WarframeHeal.description>Learn to build Warframe Heal.</WarframeHeal.description>-->
 
 </LanguageData>
