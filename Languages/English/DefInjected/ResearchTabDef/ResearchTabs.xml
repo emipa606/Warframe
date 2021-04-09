@@ -2,5 +2,4 @@
 <LanguageData>
   <!-- To add a research tab, make a new ResearchTabDef here and then set the <tab> field of your research project to match it -->
   <!--<Warframe.label>Warframe</Warframe.label>-->
-
 </LanguageData>

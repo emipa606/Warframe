@@ -26,9 +26,24 @@
   <loadAfter>
     <li>UnlimitedHugs.HugsLib</li>
     <li>erdelf.HumanoidAlienRaces</li>
+    <li>syrchalis.traitvalue</li>
   </loadAfter>
-  <description>
-	Continuation of AKreedz mod
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of AKreedz mod
+https://steamcommunity.com/sharedfiles/filedetails/?id=1521727860
+
+- Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2451324814][SYR] Trait Value[/url]
+
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+
+[table]
+	[tr]
+		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/Antinium][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+	[/tr]
+[/table]
+	
+[img]https://i.imgur.com/NOW7jU1.png[/img]
 
 Add warframe into rimworld
 
@@ -44,5 +59,15 @@ New recipe Warframe Part : make in the Fabrication Bench
 
 New Trait: Son of Void:useless now
 
-New Item: Orokin Cell:Some Exotic Trader will sell it.</description>
+New Item: Orokin Cell:Some Exotic Trader will sell it.
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]</description>
 </ModMetaData>
