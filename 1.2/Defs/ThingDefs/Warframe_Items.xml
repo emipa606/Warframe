@@ -3,7 +3,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>WFItem_OrokinCell</defName>
     <label>orokin cell</label>
-    <description>Advanced spacer tech structural material. Plasteel is extremely strong due to its unique molecular structure.</description>
+    <description>Ancient energy cell from the Orokin era</description>
     <graphicData>
       <texPath>Items/OrokinCell</texPath>
       <graphicClass>Graphic_Single</graphicClass>

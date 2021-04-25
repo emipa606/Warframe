@@ -34,7 +34,7 @@
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Excalibur_Belt</defName>
     <label>Excalibur Belt</label>
-    <description>The latest generation of shield of Polarisbloc has not been produced, only for important personnel.\n\nThis shield will counterattack the attackers when they are attacked.Although the counterattack has the time of cooling, it still needs to be careful because the counter attack is very accurate.</description>
+    <description>The latest generation of shield of Polarisbloc has not been produced, only for important personnel.\n\nThis shield will counterattack the attackers when they are attacked. Although the counterattack has the time of cooling, it still needs to be careful because the counter attack is very accurate.</description>
     <thingClass>Warframe.WarframeBelt</thingClass>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
@@ -312,7 +312,7 @@
   <ThingDef ParentName="WarframeApparelBase">
     <defName>WF_Volt_Belt</defName>
     <label>Volt Belt</label>
-    <description>The latest generation of shield of Polarisbloc has not been produced, only for important personnel.\n\nThis shield will counterattack the attackers when they are attacked.Although the counterattack has the time of cooling, it still needs to be careful because the counter attack is very accurate.</description>
+    <description>The latest generation of shield of Polarisbloc has not been produced, only for important personnel.\n\nThis shield will counterattack the attackers when they are attacked. Although the counterattack has the time of cooling, it still needs to be careful because the counter attack is very accurate.</description>
     <thingClass>Warframe.WarframeBelt</thingClass>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>

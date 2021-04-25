@@ -24,7 +24,7 @@
   <ThingDef ParentName="BaseGunWithQuality">
     <defName>Excalibur_SkillBlade</defName>
     <label>excalibur blade</label>
-    <description>A simple automatic gun made to be mounted on a turret.</description>
+    <description>An excalibur blade</description>
     <graphicData>
       <texPath>Items/ExcaliburBlade</texPath>
       <graphicClass>Graphic_Single</graphicClass>

@@ -4,7 +4,7 @@
     <defName>Warframe_Crafter</defName>
     <label>Warframe Crafter</label>
     <thingClass>Warframe.Building_WarframeCrafter</thingClass>
-    <description>Refines biological matter like wood or plant matter into chemfuel.</description>
+    <description>Structure for constructing warframes.</description>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <researchPrerequisites>
@@ -75,7 +75,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Warframe_ControlCell</defName>
     <label>control cell</label>
-    <description>A self-powered sarcophagus designed to keep a person in a state of suspended animation for many years.</description>
+    <description>Control cell for controlling a warframe.</description>
     <thingClass>Warframe.Building_ControlCell</thingClass>
     <graphicData>
       <texPath>Things/Building/Ship/ShipCryptosleepCasket</texPath>
@@ -127,7 +127,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Warframe_Heal</defName>
     <label>warframe heal</label>
-    <description>Very slowly equalizes moisture in nearby terrain, converting marshes or shallow water into dry ground, and soft sand into normal sand. Does not affect deep water.</description>
+    <description>Slowly heals a warframe.</description>
     <thingClass>Warframe.Building_WarframeHeal</thingClass>
     <researchPrerequisites>
       <li>WarframeHeal</li>

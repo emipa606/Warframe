@@ -33,7 +33,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Head</defName>
     <label>Excalibur neuroptics part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Excalibur neuroptics part</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -46,7 +46,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Body</defName>
     <label>Excalibur chassis part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Excalibur chassis part</description>
     <graphicData>
       <texPath>Items/WFBody</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -58,7 +58,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Excalibur_Inside</defName>
     <label>Excalibur system part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Excalibur system part</description>
     <graphicData>
       <texPath>Items/WFInside</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -71,7 +71,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Head</defName>
     <label>Mag neuroptics part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Mag neuroptics part</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -84,7 +84,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Body</defName>
     <label>Mag chassis part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Mag chassis part</description>
     <graphicData>
       <texPath>Items/WFBody</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -96,7 +96,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Mag_Inside</defName>
     <label>Mag system part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Mag system part</description>
     <graphicData>
       <texPath>Items/WFInside</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -109,7 +109,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Head</defName>
     <label>Volt neuroptics part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Volt neuroptics part</description>
     <graphicData>
       <texPath>Items/WFHead</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -122,7 +122,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Body</defName>
     <label>Volt chassis part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Volt chassis part</description>
     <graphicData>
       <texPath>Items/WFBody</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -134,7 +134,7 @@
   <ThingDef ParentName="WFBodypartBase">
     <defName>WFPart_Volt_Inside</defName>
     <label>Volt system part</label>
-    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <description>Volt system part</description>
     <graphicData>
       <texPath>Items/WFInside</texPath>
       <graphicClass>Graphic_Single</graphicClass>
