@@ -1,8 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -10,19 +6,23 @@ namespace Warframe.Skills.Volts
 {
     public class Hediff_VoltSpeedUp : HediffWithComps
     {
-
         public int level;
+
+
+        private float getMaxTick => 300 * (1 + (level * 1f / 30f));
+
         public override void Tick()
         {
             ageTicks++;
-            if(ageTicks> getMaxTick   )
+            if (ageTicks > getMaxTick)
             {
                 TimeOut();
             }
-            if(ageTicks%10==0)
-             DrawHediffExtras();
 
-           
+            if (ageTicks % 10 == 0)
+            {
+                DrawHediffExtras();
+            }
         }
 
         // Token: 0x06004BF8 RID: 19448 RVA: 0x00232324 File Offset: 0x00230724
@@ -31,18 +31,10 @@ namespace Warframe.Skills.Volts
             pawn.health.RemoveHediff(this);
         }
 
-       
-        private float getMaxTick
-        {
-            get
-            {
-                return (300 * (1 + (level*1f / 30f)));
-            }
-        }
         public void DrawHediffExtras()
         {
-            
-            MoteMaker.ThrowExplosionInteriorMote(new Vector3(pawn.TrueCenter().x,0,pawn.TrueCenter().z),pawn.Map,ThingDef.Named("Mote_ElectricalSpark"));
+            MoteMaker.ThrowExplosionInteriorMote(new Vector3(pawn.TrueCenter().x, 0, pawn.TrueCenter().z), pawn.Map,
+                ThingDef.Named("Mote_ElectricalSpark"));
         }
 
 
@@ -50,12 +42,7 @@ namespace Warframe.Skills.Volts
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref level,"level",0,false);
+            Scribe_Values.Look(ref level, "level");
         }
-
-
-
-
-
     }
 }

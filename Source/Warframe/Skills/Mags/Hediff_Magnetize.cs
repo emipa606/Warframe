@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -9,55 +6,63 @@ namespace Warframe.Skills.Mags
 {
     public class Hediff_Magnetize : HediffWithComps
     {
+        // Token: 0x040033BA RID: 13242
+        public Pawn self;
+
+        private float getMaxTick => 600 * (1 + (WarframeStaticMethods.GetWFLevel(self) * 1.0f / 60f));
 
 
-
-
-      
         public override void Tick()
         {
             ageTicks++;
-            if(ageTicks> (600 * (1 + ((WarframeStaticMethods.GetWFLevel(self) * 1.0f) / 60f)))   )
+            if (ageTicks > 600 * (1 + (WarframeStaticMethods.GetWFLevel(self) * 1.0f / 60f)))
             {
                 TimeOut();
             }
 
             DrawHediffExtras();
 
-            
+
             //GenDraw.DrawFieldEdges(this.CellsAdjacent8WayAndInsidePlus(this.pawn).ToList());
-            foreach (IntVec3 ic in CellsAdjacent8WayAndInsidePlus(pawn))
+            foreach (var ic in CellsAdjacent8WayAndInsidePlus(pawn))
             {
-                if (ic == pawn.Position) continue;
-
-                foreach(Thing th in pawn.Map.thingGrid.ThingsAt(ic))
+                if (ic == pawn.Position)
                 {
-                    if(th is Projectile )
+                    continue;
+                }
+
+                foreach (var th in pawn.Map.thingGrid.ThingsAt(ic))
+                {
+                    if (th is not Projectile projectile)
                     {
-                        if ((th as Projectile).def.projectile.flyOverhead) continue;
-
-                        //bullets.Add(th as Projectile);
-                        
-                        ThingDef bdef = (th as Projectile).def;
-
-                        
-
-                        th.Destroy();
-                        
-                        Projectile projectile2 = (Projectile)GenSpawn.Spawn(bdef, pawn.Position, pawn.Map, WipeMode.Vanish);
-                        
-                        ProjectileHitFlags projectileHitFlags = ProjectileHitFlags.All;
-                        Thing gun = null;
-                        if (pawn.equipment != null && pawn.equipment.Primary != null) gun = pawn.equipment.Primary;
-                        projectile2.Launch(self, pawn.Position.ToVector3(), pawn.Position, pawn, projectileHitFlags, gun, null);
-                        
+                        continue;
                     }
+
+                    if (projectile.def.projectile.flyOverhead)
+                    {
+                        continue;
+                    }
+
+                    //bullets.Add(th as Projectile);
+
+                    var bdef = projectile.def;
+
+
+                    projectile.Destroy();
+
+                    var projectile2 = (Projectile) GenSpawn.Spawn(bdef, pawn.Position, pawn.Map);
+
+                    var hitTypes = ProjectileHitFlags.All;
+                    Thing gun = null;
+                    if (pawn.equipment is {Primary: { }})
+                    {
+                        gun = pawn.equipment.Primary;
+                    }
+
+                    projectile2.Launch(self, pawn.Position.ToVector3(), new LocalTargetInfo(pawn), pawn,
+                        hitTypes, false, gun);
                 }
             }
-
-            
-
-           
         }
 
         // Token: 0x06004BF8 RID: 19448 RVA: 0x00232324 File Offset: 0x00230724
@@ -68,43 +73,35 @@ namespace Warframe.Skills.Mags
 
         private IEnumerable<IntVec3> CellsAdjacent8WayAndInsidePlus(Thing thing)
         {
-            IntVec3 center = thing.Position;
-            IntVec2 size = thing.def.size;
-            Rot4 rotation = thing.Rotation;
+            var center = thing.Position;
+            var size = thing.def.size;
+            var rotation = thing.Rotation;
             GenAdj.AdjustForRotation(ref center, ref size, rotation);
-            int minX = center.x - (size.x - 3) / 2 - 3;
-            int minZ = center.z - (size.z - 3) / 2 - 3;
-            int maxX = minX + size.x + 3;
-            int maxZ = minZ + size.z + 3;
-            for (int i = minX; i <= maxX; i++)
+            var minX = center.x - ((size.x - 3) / 2) - 3;
+            var minZ = center.z - ((size.z - 3) / 2) - 3;
+            var maxX = minX + size.x + 3;
+            var maxZ = minZ + size.z + 3;
+            for (var i = minX; i <= maxX; i++)
             {
-                for (int j = minZ; j <= maxZ; j++)
+                for (var j = minZ; j <= maxZ; j++)
                 {
                     yield return new IntVec3(i, 0, j);
                 }
             }
-            yield break;
         }
-        private float getMaxTick
-        {
-            get
-            {
-                return (600 * (1 + ((WarframeStaticMethods.GetWFLevel(self) * 1.0f) / 60f)));
-            }
-        }
+
         public void DrawHediffExtras()
         {
+            var num = 6f; //Mathf.Lerp(1.8f, 1.2f, (this.ageTicks)*1.0f/getMaxTick);
+            var vector = pawn.Drawer.DrawPos;
+            vector.y = AltitudeLayer.MoteOverhead.AltitudeFor();
 
-            float num = 6f;//Mathf.Lerp(1.8f, 1.2f, (this.ageTicks)*1.0f/getMaxTick);
-                Vector3 vector = pawn.Drawer.DrawPos;
-                vector.y = AltitudeLayer.MoteOverhead.AltitudeFor();
-
-                float angle = (float)Rand.Range(0, 360);
-                Vector3 s = new Vector3(num, 1f, num);
-                Matrix4x4 matrix = default(Matrix4x4);
-                matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);
-                Graphics.DrawMesh(MeshPool.plane10, matrix, MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent,new Color(0.2f,0.6f,0.8f)), 0);
-            
+            float angle = Rand.Range(0, 360);
+            var s = new Vector3(num, 1f, num);
+            var matrix = default(Matrix4x4);
+            matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);
+            Graphics.DrawMesh(MeshPool.plane10, matrix,
+                MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent, new Color(0.2f, 0.6f, 0.8f)), 0);
         }
 
 
@@ -112,15 +109,7 @@ namespace Warframe.Skills.Mags
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref self, "self", false);
+            Scribe_References.Look(ref self, "self");
         }
-
-
-
-        // Token: 0x040033BA RID: 13242
-        public Pawn self;
-
-
-
     }
 }

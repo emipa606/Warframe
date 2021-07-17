@@ -1,129 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09FFC4F9-0660-4D06-B329-3E8A3CB9F141}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warframe</RootNamespace>
-    <AssemblyName>Warframe</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>..\..\1.3\Assemblies</OutputPath>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <DebugType>None</DebugType>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.0.0.6\lib\net472\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="HugsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnlimitedHugs.Rimworld.HugsLib.6.2.1\lib\net472\HugsLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\System.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+       <!--<Version>1.3.3061-beta</Version>--> 
+      <Version>*</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>*</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib">
+      <Version>*</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Building_ControlCell.cs" />
-    <Compile Include="Building_WarframeCrafter.cs" />
-    <Compile Include="Building_WarframeHeal.cs" />
-    <Compile Include="CaravanArrivalAction_VoidSon.cs" />
-    <Compile Include="Command_CastSkillTargetingFloor.cs" />
-    <Compile Include="Command_CastSkillTargeting.cs" />
-    <Compile Include="Command_CastSkill.cs" />
-    <Compile Include="CompHPSP.cs" />
-    <Compile Include="CompProperties_HPSP.cs" />
-    <Compile Include="CompProperties_WarframeSkill.cs" />
-    <Compile Include="CompUseEffect_WarframeItem.cs" />
-    <Compile Include="CompWarframeSkill.cs" />
-    <Compile Include="DeathActionWorker_BombAndRemove.cs" />
-    <Compile Include="Gizmo_WarframeBeltStatus.cs" />
-    <Compile Include="HarmonyHere.cs" />
-    <Compile Include="IncidentWorker_VoidSon.cs" />
-    <Compile Include="JobDriver_EnterControlCell.cs" />
-    <Compile Include="JobDriver_FillWarframeCrafter.cs" />
-    <Compile Include="MoteBigText.cs" />
-    <Compile Include="Dialog_WarframeDebugActionMenu.cs" />
-    <Compile Include="Skills\Volt.cs" />
-    <Compile Include="Skills\Mag.cs" />
-    <Compile Include="Skills\Excalibur.cs" />
-    <Compile Include="Skills\ExcaliburBullet_Blade.cs" />
-    <Compile Include="Skills\ExcaliburSkill3Item.cs" />
-    <Compile Include="Skills\Mags\Harmony_Mag.cs" />
-    <Compile Include="Skills\Mags\Hediff_Magnetize.cs" />
-    <Compile Include="Skills\Mags\Mag4SkillThing.cs" />
-    <Compile Include="Skills\Mags\Mag3SkillThing.cs" />
-    <Compile Include="Skills\Mags\MagBullet_3Skill.cs" />
-    <Compile Include="Skills\Volts\Hediff_Volt4Skill.cs" />
-    <Compile Include="Skills\Volts\Hediff_VoltSpeedUp.cs" />
-    <Compile Include="Skills\Volts\Volt4SkillThing.cs" />
-    <Compile Include="Skills\Volts\Volt3SkillThing.cs" />
-    <Compile Include="Skills\WFPublic\Harmony_God.cs" />
-    <Compile Include="Skills\WFPublic\Harmony_Vanish.cs" />
-    <Compile Include="Skills\WFPublic\Hediff_NoMove.cs" />
-    <Compile Include="Skills\WFPublic\Hediff_God.cs" />
-    <Compile Include="WarframeArmor.cs" />
-    <Compile Include="WarframeBelt.cs" />
-    <Compile Include="WarframeControlStorage.cs" />
-    <Compile Include="WarframeHead.cs" />
-    <Compile Include="WarframeStaticMethods.cs" />
-    <Compile Include="WFModBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Window_CraftWarframe.cs" />
-    <Compile Include="WorkGiver_FillWarframeCrafter.cs" />
-    <Compile Include="WorldObject_VoidSon.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <!-- 1.3.3061-beta -->
 </Project>

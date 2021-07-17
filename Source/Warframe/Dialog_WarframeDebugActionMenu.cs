@@ -1,7 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Verse;
 
 namespace Warframe
@@ -10,18 +7,19 @@ namespace Warframe
     {
         private void GiveLevel()
         {
-            Map map = Find.CurrentMap;
-            foreach(Thing th in map.thingGrid.ThingsAt(UI.MouseCell()))
+            var map = Find.CurrentMap;
+            foreach (var th in map.thingGrid.ThingsAt(UI.MouseCell()))
             {
-                if(th is Pawn)
+                if (th is not Pawn pawn)
                 {
-                    if((th as Pawn).IsWarframe())
-                    {
-                        (th as Pawn).records.AddTo(RecordDefOf.KillsHumanlikes,150);
-                    }
+                    continue;
+                }
+
+                if (pawn.IsWarframe())
+                {
+                    pawn.records.AddTo(RecordDefOf.KillsHumanlikes, 150);
                 }
             }
-           
         }
 
         // Token: 0x0600004F RID: 79 RVA: 0x00004428 File Offset: 0x00002628
@@ -32,29 +30,29 @@ namespace Warframe
             {
                 return;
             }
-            Map map = Find.CurrentMap;
+
+            var map = Find.CurrentMap;
             if (map == null)
             {
                 return;
             }
+
             DoGap();
             DoLabel("Tools - Warframe");
-            DebugToolMap("Apply: Warframe 30Level", delegate
-            {
-                GiveLevel();
-            });
+            DebugToolMap("Apply: Warframe 30Level", GiveLevel, false);
             DebugToolMap("Apply: Max Sp", delegate
             {
-                foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
+                foreach (var thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
                 {
-                    if (thing is Pawn pawn && (pawn.IsWarframe()))
+                    if (thing is not Pawn pawn || !pawn.IsWarframe())
                     {
-                        WarframeBelt wb = WarframeStaticMethods.GetBelt(pawn);
-                        wb.SP += 9999;
+                        continue;
                     }
-                }
-            });
 
+                    var wb = WarframeStaticMethods.GetBelt(pawn);
+                    wb.SP += 9999;
+                }
+            }, false);
         }
     }
 }

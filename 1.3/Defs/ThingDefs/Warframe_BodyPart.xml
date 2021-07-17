@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="WFBodypartBase" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>1</stackLimit>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <Beauty>-4</Beauty>
+      <Mass>0.6</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <intricate>true</intricate>
+  </ThingDef>
+  <!-- Excalibur -->
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Excalibur_Head</defName>
+    <label>Excalibur neuroptics part</label>
+    <description>Excalibur neuroptics part</description>
+    <graphicData>
+      <texPath>Items/WFHead</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Excalibur_Body</defName>
+    <label>Excalibur chassis part</label>
+    <description>Excalibur chassis part</description>
+    <graphicData>
+      <texPath>Items/WFBody</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Excalibur_Inside</defName>
+    <label>Excalibur system part</label>
+    <description>Excalibur system part</description>
+    <graphicData>
+      <texPath>Items/WFInside</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <!-- Mag -->
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Mag_Head</defName>
+    <label>Mag neuroptics part</label>
+    <description>Mag neuroptics part</description>
+    <graphicData>
+      <texPath>Items/WFHead</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Mag_Body</defName>
+    <label>Mag chassis part</label>
+    <description>Mag chassis part</description>
+    <graphicData>
+      <texPath>Items/WFBody</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Mag_Inside</defName>
+    <label>Mag system part</label>
+    <description>Mag system part</description>
+    <graphicData>
+      <texPath>Items/WFInside</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <!-- Volt -->
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Volt_Head</defName>
+    <label>Volt neuroptics part</label>
+    <description>Volt neuroptics part</description>
+    <graphicData>
+      <texPath>Items/WFHead</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Volt_Body</defName>
+    <label>Volt chassis part</label>
+    <description>Volt chassis part</description>
+    <graphicData>
+      <texPath>Items/WFBody</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="WFBodypartBase">
+    <defName>WFPart_Volt_Inside</defName>
+    <label>Volt system part</label>
+    <description>Volt system part</description>
+    <graphicData>
+      <texPath>Items/WFInside</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>32</MarketValue>
+    </statBases>
+  </ThingDef>
+</Defs>

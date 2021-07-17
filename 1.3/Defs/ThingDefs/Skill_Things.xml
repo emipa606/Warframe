@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>ExcaliburSkill3Item</defName>
+    <label>eeeeeemmmmmm</label>
+    <thingClass>Warframe.Skills.ExcaliburSkill3Item</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <seeThroughFog>false</seeThroughFog>
+  </ThingDef>
+  <!--MAG-->
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>MagSkill3Item</defName>
+    <label>eeeeeemmsmmmm</label>
+    <thingClass>Warframe.Skills.Mags.Mag3SkillThing</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <seeThroughFog>false</seeThroughFog>
+  </ThingDef>
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>MagSkill4Item</defName>
+    <label>eeeeee4mmsmmmm</label>
+    <thingClass>Warframe.Skills.Mags.Mag4SkillThing</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <seeThroughFog>false</seeThroughFog>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MagBullet</defName>
+    <label>Mag Shard</label>
+    <thingClass>Warframe.Skills.Mags.MagBullet_3Skill</thingClass>
+    <graphicData>
+      <texPath>Items/ExcaliburBladeBullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <speed>30</speed>
+    </projectile>
+  </ThingDef>
+  <!--Volt-->
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>VoltSkill3Item</defName>
+    <label>eefeeeemmmmmm</label>
+    <thingClass>Warframe.Skills.Volts.Volt3SkillThing</thingClass>
+    <graphicData>
+      <texPath>Items/VoltShield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <seeThroughFog>false</seeThroughFog>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(56,106,157,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>VoltSkill4Item</defName>
+    <label>eeeeeesmmmmmm</label>
+    <thingClass>Warframe.Skills.Volts.Volt4SkillThing</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <seeThroughFog>false</seeThroughFog>
+  </ThingDef>
+</Defs>

@@ -1,14 +1,11 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace Warframe
 {
-    public class Building_WarframeHeal:Building
+    public class Building_WarframeHeal : Building
     {
         private int ticks;
 
@@ -16,52 +13,56 @@ namespace Warframe
         {
             base.SpawnSetup(map, respawningAfterLoad);
             ticks = 0;
-
         }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref ticks,"ticks",0,false);
+            Scribe_Values.Look(ref ticks, "ticks");
         }
+
         public override void Tick()
         {
             base.Tick();
-            if (!this.TryGetComp<CompPowerTrader>().PowerOn) return;
+            if (!this.TryGetComp<CompPowerTrader>().PowerOn)
+            {
+                return;
+            }
 
             if (ticks < 600)
             {
-
                 ticks++;
-            }else
+            }
+            else
             {
                 healWarframe();
                 ticks = 0;
-
             }
         }
-        private void healWarframe() {
-           foreach(Thing thing in Map.thingGrid.ThingsAt(Position))
+
+        private void healWarframe()
+        {
+            foreach (var thing in Map.thingGrid.ThingsAt(Position))
             {
-                if(thing is Pawn)
+                if (thing is not Pawn pawn)
                 {
-                    if((thing as Pawn).IsWarframe())
-                    {
-                        
-                            Pawn p = thing as Pawn;
-                            
-                            Hediff_Injury hediff_Injury;
-                            if ((from x in p.health.hediffSet.GetHediffs<Hediff_Injury>()
-                                 where x.CanHealNaturally() || x.CanHealFromTending()
-                                 select x).TryRandomElement(out hediff_Injury))
-                            {
-                                hediff_Injury.Heal(10f);
-                                WarframeStaticMethods.ShowColorText(p, "HP+10", new Color(0.2f, 1, 0.1f), GameFont.Medium);
-                            }
-                            
-                            break;
-                        
-                    }
+                    continue;
                 }
+
+                if (!pawn.IsWarframe())
+                {
+                    continue;
+                }
+
+                if ((from x in pawn.health.hediffSet.GetHediffs<Hediff_Injury>()
+                    where x.CanHealNaturally() || x.CanHealFromTending()
+                    select x).TryRandomElement(out var hediff_Injury))
+                {
+                    hediff_Injury.Heal(10f);
+                    WarframeStaticMethods.ShowColorText(pawn, "HP+10", new Color(0.2f, 1, 0.1f), GameFont.Medium);
+                }
+
+                break;
             }
         }
     }

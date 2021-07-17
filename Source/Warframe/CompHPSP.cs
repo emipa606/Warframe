@@ -1,40 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Verse;
+﻿using Verse;
 
 namespace Warframe
 {
-    public class CompHPSP:ThingComp
+    public class CompHPSP : ThingComp
     {
-
-        public CompProperties_HPSP Props
-        {
-            get
-            {
-                return (CompProperties_HPSP)props;
-            }
-        }
+        public CompProperties_HPSP Props => (CompProperties_HPSP) props;
 
 
+        public float HP => Props.HP;
 
-
-        public float HP
-        {
-            get
-            {
-                return Props.HP;
-            }
-
-        }
-        public float SP
-        {
-            get
-            {
-                return Props.SP;
-            }
-
-        }
-
+        public float SP => Props.SP;
     }
 }

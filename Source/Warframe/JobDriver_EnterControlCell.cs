@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
@@ -11,10 +10,10 @@ namespace Warframe
         // Token: 0x060002DF RID: 735 RVA: 0x0001C144 File Offset: 0x0001A544
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            Pawn pawn = this.pawn;
-            LocalTargetInfo targetA = this.job.targetA;
-            Job job = this.job;
-            return pawn.Reserve(targetA, job, 1, -1, null, errorOnFailed);
+            var pawn1 = pawn;
+            var targetA = job.targetA;
+            var job1 = job;
+            return pawn1.Reserve(targetA, job1, 1, -1, null, errorOnFailed);
         }
 
         // Token: 0x060002E0 RID: 736 RVA: 0x0001C17C File Offset: 0x0001A57C
@@ -22,40 +21,44 @@ namespace Warframe
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
-            Toil prepare = Toils_General.Wait(60, TargetIndex.None);
+            var prepare = Toils_General.Wait(60);
             prepare.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-            prepare.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
+            prepare.WithProgressBarToilDelay(TargetIndex.A);
             yield return prepare;
-            Toil enter = new Toil();
+            var enter = new Toil();
             enter.initAction = delegate
             {
-                Pawn actor = enter.actor;
-                Building_ControlCell pod = (Building_ControlCell)actor.CurJob.targetA.Thing;
-                Action action = delegate
+                var actor = enter.actor;
+                var pod = (Building_ControlCell) actor.CurJob.targetA.Thing;
+
+                void Action()
                 {
-                    actor.DeSpawn(DestroyMode.Vanish);
-                    pod.TryAcceptThing(actor, true);
-                };
+                    actor.DeSpawn();
+                    pod.TryAcceptThing(actor);
+                }
+
                 if (!pod.def.building.isPlayerEjectable)
                 {
-                    int freeColonistsSpawnedOrInPlayerEjectablePodsCount = Map.mapPawns.FreeColonistsSpawnedOrInPlayerEjectablePodsCount;
+                    var freeColonistsSpawnedOrInPlayerEjectablePodsCount =
+                        Map.mapPawns.FreeColonistsSpawnedOrInPlayerEjectablePodsCount;
                     if (freeColonistsSpawnedOrInPlayerEjectablePodsCount <= 1)
                     {
-                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("CasketWarning".Translate().AdjustedFor(actor, "PAWN"), action, false, null));
+                        Find.WindowStack.Add(
+                            Dialog_MessageBox.CreateConfirmation("CasketWarning".Translate().AdjustedFor(actor),
+                                Action));
                     }
                     else
                     {
-                        action();
+                        Action();
                     }
                 }
                 else
                 {
-                    action();
+                    Action();
                 }
             };
             enter.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return enter;
-            yield break;
         }
     }
 }

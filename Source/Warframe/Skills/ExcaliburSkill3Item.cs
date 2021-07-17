@@ -1,18 +1,16 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace Warframe.Skills
 {
-    public class ExcaliburSkill3Item:ThingWithComps
+    public class ExcaliburSkill3Item : ThingWithComps
     {
         public int createdTick;
-        public Pawn self;
         public float range;
+
+        public Pawn self;
+
         /*
         public ExcaliburSkill3Item(int tick,Pawn self,float range){
             this.createdTick = tick;
@@ -25,40 +23,45 @@ namespace Warframe.Skills
         {
             base.ExposeData();
 
-            Scribe_Values.Look<int>(ref createdTick, "createdTick",0, false);
-            Scribe_Values.Look<float>(ref range, "range", 0, false);
-            Scribe_References.Look<Pawn>(ref self,"self",false);
-
+            Scribe_Values.Look(ref createdTick, "createdTick");
+            Scribe_Values.Look(ref range, "range");
+            Scribe_References.Look(ref self, "self");
         }
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
 
-        }
         public override void Draw()
         {
             //base.Draw();
         }
+
         public override void Tick()
         {
             base.Tick();
-            if(Find.TickManager.TicksGame -60>= createdTick)
+            if (Find.TickManager.TicksGame - 60 < createdTick)
             {
-                float damage = 120 + (8 * WarframeStaticMethods.GetWFLevel(self) / 5);
+                return;
+            }
+
+            float damage = 120 + (8 * WarframeStaticMethods.GetWFLevel(self) / 5);
 
 
-                foreach (IntVec3 iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, range))
+            foreach (var iv in WarframeStaticMethods.GetCellsAround(self.Position, self.Map, range))
+            {
+                foreach (var t in self.Map.thingGrid.ThingsAt(iv))
                 {
-                    foreach (Thing t in self.Map.thingGrid.ThingsAt(iv))
+                    if (t is not Pawn pawn)
                     {
-                        if (t is Pawn)
-                        {
-                            if ((t as Pawn) != self && (t as Pawn).Faction != self.Faction)
-                            {
-                                WarframeStaticMethods.ShowDamageAmount(t, damage.ToString("f0"));
-                                // float totaldamage = 0;
-                                DamageInfo dinfo = new DamageInfo(DamageDefOf.Cut, damage, 1, -1, self, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null);
-                                /*
+                        continue;
+                    }
+
+                    if (pawn == self || pawn.Faction == self.Faction)
+                    {
+                        continue;
+                    }
+
+                    WarframeStaticMethods.ShowDamageAmount(pawn, damage.ToString("f0"));
+                    // float totaldamage = 0;
+                    var dinfo = new DamageInfo(DamageDefOf.Cut, damage, 1, -1, self);
+                    /*
                                 foreach (BodyPartRecord bpr in (t as Pawn).health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Outside))
                                 {
                                     (t as Pawn).TakeDamage(dinfo);
@@ -70,29 +73,19 @@ namespace Warframe.Skills
                                     }
                                 }
                                 */
-                                (t as Pawn).TakeDamage(dinfo);
-                                {
-                                    Mote mote = (Mote)ThingMaker.MakeThing(ThingDef.Named("Mote_2ExFlash"), null);
-                                    mote.exactPosition = t.Position.ToVector3Shifted();
-                                    mote.Scale = (float)Mathf.Max(10f, 15f);
-                                    mote.rotationRate = 1.2f;
-                                    // mote.Scale = 0.2f;
-                                    GenSpawn.Spawn(mote, t.Position + new IntVec3(0, 1, 0), self.Map, WipeMode.Vanish);
-                                }
-
-                            }
-                        }
+                    pawn.TakeDamage(dinfo);
+                    {
+                        var mote = (Mote) ThingMaker.MakeThing(ThingDef.Named("Mote_2ExFlash"));
+                        mote.exactPosition = pawn.Position.ToVector3Shifted();
+                        mote.Scale = Mathf.Max(10f, 15f);
+                        mote.rotationRate = 1.2f;
+                        // mote.Scale = 0.2f;
+                        GenSpawn.Spawn(mote, pawn.Position + new IntVec3(0, 1, 0), self.Map);
                     }
                 }
-                Destroy(DestroyMode.Vanish);
-
-
             }
+
+            Destroy();
         }
-
-
-
-
-
     }
 }

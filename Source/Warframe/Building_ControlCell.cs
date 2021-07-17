@@ -1,8 +1,6 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -13,67 +11,83 @@ namespace Warframe
     // Token: 0x020006C2 RID: 1730
     public class Building_ControlCell : Building_Casket
     {
-        public Pawn becontroler = null;
+        public Pawn becontroler;
+
         public override string GetInspectString()
         {
-           
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append(base.GetInspectString());
             sb.Append("\n");
             sb.Append("CellControlWF".Translate() + ":");
-            if(becontroler!=null)
-             sb.Append(becontroler.kindDef.label);
+            if (becontroler != null)
+            {
+                sb.Append(becontroler.kindDef.label);
+            }
             else
-             sb.Append("NothingLower".Translate());
+            {
+                sb.Append("NothingLower".Translate());
+            }
 
             return sb.ToString();
         }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref becontroler,"becontroler",false);
+            Scribe_References.Look(ref becontroler, "becontroler");
         }
+
         // Token: 0x060024DC RID: 9436 RVA: 0x00114DDF File Offset: 0x001131DF
         public override bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
         {
-            if (base.TryAcceptThing(thing, allowSpecialEffects))
+            if (!base.TryAcceptThing(thing, allowSpecialEffects))
             {
-                if (allowSpecialEffects)
-                {
-                    SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(Position, Map, false));
-                }
-                return true;
+                return false;
             }
-            return false;
+
+            if (allowSpecialEffects)
+            {
+                SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(Position, Map));
+            }
+
+            return true;
         }
 
         public override void Tick()
         {
             base.Tick();
-            if(becontroler!=null)
-             WFModBase.Instance._WFcontrolstorage.checkControlerExist(this);
+            if (becontroler != null)
+            {
+                WFModBase.Instance._WFcontrolstorage.checkControlerExist(this);
+            }
         }
 
         // Token: 0x060024DD RID: 9437 RVA: 0x00114E18 File Offset: 0x00113218
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn myPawn)
         {
-            foreach (FloatMenuOption o in base.GetFloatMenuOptions(myPawn))
+            foreach (var o in base.GetFloatMenuOptions(myPawn))
             {
                 yield return o;
             }
-            if (innerContainer.Count == 0)
+
+            if (innerContainer.Count != 0)
             {
-                if (!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly, false, TraverseMode.ByPawn))
-                {
-                    FloatMenuOption failer = new FloatMenuOption("CannotUseNoPath".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
-                    yield return failer;
-                } else if (myPawn.IsWarframe()) {
-                    FloatMenuOption failer = new FloatMenuOption("CannotWFenter".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
-                    yield return failer;
-                }
-                else
-                {
-                    /*
+                yield break;
+            }
+
+            if (!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
+            {
+                var failer = new FloatMenuOption("CannotUseNoPath".Translate(), null);
+                yield return failer;
+            }
+            else if (myPawn.IsWarframe())
+            {
+                var failer = new FloatMenuOption("CannotWFenter".Translate(), null);
+                yield return failer;
+            }
+            else
+            {
+                /*
                     bool flag = false;
                     foreach(Trait tt in myPawn.story.traits.allTraits)
                     {
@@ -92,23 +106,24 @@ namespace Warframe
                     */
 
 
-                    JobDef jobDef = DefDatabase<JobDef>.GetNamed("EnterControlCell", true);
-                    string jobStr = "EnterControlCell".Translate();
-                    Action jobAction = delegate
-                    {
-                        Job job = new Job(jobDef, this);
-                        myPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                    };
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, jobAction, MenuOptionPriority.Default, null, null, 0f, null, null), myPawn, this, "ReservedBy");
+                var jobDef = DefDatabase<JobDef>.GetNamed("EnterControlCell");
+                string jobStr = "EnterControlCell".Translate();
+
+                void JobAction()
+                {
+                    var job = new Job(jobDef, this);
+                    myPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
                 }
+
+                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, JobAction),
+                    myPawn, this);
             }
-            yield break;
         }
 
         // Token: 0x060024DE RID: 9438 RVA: 0x00114E44 File Offset: 0x00113244
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (Gizmo c in base.GetGizmos())
+            foreach (var c in base.GetGizmos())
             {
                 yield return c;
             }
@@ -116,9 +131,9 @@ namespace Warframe
 
             if (Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
             {
-                Command_Action eject = new Command_Action
+                var eject = new Command_Action
                 {
-                    action = new Action(EjectContents),
+                    action = EjectContents,
                     defaultLabel = "CommandPodEject".Translate(),
                     defaultDesc = "CommandPodEjectDesc".Translate()
                 };
@@ -126,13 +141,14 @@ namespace Warframe
                 {
                     eject.Disable("CommandPodEjectFailEmpty".Translate());
                 }
+
                 eject.hotKey = KeyBindingDefOf.Misc1;
-                eject.icon = ContentFinder<Texture2D>.Get("UI/Commands/PodEject", true);
+                eject.icon = ContentFinder<Texture2D>.Get("UI/Commands/PodEject");
                 yield return eject;
             }
 
 
-            TargetingParameters tp = new TargetingParameters
+            var tp = new TargetingParameters
             {
                 canTargetBuildings = false,
                 canTargetFires = false,
@@ -142,30 +158,32 @@ namespace Warframe
                 canTargetSelf = false
             };
 
-            Command_Target tar = new Command_Target
+            var tar = new Command_Target
             {
                 targetingParams = tp,
                 icon = TexCommand.Attack,
-                action = delegate (Thing target)
+                action = delegate(LocalTargetInfo target)
                 {
-                    if (target is Pawn)
+                    if (target.Pawn is not { })
                     {
-
-
-
-                        if ((target as Pawn).IsWarframe())
-                        {
-                            if (becontroler != null || WFModBase.Instance._WFcontrolstorage.checkBeControlerExist((target as Pawn)))
-                            {
-                                SoundDefOf.ClickReject.PlayOneShotOnCamera();
-                                return;
-                            }
-                            becontroler = target as Pawn;
-                            WFModBase.Instance._WFcontrolstorage.ControlSomeone(this, becontroler);//.add2pawnRelation(this,becontroler);
-
-                        }
-
+                        return;
                     }
+
+                    if (!target.Pawn.IsWarframe())
+                    {
+                        return;
+                    }
+
+                    if (becontroler != null ||
+                        WFModBase.Instance._WFcontrolstorage.checkBeControlerExist(target.Pawn))
+                    {
+                        SoundDefOf.ClickReject.PlayOneShotOnCamera();
+                        return;
+                    }
+
+                    becontroler = target.Pawn;
+                    WFModBase.Instance._WFcontrolstorage.ControlSomeone(this,
+                        becontroler); //.add2pawnRelation(this,becontroler);
                 },
                 defaultLabel = "ControlCellChooseWarframe".Translate(),
                 defaultDesc = "ControlCellChooseWarframeDesc".Translate()
@@ -191,7 +209,7 @@ namespace Warframe
                 yield return ca;
             }
             */
-            Command_Action cancela = new Command_Action
+            var cancela = new Command_Action
             {
                 defaultLabel = "RemoveChooseWFLabel".Translate(),
                 defaultDesc = "RemoveChooseWFDesc".Translate(),
@@ -201,15 +219,14 @@ namespace Warframe
                 action = delegate
                 {
                     if (becontroler != null)
+                    {
                         WFModBase.Instance._WFcontrolstorage.remove2pawnRelation(this, becontroler);
+                    }
 
                     becontroler = null;
-
                 }
             };
             yield return cancela;
-
-            yield break;
         }
 
         // Token: 0x060024DF RID: 9439 RVA: 0x00114E68 File Offset: 0x00113268
@@ -233,8 +250,9 @@ namespace Warframe
             */
             if (!Destroyed)
             {
-                SoundDefOf.CryptosleepCasket_Eject.PlayOneShot(SoundInfo.InMap(new TargetInfo(Position, Map, false), MaintenanceType.None));
+                SoundDefOf.CryptosleepCasket_Eject.PlayOneShot(SoundInfo.InMap(new TargetInfo(Position, Map)));
             }
+
             /*
             try {
                 WFModBase.Instance._WFcontrolstorage.remove2pawnRelation(this,becontroler);
@@ -244,7 +262,5 @@ namespace Warframe
             */
             base.EjectContents();
         }
-
-      
     }
 }

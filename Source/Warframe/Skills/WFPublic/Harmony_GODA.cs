@@ -1,47 +1,38 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Verse;
 
 namespace Warframe.Skills.WFPublic
 {
-
-
     //GOD1
-    [HarmonyPatch(typeof(Thing), "TakeDamage", new Type[]
-{
-    typeof(DamageInfo)
-})]
+    [HarmonyPatch(typeof(Thing), "TakeDamage", typeof(DamageInfo))]
     public static class Harmony_GODA
     {
         public static bool Prefix(Thing __instance, ref DamageWorker.DamageResult __result)
         {
-
-            if(__instance is Pawn)
+            if (__instance is not Pawn pawn)
             {
-                if (__instance is Pawn wf && wf.IsWarframe())
-                {
-                    foreach (Hediff hed in wf.health.hediffSet.hediffs)
-                    {
-                        if (hed.def.defName == "WFGod")
-                        {
-                            __result = new DamageWorker.DamageResult();
-                            return false;
-                        }
-                    }
-                }
+                return true;
             }
-            return true;
 
+            if (!pawn.IsWarframe())
+            {
+                return true;
+            }
+
+            foreach (var hed in pawn.health.hediffSet.hediffs)
+            {
+                if (hed.def.defName != "WFGod")
+                {
+                    continue;
+                }
+
+                __result = new DamageWorker.DamageResult();
+                return false;
+            }
+
+            return true;
         }
     }
-
-
-
-
-
-
 
 
 /*
@@ -73,11 +64,4 @@ namespace Warframe.Skills.WFPublic
 
 
     */
-
-
-
-
-
-
-
 }

@@ -1,116 +1,123 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using Warframe.Skills.Volts;
 
 namespace Warframe.Skills.Volts
 {
-    public class Volt4SkillThing:ThingWithComps
+    public class Volt4SkillThing : ThingWithComps
     {
+        public List<Pawn> affected;
+        public float damage;
         public int range;
         public Pawn self;
         public int ticks;
-        public List<Pawn> affected;
-        public float damage;
 
-        private bool startBomb
-        {
-            get
-            {
-                return ticks >= 60;
-            }
-        }
+        private bool startBomb => ticks >= 60;
+
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref self,"self",false);
-            Scribe_Values.Look<int>(ref range,"range",0,false);
-            Scribe_Values.Look<int>(ref ticks, "ticks", 0, false);
-            Scribe_Values.Look<float>(ref damage, "damage", 0, false);
-            Scribe_Collections.Look<Pawn>(ref affected,"affected",LookMode.Reference, new object[0]);
-
-
+            Scribe_References.Look(ref self, "self");
+            Scribe_Values.Look(ref range, "range");
+            Scribe_Values.Look(ref ticks, "ticks");
+            Scribe_Values.Look(ref damage, "damage");
+            Scribe_Collections.Look(ref affected, "affected", LookMode.Reference);
         }
+
         public override void Draw()
         {
             //base.Draw();
         }
+
         public override void Tick()
         {
             base.Tick();
-            if (ticks > 240) Destroy(DestroyMode.Vanish);
-            if (!Spawned) return;
+            if (ticks > 240)
+            {
+                Destroy();
+            }
+
+            if (!Spawned)
+            {
+                return;
+            }
 
             ticks++;
-            if (ticks == 59) { 
+            if (ticks == 59)
+            {
                 affected = new List<Pawn>();
             }
 
-           
 
-            
-            if (startBomb )
+            if (!startBomb)
             {
-                GenDraw.DrawFieldEdges(MagNowCellsAround(self.Position, Map, range * ((ticks - 60) * 1f / 180f)),new Color(0.4f,0.4f,0.8f));
+                return;
+            }
 
-                foreach(IntVec3 ic in MagNowCellsAround(self.Position, Map, range * ((ticks-60) * 1f / 180f)))
+            GenDraw.DrawFieldEdges(MagNowCellsAround(self.Position, Map, range * ((ticks - 60) * 1f / 180f)),
+                new Color(0.4f, 0.4f, 0.8f));
+
+            foreach (var ic in MagNowCellsAround(self.Position, Map, range * ((ticks - 60) * 1f / 180f)))
+            {
+                foreach (var th in Map.thingGrid.ThingsAt(ic))
                 {
-                    foreach(Thing th in Map.thingGrid.ThingsAt(ic))
+                    if (th is not Pawn pawn)
                     {
-                        if(th is Pawn)
-                        {
-                            Pawn pa = th as Pawn;
-                            if (affected.Contains(pa)||pa==self) continue;
-
-                            if (pa.Faction.HostileTo(self.Faction))
-                            {
-                                DamageInfo dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag",true),damage,0,-1,self,null,null,DamageInfo.SourceCategory.ThingOrUnknown,pa);
-                                pa.TakeDamage(dinfo);
-                                Hediff_Volt4Skill hediff_Magnetize = (Hediff_Volt4Skill)HediffMaker.MakeHediff(HediffDef.Named("Volt4Skill"), self, null);
-                                hediff_Magnetize.level = (int)self.GetLevel();
-                                hediff_Magnetize.damage = 3;
-                                (th as Pawn).health.AddHediff(hediff_Magnetize, null, null, null);
-                                WarframeStaticMethods.ShowDamageAmount(pa, damage.ToString("f0"));
-                                pa.stances.stunner.StunFor((int)(180 * (1+(self.GetLevel()*1f/30f))),self);
-                            }
-
-                            affected.Add(pa);
-
-
-                        }
+                        continue;
                     }
+
+                    if (affected.Contains(pawn) || pawn == self)
+                    {
+                        continue;
+                    }
+
+                    if (pawn.Faction.HostileTo(self.Faction))
+                    {
+                        var dinfo = new DamageInfo(DefDatabase<DamageDef>.GetNamed("Mag"), damage, 0, -1, self,
+                            null, null, DamageInfo.SourceCategory.ThingOrUnknown, pawn);
+                        pawn.TakeDamage(dinfo);
+                        var hediff_Magnetize =
+                            (Hediff_Volt4Skill) HediffMaker.MakeHediff(HediffDef.Named("Volt4Skill"), self);
+                        hediff_Magnetize.level = (int) self.GetLevel();
+                        hediff_Magnetize.damage = 3;
+                        pawn.health.AddHediff(hediff_Magnetize);
+                        WarframeStaticMethods.ShowDamageAmount(pawn, damage.ToString("f0"));
+                        pawn.stances.stunner.StunFor((int) (180 * (1 + (self.GetLevel() * 1f / 30f))), self);
+                    }
+
+                    affected.Add(pawn);
                 }
             }
         }
 
 
-        public List<IntVec3> MagNowCellsAround(IntVec3 pos, Map map,float nowrange)
+        public List<IntVec3> MagNowCellsAround(IntVec3 pos, Map map, float nowrange)
         {
-            List<IntVec3> result = new List<IntVec3>();
+            var result = new List<IntVec3>();
             if (!pos.InBounds(map))
             {
                 return result;
             }
-            Region region = pos.GetRegion(map, RegionType.Set_Passable);
+
+            var region = pos.GetRegion(map);
             if (region == null)
             {
                 return result;
             }
-            RegionTraverser.BreadthFirstTraverse(region, (Region from, Region r) => r.door == null, delegate (Region r)
+
+            RegionTraverser.BreadthFirstTraverse(region, (_, r) => r.door == null, delegate(Region r)
             {
-                foreach (IntVec3 item in r.Cells)
+                foreach (var item in r.Cells)
                 {
                     if (item.InHorDistOf(pos, nowrange) && !item.InHorDistOf(pos, nowrange - 1))
                     {
                         result.Add(item);
                     }
                 }
+
                 return false;
-            }, (int)nowrange, RegionType.Set_Passable);
+            }, (int) nowrange);
             return result;
         }
     }

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef Name="WarframePawnBase" Abstract="True" ParentName="BasePlayerPawnKind">
+    <race>Warframe</race>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <initialWillRange>10~10</initialWillRange>
+    <initialResistanceRange>100~100</initialResistanceRange>
+    <backstoryCategories>
+      <li>Warframe</li>
+    </backstoryCategories>
+    <chemicalAddictionChance>0.00</chemicalAddictionChance>
+    <apparelTags>
+      <li>Spacer</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>0</min>
+      <max>0</max>
+    </apparelMoney>
+    <weaponTags>
+      <li>Gun</li>
+      <li>NonNeolithicOnlyMelee</li>
+    </weaponTags>
+    <weaponMoney>
+      <min>0</min>
+      <max>0</max>
+    </weaponMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+  <PawnKindDef ParentName="WarframePawnBase">
+    <defName>Warframe_Excalibur</defName>
+    <label>Excalibur</label>
+    <!--
+		<race>Warframe</race>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<backstoryCategories>
+			<li>Warframe</li>
+		</backstoryCategories>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+		<apparelTags>
+			<li>Spacer</li>
+		</apparelTags>
+		<apparelMoney>
+			<min>0</min>
+			<max>0</max>
+		</apparelMoney>
+		<weaponTags>
+			<li>Gun</li>
+			<li>NonNeolithicOnlyMelee</li>
+		</weaponTags>
+		<weaponMoney>
+			<min>0</min>
+			<max>0</max>
+		</weaponMoney>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+		-->
+  </PawnKindDef>
+  <PawnKindDef ParentName="WarframePawnBase">
+    <defName>Warframe_Mag</defName>
+    <label>Mag</label>
+  </PawnKindDef>
+  <PawnKindDef ParentName="WarframePawnBase">
+    <defName>Warframe_Volt</defName>
+    <label>Volt</label>
+  </PawnKindDef>
+</Defs>
