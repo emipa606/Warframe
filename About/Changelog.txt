@@ -1,5 +1,8 @@
 # Changelog for Warframe
 
+1.0.13.0 - Wounds and bionics should now be at the correct place
+
+
 1.0.12.0 - Republish since the HAR framework changed how hair and beards are coded
 
 

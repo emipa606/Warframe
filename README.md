@@ -7,6 +7,11 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1521727860
 
 - Added support for https://steamcommunity.com/sharedfiles/filedetails/?id=2451324814][SYR] Trait Value
 
+Brief derscription as I understand it:
+- Build a warframe in the provided building
+- Let a pawn enter the control-building
+- The warframe is now controllable 
+
 ![Image](https://i.imgur.com/7Gzt3Rg.png)
 
 
