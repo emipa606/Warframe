@@ -85,6 +85,10 @@
         <volume>(0.83, 0.3, 1.7)</volume>
       </shadowData>
     </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
     <researchPrerequisites>
       <li>WarframeCell</li>
     </researchPrerequisites>
@@ -98,6 +102,7 @@
       <WorkToBuild>3200</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>
       <Flammability>0.5</Flammability>
+      <Mass>9</Mass>
     </statBases>
     <tickerType>Normal</tickerType>
     <size>(1,2)</size>

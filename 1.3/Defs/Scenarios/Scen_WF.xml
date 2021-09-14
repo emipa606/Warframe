@@ -101,6 +101,10 @@
           <def>StartingThing_Defined</def>
           <thingDef>Warframe_Item</thingDef>
         </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Warframe_ControlCell</thingDef>
+        </li>
         <li Class="ScenPart_StartingResearch">
           <def>StartingResearch</def>
           <project>WarframeCrafter</project>

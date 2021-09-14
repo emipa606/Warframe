@@ -1,6 +1,6 @@
 # Warframe
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of AKreedz mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1521727860
@@ -12,7 +12,7 @@ Brief derscription as I understand it:
 - Let a pawn enter the control-building
 - The warframe is now controllable 
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
 
 [table]
@@ -24,7 +24,7 @@ Brief derscription as I understand it:
 	[/tr]
 [/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 Add warframe into rimworld
@@ -43,7 +43,7 @@ New Trait: Son of Void:useless now
 
 New Item: Orokin Cell:Some Exotic Trader will sell it.
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -53,5 +53,6 @@ New Item: Orokin Cell:Some Exotic Trader will sell it.
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 

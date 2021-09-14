@@ -1,5 +1,8 @@
 # Changelog for Warframe
 
+1.0.14.0 - Scenario now starts with a controller as well
+
+
 1.0.13.0 - Wounds and bionics should now be at the correct place
 
 
