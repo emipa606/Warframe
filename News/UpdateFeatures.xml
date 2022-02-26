@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="Warframe_UpdateFeatureBase">
+		<modNameReadable>Warframe</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2008107549</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="Warframe_UpdateFeatureBase">
+		<defName>Warframe_1_3_1</defName>
+		<assemblyVersion>1.3.1</assemblyVersion>
+		<content>The original version of this mod has been updated, please use it instead. This version will remain, but unlisted and will not be updated further.</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

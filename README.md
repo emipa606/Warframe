@@ -12,17 +12,8 @@ Brief derscription as I understand it:
 - Let a pawn enter the control-building
 - The warframe is now controllable 
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://i.imgur.com/CN9Rs5X.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/Warframe]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
